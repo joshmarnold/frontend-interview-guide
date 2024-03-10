@@ -1,0 +1,318 @@
+body {
+  background-color: rgb(43, 42, 39);
+  color: #ddd;
+  font-size: 18px;
+  padding: 12px 30px;
+  margin: 0;
+
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  overflow-y: scroll;
+
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+::-webkit-scrollbar-corner {
+  background: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.questionAnswer {
+  p:first-of-type {
+    margin: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-weight: 800;
+}
+
+ul {
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 32px;
+}
+
+p {
+  margin-top: 12px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.back-button {
+  padding: 10px 0px;
+  background-color: #444;
+  background-color: transparent;
+  color: #ddd;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #444;
+  color: #ddd;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+li {
+  margin: 8px 0;
+  line-height: 1.5rem;
+}
+
+.nav {
+  li {
+    line-height: 1.25rem;
+  }
+}
+
+p {
+  line-height: 1.5rem;
+}
+
+a:visited {
+  color: #ddd;
+}
+
+.node {
+  fill: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  fill: white;
+  font-size: 16px;
+  textanchor: middle;
+  alignment-baseline: middle;
+}
+
+.edge {
+  stroke: gray;
+  strokewidth: 2px;
+  fill: none;
+}
+
+code {
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.tag {
+  color: #f8f8f2;
+  background-color: #44475a;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.divider {
+  margin: 40px 0;
+  height: 1px;
+  border-bottom: 1px solid #444;
+}
+
+#content {
+  max-width: 2000px;
+  margin: 0 auto;
+}
+
+.bubble {
+  background-color: #303030;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.home-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  & svg {
+    transition: fill 0.1s;
+
+    &:hover {
+      fill: white;
+    }
+  }
+}
+
+.header {
+  a {
+    flex-grow: 1;
+    text-decoration: none;
+  }
+}
+
+.sub-header {
+  a {
+    flex-grow: 1;
+  }
+
+  .header-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.header-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.1s;
+  border-radius: 5px;
+  padding: 7px 10px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  width: 100%;
+  justify-content: center;
+  transition: fill 0.1s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    & svg {
+      fill: white;
+    }
+  }
+  &.selected {
+    background-color: #2d4b81;
+
+    &:hover {
+      background-color: #476bad;
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.showAnswer {
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.1s;
+  user-select: none;
+  text-wrap: nowrap;
+}
+
+.question {
+  background-color: rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+
+  &:hover {
+    .showAnswer {
+      color: white;
+    }
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+input,
+textarea {
+  background-color: #444;
+  border: none;
+  color: #ddd;
+}
+
+ol.selectable {
+  li {
+    cursor: pointer;
+    transition: background-color 0.1s;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
