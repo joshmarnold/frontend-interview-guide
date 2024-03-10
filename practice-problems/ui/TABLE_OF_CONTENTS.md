@@ -3,11 +3,11 @@
 ## Introduction
 
 The `practice-problems` directory consists of a collection of UI-related practice problems designed to help you improve your frontend development skills. Each problem is intended to be solved using both vanilla JavaScript and React. This is due to the expectation in many interview sitatuations to use vanilla JS without libraries or frameworks. Typically, the structure should follow:
-
+```
 problem-name/
 ├── vanilla.html
 └── react.html
-
+```
 
 To make it easier for you to get started with the practice problems, we have set up the React implementations to use a CDN (Content Delivery Network) to fetch the necessary React libraries. This eliminates the need for you to install any additional dependencies or set up a complex development environment.
 
