@@ -20,23 +20,35 @@ This repository consists of two main directories:
 
 2. `web-ui`: This directory houses the website for the Frontend Software Engineer Interview Guide.
 
+Each are seen as seperate domains. `web-ui` is create react app where you'll need to install deps and run the app. practice problems is just simple html files that you open in the browser.
+
 ## Getting Started
 
 ### For Users
 
 If you're interested in using the Frontend Software Engineer Interview Guide to prepare for your interviews, follow these steps:
 
-1. Clone this repository to your local machine.
+1. Clone this repository to your local machine: `git clone https://github.com/joshmarnold/frontend-interview-guide.git`
 
 2. Open the `practice-problems` directory in your preferred code editor.
 
-3. You can simply run any index.html file in the browser.
+3. To run any of the practice problems, simply open the corresponding HTML file in a web browser. For example, to run the accordion problem, open the `accordion.html` file.
 
-4. For a better experience, I would look into running "Live Server" within vscode.
+4. If you're using Visual Studio Code (VSCode), it's recommended to install the "Live Server" extension for a better development experience:
+
+- With the "Live Server" extension, you can start a local server by right-clicking on any HTML file and selecting "Open with Live Server".
+- This will automatically open the selected file in your default web browser.
+- The live server will be started on port 5500 and will serve the file. Alternatively you can also start the server from the root directory of the repository.
+- You can navigate through the directories and files served by the live server directly in your browser. This is what I do. I just click "Go Live" on bottom right.
+
+5. To run the algorithm practice problems, open the `algo` directory and run the `index.html` file.
+
+- The `index.html` file references the "runner" script, which contains an array of functions or problems that will be executed.
+- The output of the algorithm problems will be displayed in the browser's console.
 
 ### For Contributors
 
-If you're interested in contributing to the Frontend Software Engineer Interview Guide. Here's how you can get involved:
+If you're interested in contributing. Here's how you can get involved:
 
 1. Fork this repository to your GitHub account.
 
