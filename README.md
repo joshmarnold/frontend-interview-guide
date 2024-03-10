@@ -1,17 +1,16 @@
 # Frontend Software Engineer Interview Guide
 
-Welcome to the Frontend Software Engineer Interview Guide repository! This comprehensive resource is designed to help you prepare effectively for frontend interviews by providing a wide range of topics, examples, and practice problems specifically tailored for frontend developers.
+This comprehensive resource is designed to help prepare effectively for frontend interviews by providing a wide range of topics, examples and practice problems.
 
 ## Goal of this Guide
 
-In the limited time available for interview preparation, the goal is to offer a focused and efficient approach to help you maximize your learning and readiness. This guide aims to:
+In the limited time available for interview preparation, the goal is to offer a focused and efficient approach to help maximize learning and readiness. This guide aims to:
 
 - Provide all the necessary content in one place, eliminating the need to search across multiple sites.
 - Offer a simple and user-friendly layout for easy navigation and understanding.
 - Focus on essential content relevant to frontend interviews, avoiding unnecessary fluff.
-- Carefully select examples and questions that introduce new ideas, techniques, and problem-solving approaches.
+- Carefully select examples and questions that introduce new ideas, techniques and problem-solving approaches.
 - Ensure all content is freely accessible without any locked or restricted material.
-- Provide knowledge, problem-solving strategies, examples, and questions to assess your understanding.
 
 ## Repository Structure
 
@@ -47,17 +46,17 @@ If you're interested in contributing to the Frontend Software Engineer Interview
 
 4. Make your desired changes, additions, or improvements to the codebase.
 
-6. Test your changes thoroughly to ensure they don't introduce any errors or regressions.
+5. Test your changes thoroughly to ensure they don't introduce any errors or regressions.
 
-7. Commit your changes with descriptive commit messages.
+6. Commit your changes with descriptive commit messages.
 
-8. Push your changes to your forked repository.
+7. Push your changes to your forked repository.
 
-9. Open a pull request on the main repository, providing a clear description of your changes and the problem they solve.
+8. Open a pull request on the main repository, providing a clear description of your changes and the problem they solve.
 
-10. Engage in the discussion and address any feedback or questions related to your pull request.
+9. Engage in the discussion and address any feedback or questions related to your pull request.
 
-11. Once your pull request is reviewed and approved, it will be merged into the main repository.
+10. Once your pull request is reviewed and approved, it will be merged into the main repository.
 
 I appreciate your contributions and efforts to make this guide even better!
 
