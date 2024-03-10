@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directory Tree</title>
+    <style>
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="directoryTree"></div>
+
+    <script>
+      function generateDirectoryTreeArray(obj, depth = 0) {
+        const result = [];
+
+        // Add the current node to the result array
+        result.push([depth, obj.name]);
+
+        // If the current node has children, recursively process them
+        if (obj.children) {
+          obj.children.forEach((child) => {
+            result.push(...generateDirectoryTreeArray(child, depth + 1));
+          });
+        }
+
+        return result;
+      }
+
+      function generateDirectoryTreeHTML(treeArray) {
+        const directoryTree = document.getElementById("directoryTree");
+        let html = "<ul>";
+
+        treeArray.forEach((item) => {
+          const [depth, name] = item;
+          html += `<li style="margin-left: ${depth * 20}px;">${name}</li>`;
+        });
+
+        html += "</ul>";
+        directoryTree.innerHTML = html;
+      }
+
+      // Test the function with the simplified JSON object
+      const directoryTree = {
+        name: "root",
+        children: [
+          {
+            name: "folder1",
+            children: [
+              {
+                name: "file1.txt",
+              },
+              {
+                name: "file2.txt",
+              },
+            ],
+          },
+          {
+            name: "folder2",
+            children: [
+              {
+                name: "subfolder1",
+                children: [
+                  {
+                    name: "file3.txt",
+                  },
+                ],
+              },
+              {
+                name: "file4.txt",
+              },
+            ],
+          },
+          {
+            name: "file5.txt",
+          },
+        ],
+      };
+
+      const directoryTreeArray = generateDirectoryTreeArray(directoryTree);
+      generateDirectoryTreeHTML(directoryTreeArray);
+    </script>
+  </body>
+</html>

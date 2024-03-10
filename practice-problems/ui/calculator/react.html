@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Calculator</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .calculator {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+      }
+      .display {
+        background: #e0e0e0;
+        padding: 10px;
+        text-align: right;
+      }
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+      }
+      button {
+        padding: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone"></script>
+    <script type="text/babel">
+      function Calculator() {
+        const [display, setDisplay] = React.useState("");
+
+        // do your own logic
+        const handleClick = (value) => {
+          if (value === "C") {
+            setDisplay("");
+          } else if (value === "=") {
+            try {
+              setDisplay(eval(display).toString());
+            } catch {
+              setDisplay("Error");
+            }
+          } else {
+            setDisplay(display + value);
+          }
+        };
+
+        return (
+          <div className="calculator">
+            <div className="display">{display}</div>
+            <div className="buttons">
+              {[
+                "C",
+                "/",
+                "*",
+                "-",
+                "7",
+                "8",
+                "9",
+                "+",
+                "4",
+                "5",
+                "6",
+                "0",
+                "1",
+                "2",
+                "3",
+                "=",
+                ".",
+              ].map((value) => (
+                <button key={value} onClick={() => handleClick(value)}>
+                  {value}
+                </button>
+              ))}
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<Calculator />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

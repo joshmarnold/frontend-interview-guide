@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+        body {
+            background-color: #222;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+        .container {
+            width: 400px;
+            height: 600px;
+            background-color: #777;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-rows: 100px 1fr;
+        }
+        #display {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 48px; /* Adjusted for visibility */
+            border: 1px solid #333; /* Added for visibility */
+            padding: 0 10px; /* Padding for display */
+        }
+        .btns-wrapper {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .btn {
+            border-radius: 25px;
+            border: none;
+            background-color: #333;
+            color: white;
+            padding: 20px 0; /* Added padding for buttons */
+            font-size: 20px; /* Larger font size for visibility */
+        }
+        .btn:active {
+            transform: scale(0.95);
+            transition: transform 0.1s;
+        }
+        .zero {
+            grid-column: 1/3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="application">
+        <div id="display" aria-live="polite" aria-label="Calculator display" tabindex="0">0</div>
+        <div class="btns-wrapper" role="group" aria-labelledby="calculator-buttons">
+            <!-- Buttons go here -->
+            <!-- Omitted for brevity -->
+        </div>
+    </div>
+
+    <script>
+        class Calculator {
+            result = "0";
+            operator = null;
+
+            constructor() {
+                document.getElementById("display").innerHTML = this.result;
+            }
+
+            static isOperator(value) {
+                return value === "+" || value === "-" || value === "*" || value === "/";
+            }
+
+            static isEqualSign(value) {
+                return value === "=";
+            }
+
+            static isClearSign(value) {
+                return value === "c";
+            }
+
+            setOperator(op) {
+                this.operator = op;
+            }
+
+            setNumber(num) {
+                if (this.operator) {
+                    this.calculate(num);
+                    this.operator = null;
+                } else {
+                    this.result = this.result === "0" ? `${num}` : `${this.result}${num}`;
+                }
+                document.getElementById("display").innerHTML = this.result;
+            }
+
+            add(num) {
+                this.result = +this.result + +num;
+            }
+
+            subtract(num) {
+                this.result = +this.result - +num;
+            }
+
+            clear() {
+                this.result = "0";
+                this.operator = null;
+                document.getElementById("display").innerHTML = this.result;
+            }
+
+            calculate(num) {
+                if (this.operator === "+") {
+                    this.add(num);
+                } else if (this.operator === "-") {
+                    this.subtract(num);
+                } else if (this.operator === "*") {
+                    this.multiply(num);
+                } else if (this.operator === "/") {
+                    this.divide(num);
+                }
+            }
+        }
+
+        const calculator = new Calculator();
+
+        document.getElementsByClassName("btns-wrapper")[0].addEventListener("click", (event) => {
+            if (Calculator.isClearSign(event.target.value)) {
+                calculator.clear();
+            } else if (Calculator.isEqualSign(event.target.value)) {
+                calculator.calculate();
+            } else if (Calculator.isOperator(event.target.value)) {
+                calculator.setOperator(event.target.value);
+            } else {
+                calculator.setNumber(event.target.value);
+            }
+        });
+    </script>
+</body>
+</html>
