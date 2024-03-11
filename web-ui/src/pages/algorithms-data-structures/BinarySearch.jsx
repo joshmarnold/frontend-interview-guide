@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PageHeader } from "../shared/PageHeader";
+import { PageHeader } from "../../shared/PageHeader";
 import Highlight from "react-highlight";
 
 class BinarySearch extends Component {

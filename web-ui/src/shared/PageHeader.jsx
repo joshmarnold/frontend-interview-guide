@@ -44,6 +44,8 @@ export const paramToTitle = {
   "interview-prep": "Interview Prep",
   "questions-for-interviewer": "Questions for Interviewer",
   "handling-coding-exercises": "Handling Coding Exercises",
+  'project-management': "Project Management",
+  
 };
 
 export const PageHeader = () => {

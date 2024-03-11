@@ -9,11 +9,6 @@ const colors = ["#d74a49", "#1b4552", "#6a3d74", "rgb(171 137 32)", "#1d863a"];
 
 const topics = [
   {
-    title: "Algorithms & Data Structures",
-    to: "ds-algos",
-    color: colors[0],
-  },
-  {
     title: "HTML",
     to: "html",
     color: colors[1],
@@ -29,8 +24,8 @@ const topics = [
     color: colors[1],
   },
   {
-    title: "React",
-    to: "react",
+    title: "DOM API",
+    to: "dom-api",
     color: colors[1],
   },
   {
@@ -39,14 +34,19 @@ const topics = [
     color: colors[1],
   },
   {
-    title: "DOM API",
-    to: "dom-api",
+    title: "React",
+    to: "react",
     color: colors[1],
   },
   {
     title: "General Programming",
     to: "general-programming",
     color: colors[2],
+  },
+  {
+    title: "Algorithms & Data Structures",
+    to: "ds-algos",
+    color: colors[0],
   },
   {
     title: "Frontend System Design",

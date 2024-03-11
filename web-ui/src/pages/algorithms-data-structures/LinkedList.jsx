@@ -1,5 +1,5 @@
 import Highlight from "react-highlight";
-import { PageHeader } from "../shared/PageHeader"; // Adjust the path as needed
+import { PageHeader } from "../../shared/PageHeader"; // Adjust the path as needed
 
 class Node {
   constructor(value) {

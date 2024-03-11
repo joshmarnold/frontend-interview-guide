@@ -15,24 +15,38 @@ const React = lazy(() => import("./pages/React"));
 const CSS = lazy(() => import("./pages/CSS"));
 const JavaScript = lazy(() => import("./pages/Javascript"));
 const Layout = lazy(() => import("./shared/Layout"));
-const Array = lazy(() => import("./pages/Array"));
-const Backtracking = lazy(() => import("./pages/Backtracking"));
-const BFS = lazy(() => import("./pages/BFS"));
-const BinarySearch = lazy(() => import("./pages/BinarySearch"));
-const BinaryTree = lazy(() => import("./pages/BinaryTree"));
-const DFS = lazy(() => import("./pages/DFS"));
-const Graph = lazy(() => import("./pages/Graph"));
-const Heap = lazy(() => import("./pages/Heap"));
-const HowToApproach = lazy(() => import("./pages/HowToApproach"));
-const LinkedList = lazy(() => import("./pages/LinkedList"));
-const DSAndAlgos = lazy(() => import("./pages/DSAndAlgos"));
-const Map = lazy(() => import("./pages/Map"));
-const Queue = lazy(() => import("./pages/Queue"));
-const Recursion = lazy(() => import("./pages/Recursion"));
-const Set = lazy(() => import("./pages/Set"));
-const Stack = lazy(() => import("./pages/Stack"));
-const String = lazy(() => import("./pages/String"));
-const Trie = lazy(() => import("./pages/Trie"));
+const Array = lazy(() => import("./pages/algorithms-data-structures/Array"));
+const Backtracking = lazy(() =>
+  import("./pages/algorithms-data-structures/Backtracking")
+);
+const BFS = lazy(() => import("./pages/algorithms-data-structures/BFS"));
+const BinarySearch = lazy(() =>
+  import("./pages/algorithms-data-structures/BinarySearch")
+);
+const BinaryTree = lazy(() =>
+  import("./pages/algorithms-data-structures/BinaryTree")
+);
+const DFS = lazy(() => import("./pages/algorithms-data-structures/DFS"));
+const Graph = lazy(() => import("./pages/algorithms-data-structures/Graph"));
+const Heap = lazy(() => import("./pages/algorithms-data-structures/Heap"));
+const HowToApproach = lazy(() =>
+  import("./pages/algorithms-data-structures/HowToApproach")
+);
+const LinkedList = lazy(() =>
+  import("./pages/algorithms-data-structures/LinkedList")
+);
+const DSAndAlgos = lazy(() =>
+  import("./pages/algorithms-data-structures/DSAndAlgos")
+);
+const Map = lazy(() => import("./pages/algorithms-data-structures/Map"));
+const Queue = lazy(() => import("./pages/algorithms-data-structures/Queue"));
+const Recursion = lazy(() =>
+  import("./pages/algorithms-data-structures/Recursion")
+);
+const Set = lazy(() => import("./pages/algorithms-data-structures/Set"));
+const Stack = lazy(() => import("./pages/algorithms-data-structures/Stack"));
+const String = lazy(() => import("./pages/algorithms-data-structures/String"));
+const Trie = lazy(() => import("./pages/algorithms-data-structures/Trie"));
 const SystemDesignDocs = lazy(() =>
   import("./pages/system-design/SystemDesign")
 );

@@ -1,6 +1,6 @@
 import React from "react";
 import Highlight from "react-highlight";
-import UnweightedGraph from "../svgs/UnweightedGraph";
+import UnweightedGraph from "../../svgs/UnweightedGraph";
 
 const ApproachingLeetCodeProblems = () => {
   return (

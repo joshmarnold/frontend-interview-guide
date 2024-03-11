@@ -1,4 +1,4 @@
-import { PageHeader } from "../shared/PageHeader";
+import { PageHeader } from "../../shared/PageHeader";
 
 export default function Backtracking() {
   return (

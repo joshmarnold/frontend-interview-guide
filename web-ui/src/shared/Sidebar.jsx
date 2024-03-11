@@ -1,9 +1,10 @@
 import {
   IconChevronDown,
   IconChevronRight,
+  IconChevronUp,
   IconHome,
 } from "@tabler/icons-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tree } from "react-arborist";
 import { Link, useLocation } from "react-router-dom";
 import { paramToTitle } from "./PageHeader";
@@ -114,9 +115,42 @@ const routeData = [
       },
     ],
   },
+  // project management
+  {
+    id: "11",
+    name: "Project Management",
+    path: "project-management",
+    children: [
+      {
+        id: "11-1",
+        name: "Agile",
+        path: "project-management/agile",
+      },
+      {
+        id: "11-2",
+        name: "Scrum",
+        path: "project-management/scrum",
+      },
+      {
+        id: "11-3",
+        name: "Kanban",
+        path: "project-management/kanban",
+      },
+      {
+        id: "11-4",
+        name: "Lean",
+        path: "project-management/lean",
+      },
+      {
+        id: "11-5",
+        name: "Waterfall",
+        path: "project-management/waterfall",
+      },
+    ],
+  },
 ];
 
-function Node({ node, style, dragHandle, currentPage }) {
+function Node({ node, style, dragHandle, currentPage, setExpanded, isMobile }) {
   const isActive = currentPage === node?.data?.path;
   return (
     <div
@@ -130,6 +164,9 @@ function Node({ node, style, dragHandle, currentPage }) {
       className={`sidebar-item ${isActive ? "active" : ""}`}
     >
       <Link
+        onClick={() => {
+          if (isMobile) setExpanded(false);
+        }}
         to={node?.data?.path}
         style={{
           paddingLeft: "6px",
@@ -139,7 +176,7 @@ function Node({ node, style, dragHandle, currentPage }) {
         }}
       >
         {node?.data?.icon && <node.data.icon size="1rem" />}
-        {node.data.name}
+        {node?.data?.name}
       </Link>
       {!node.isLeaf && (
         <span
@@ -150,7 +187,7 @@ function Node({ node, style, dragHandle, currentPage }) {
           }}
         >
           {!node.isOpen ? (
-            <IconChevronRight size="1.2rem" />
+            <IconChevronUp size="1.2rem" />
           ) : (
             <IconChevronDown size="1.2rem" />
           )}
@@ -161,9 +198,30 @@ function Node({ node, style, dragHandle, currentPage }) {
   );
 }
 
-const Sidebar = () => {
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return windowSize;
+}
+
+const Sidebar = ({ expanded, setExpanded }) => {
   const location = useLocation();
   const currentPage = location.pathname.substring(1) || "/";
+
+  const size = useWindowSize();
 
   const windowHeight = window.innerHeight;
 
@@ -179,13 +237,17 @@ const Sidebar = () => {
     setInitialOpenState(newState);
     localStorage.setItem("treeOpenState", JSON.stringify(newState));
   };
+  const isMobile = size.width < 768;
 
+  if (isMobile && !expanded) return null;
+
+  const width = isMobile ? "100%" : 250;
   return (
     <div className="sidebar">
       <Tree
         initialData={routeData}
-        width={240}
-        height={windowHeight - 60}
+        width={width}
+        height={windowHeight - 55}
         rowHeight={31}
         disableDrag
         indent={25}
@@ -193,7 +255,14 @@ const Sidebar = () => {
         onToggle={handleStateChange}
         openByDefault={false}
       >
-        {(props) => <Node {...props} currentPage={currentPage} />}
+        {(props) => (
+          <Node
+            {...props}
+            currentPage={currentPage}
+            setExpanded={setExpanded}
+            isMobile={isMobile}
+          />
+        )}
       </Tree>
     </div>
   );
