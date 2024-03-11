@@ -1,6 +1,4 @@
 import React from "react";
-import Header from "../shared/Header";
-import { PageHeader } from "../shared/PageHeader";
 
 const GeneralProgramming = () => {
   return (

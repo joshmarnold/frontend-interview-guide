@@ -245,6 +245,7 @@ const Internationalization = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
 
@@ -254,6 +255,7 @@ const Internationalization = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

@@ -1,10 +1,11 @@
 import React from "react";
 import "./Home.scss";
 import { useNavigate } from "react-router-dom";
-import Footer from "../shared/Footer";
 import Accordion from "../shared/Accordion";
+import Highlight from "react-highlight";
+import { IconExternalLink } from "@tabler/icons-react";
 
-const colors = ["#d74a49", "#1b4552", "#6a3d74", "rgb(171 137 32)"];
+const colors = ["#d74a49", "#1b4552", "#6a3d74", "rgb(171 137 32)", "#1d863a"];
 
 const topics = [
   {
@@ -13,18 +14,23 @@ const topics = [
     color: colors[0],
   },
   {
+    title: "HTML",
+    to: "html",
+    color: colors[1],
+  },
+  {
     title: "CSS",
-    to: "css-questions",
+    to: "css",
     color: colors[1],
   },
   {
     title: "JavaScript",
-    to: "javascript-questions",
+    to: "javascript",
     color: colors[1],
   },
   {
     title: "React",
-    to: "react-questions",
+    to: "react",
     color: colors[1],
   },
   {
@@ -47,6 +53,11 @@ const topics = [
     to: "frontend-system-design",
     color: colors[3],
   },
+  {
+    title: "Interview Prep",
+    to: "interview-prep",
+    color: colors[4],
+  },
 ];
 
 const sections = [
@@ -55,29 +66,24 @@ const sections = [
     description: (
       <>
         <p>
-          Time is limited, and there's a lot to learn. The goal of this guide is
-          to provide a focused and efficient approach to help you prepare for
-          frontend interviews.
+          Time is limited, and there's a lot to learn. Aggregating all the
+          resources and information needed to prepare for a frontend interviews
+          can be overwhelming. This guide aims to save time and bring it all
+          together in one place, providing a comprehensive resource for frontend
+          interview prep.
         </p>
+
         <ol>
           <li>
-            All content is located on this site and in the github repo.
-            Shouldn't need 3 sites to discover the material. The only external
-            linking is to useful videos and documentation like MDN.
+            Provide knowledge for easy lookup, problem-solving approaches,
+            examples and questions to test understanding.
+          </li>
+          <li>Minimal, essential content to teach new concepts.</li>
+          <li>
+            No "locked" content. Everything is <strong>free</strong> to access.
           </li>
           <li>
-            Layout is simple and easy to use. No confusing/complex layouts.
-          </li>
-          <li>
-            Only essential content for interview prep, no fluff. Each example is
-            carefully selected to introduce new ideas, techniques, or
-            problem-solving approaches, ensuring that every question contributes
-            to your growth and expands your knowledge meaningfully.
-          </li>
-          <li>No "locked" content. Everything is free to access.</li>
-          <li>
-            Offer knowledge, problem-solving approaches, examples, and questions
-            to assess your understanding.
+            Open source. This guide is open to contributions and feedback.
           </li>
         </ol>
       </>
@@ -88,25 +94,43 @@ const sections = [
     description: (
       <>
         <p>
-          Clone the repo on github to access the coding content. The repo
-          contains two main sections: UI and Algorithms & Data Structures.
+          Theres a github repo that contains the code for this site and also
+          practice problems. Clone the repo{" "}
+          <strong>
+            <a
+              href="https://github.com/joshmarnold/frontend-interview-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </a>
+          </strong>
         </p>
+        <p>Directory Structure</p>
+        {/* show directory structure */}
+        <Highlight language="bash">
+          {`frontend-interview-guide
+  ├── web-ui
+  ├── practice-problems
+  │   ├── UI
+  │   ├── algo`}
+        </Highlight>
+
         <ul>
           <li>
-            <strong>UI Interview Prep</strong>: This section contains practical
-            UI-related questions like build an accordion or build a calculator.
-            The expectation is that you can build these components from scratch
-            first using vanilla JS and then using a framework like React.
+            <strong>web-ui</strong>: Is this site.
+          </li>
+          <li>
+            <strong>UI</strong>: Contains practical UI-related questions like
+            build an accordion or build a calculator. The expectation is that
+            you can build these components from scratch first using vanilla JS
+            and then using a framework like React.
           </li>
           <li>
             <strong>Algorithms & Data Structures</strong>: This section follows
-            the Algorithms & Data Structures section of the guide. Each section
-            is contained in a folder with a bunch of files which are test files.
-            You can view the implementation along with comments that can explain
-            the problem, approach to solve, runtime complexity, and space
-            complexity. and reimplement the questions. There's a test runner
-            where you can write your own tests to verify the correctness of your
-            implementation. View the ouput in the browser console.
+            the Algorithms & Data Structures section of the guide. Its an area
+            where you can practice problems related to the topics in that
+            section with custom test cases.
           </li>
         </ul>
       </>
@@ -117,27 +141,19 @@ const sections = [
     description: (
       <>
         <h4 style={{ margin: 0 }}>Code</h4>
-        <ol>
-          <li>
-            Begin by cloning the repository to run and reimplement the
-            questions. Take some time to understand its structure, which
-            comprises two main sections: UI and Algorithms & Data Structures.
-          </li>
-          <li>
-            For each section, refer to its respective README file for guidance
-            on the next steps in interacting with the content.
-          </li>
-          <li>
-            There's no need to run a React app or anything complex. Simply open
-            the index.html files in the browser in each section to run the code.
-            You can use a VSCode extension called "Live Server" to run the code
-            and automatically reload when changes are made.
-          </li>
-          <li>
-            Running the Live Server from the root of the project will display
-            the various folders and files available for execution.
-          </li>
-        </ol>
+        <p>
+          If you're interested in checking out the code examples. Clone the{" "}
+          <strong>
+            <a
+              href="https://github.com/joshmarnold/frontend-interview-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              repo
+            </a>
+          </strong>{" "}
+          and start by reading the README file.
+        </p>
         <h4>Topics</h4>
         <ol>
           <li>
@@ -175,36 +191,49 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h2 style={{ textAlign: "center" }}>
-        <strong>Frontend Software Engineer Interview Guide</strong>
-      </h2>
-      <p style={{ marginTop: "25px" }}>
-        This resource is designed to be a comprehensive guide for frontend
-        interview preparation, covering a wide range of topics specifically
-        tailored for frontend developers.
-      </p>
-
       <br></br>
 
-      <Accordion items={sections} />
+      <Accordion items={sections} openedByDefault={0} />
 
-      <br></br>
+      <h3 style={{ fontSize: "16px", marginBottom: "16px" }}>
+        Recommended Videos When Starting
+      </h3>
+      {/* // this needs to link to youbube */}
+      <div style={{ display: "flex", gap: "6px" }}>
+        <a
+          href="https://www.youtube.com/watch?v=rMWDtxJQIbQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="badge"
+        >
+          Amazon Front End Interview Prep (TechRally)
+          <IconExternalLink size="1rem" />
+        </a>
+        <a
+          href="https://www.youtube.com/watch?v=0Z9RW_hhUT4"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="badge"
+        >
+          Most Tech Interview Prep is GARBAGE (A Life Engineered)
+          <IconExternalLink size="1rem" />
+        </a>
+      </div>
 
+      <h3 style={{ fontSize: "16px" }}>Topics</h3>
       <div className="grid-items-container">
         {topics.map((topic, index) => (
           <button
             key={index}
             className="grid-item"
             aria-label={`Learn more about ${topic.title}`}
-            onClick={() => navigator(`/topic/${topic.to}`)}
+            onClick={() => navigator(`/${topic.to}`)}
             style={{ backgroundColor: topic.color }}
           >
             {topic.title}
           </button>
         ))}
       </div>
-
-      <Footer />
     </div>
   );
 };

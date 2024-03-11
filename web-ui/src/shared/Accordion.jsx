@@ -2,8 +2,8 @@ import { useState } from "react";
 import { IconChevronDown, IconChevronUp } from "@tabler/icons-react";
 import "./Accordion.scss";
 
-const AccordionItem = ({ title, description }) => {
-  const [showDescription, setShowDescription] = useState(false);
+const AccordionItem = ({ title, description, openedByDefault }) => {
+  const [showDescription, setShowDescription] = useState(openedByDefault);
 
   const toggleDescription = () => {
     setShowDescription(!showDescription);
@@ -26,7 +26,7 @@ const AccordionItem = ({ title, description }) => {
   );
 };
 
-const Accordion = ({ items }) => {
+const Accordion = ({ items, openedByDefault }) => {
   return (
     <div className="accordion">
       {items.map((item, index) => (
@@ -34,6 +34,7 @@ const Accordion = ({ items }) => {
           key={index}
           title={item.title}
           description={item.description}
+          openedByDefault={openedByDefault === index}
         />
       ))}
     </div>

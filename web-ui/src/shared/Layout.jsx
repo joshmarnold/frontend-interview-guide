@@ -1,19 +1,34 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { PageHeader } from "./PageHeader";
-import Header from "./Header";
 import Footer from "./Footer";
+import NavBar from "./NavBar";
+import Sidebar from "./Sidebar";
 
 const Layout = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-      <Header />
-      <br></br>
-      <br></br>
-      <PageHeader />
-      <Outlet />
-
-      <Footer />
+    <div className="app-wrapper">
+      <Sidebar />
+      <div className="main-content">
+        <div className="main-inner-content">
+          <NavBar />
+          <br></br>
+          <PageHeader />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+      </div>
     </div>
   );
 };

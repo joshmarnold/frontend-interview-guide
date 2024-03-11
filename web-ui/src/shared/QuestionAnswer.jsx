@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const QuestionAnswer = ({ question, answer }) => {
+const QuestionAnswer = ({ question, answer, index }) => {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const toggleAnswer = () => {
@@ -23,7 +23,9 @@ const QuestionAnswer = ({ question, answer }) => {
         }}
         onClick={toggleAnswer}
       >
-        <span>{question}</span>
+        <span>
+          {index + 1}. {question}
+        </span>
         <span className="showAnswer">
           {showAnswer ? "Click to Hide Answer" : "Click to Show Answer"}
         </span>

@@ -308,6 +308,7 @@ const Database = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
 
@@ -317,6 +318,7 @@ const Database = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
 
@@ -326,6 +328,7 @@ const Database = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

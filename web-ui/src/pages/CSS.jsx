@@ -1,6 +1,4 @@
-import Header from "../shared/Header";
 import ListItemLink from "../shared/ListItemLink";
-import { PageHeader } from "../shared/PageHeader";
 import QuestionAnswer from "../shared/QuestionAnswer";
 import TopicsList from "../shared/TopicsList";
 import Specificity from "../svgs/css/specificity";
@@ -212,7 +210,7 @@ const CSS = () => {
       >
         <About />
         <br></br>
-        <h1 style={{ margin: 0 }}>Fundamentals</h1>
+        <h2 style={{ margin: 0 }}>Fundamentals</h2>
         <br></br>
 
         <h3 style={{ margin: "0px" }}>Selectors</h3>
@@ -348,6 +346,7 @@ const CSS = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

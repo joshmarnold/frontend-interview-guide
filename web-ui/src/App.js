@@ -50,82 +50,74 @@ const PerformanceAndMetrics = lazy(() =>
   import("./pages/web-dev/PerformanceAndMetrics")
 );
 const Security = lazy(() => import("./pages/web-dev/Security"));
+const InterviewPrep = lazy(() => import("./pages/InterviewPrep"));
+const HTML = lazy(() => import("./pages/HTML"));
 
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          {/* algorithsm and data structures */}
+          <Route path="ds-algos" element={<DSAndAlgos />} />
+          <Route path="ds-algos/string" element={<String />} />
+          <Route path="ds-algos/array" element={<Array />} />
+          <Route path="ds-algos/backtracking" element={<Backtracking />} />
+          <Route path="ds-algos/bfs" element={<BFS />} />
+          <Route path="ds-algos/binary-search" element={<BinarySearch />} />
+          <Route path="ds-algos/binary-tree" element={<BinaryTree />} />
+          <Route path="ds-algos/dfs" element={<DFS />} />
+          <Route path="ds-algos/graph" element={<Graph />} />
+          <Route path="ds-algos/heap" element={<Heap />} />
+          <Route path="ds-algos/how-to-approach" element={<HowToApproach />} />
+          <Route path="ds-algos/linked-list" element={<LinkedList />} />
+          <Route path="ds-algos/map" element={<Map />} />
+          <Route path="ds-algos/queue" element={<Queue />} />
+          <Route path="ds-algos/recursion" element={<Recursion />} />
+          <Route path="ds-algos/set" element={<Set />} />
+          <Route path="ds-algos/stack" element={<Stack />} />
+          <Route path="ds-algos/string" element={<String />} />
+          <Route path="ds-algos/trie" element={<Trie />} />
 
-          <Route path="/topic" element={<Layout />}>
-            {/* algorithsm and data structures */}
-            <Route path="ds-algos" element={<DSAndAlgos />} />
-            <Route path="ds-algos/string" element={<String />} />
-            <Route path="ds-algos/array" element={<Array />} />
-            <Route path="ds-algos/backtracking" element={<Backtracking />} />
-            <Route path="ds-algos/bfs" element={<BFS />} />
-            <Route path="ds-algos/binary-search" element={<BinarySearch />} />
-            <Route path="ds-algos/binary-tree" element={<BinaryTree />} />
-            <Route path="ds-algos/dfs" element={<DFS />} />
-            <Route path="ds-algos/graph" element={<Graph />} />
-            <Route path="ds-algos/heap" element={<Heap />} />
-            <Route
-              path="ds-algos/how-to-approach"
-              element={<HowToApproach />}
-            />
-            <Route path="ds-algos/linked-list" element={<LinkedList />} />
-            <Route path="ds-algos/map" element={<Map />} />
-            <Route path="ds-algos/queue" element={<Queue />} />
-            <Route path="ds-algos/recursion" element={<Recursion />} />
-            <Route path="ds-algos/set" element={<Set />} />
-            <Route path="ds-algos/stack" element={<Stack />} />
-            <Route path="ds-algos/string" element={<String />} />
-            <Route path="ds-algos/trie" element={<Trie />} />
+          {/* web dev */}
+          <Route path="web-dev" element={<WebDev />} />
+          <Route path="web-dev/a11y" element={<A11y />} />
+          <Route path="web-dev/i18n" element={<I18n />} />
+          <Route path="web-dev/api" element={<API />} />
+          <Route path="web-dev/caching" element={<Caching />} />
+          <Route path="web-dev/database" element={<Database />} />
+          <Route path="web-dev/devtools" element={<Devtools />} />
+          <Route path="web-dev/networking" element={<Networking />} />
+          <Route
+            path="web-dev/performance-and-metrics"
+            element={<PerformanceAndMetrics />}
+          />
+          <Route path="web-dev/security" element={<Security />} />
 
-            {/* web dev */}
-            <Route path="web-dev" element={<WebDev />} />
-            <Route path="web-dev/a11y" element={<A11y />} />
-            <Route path="web-dev/i18n" element={<I18n />} />
-            <Route path="web-dev/api" element={<API />} />
-            <Route path="web-dev/caching" element={<Caching />} />
-            <Route path="web-dev/database" element={<Database />} />
-            <Route path="web-dev/devtools" element={<Devtools />} />
-            <Route path="web-dev/networking" element={<Networking />} />
-            <Route
-              path="web-dev/performance-and-metrics"
-              element={<PerformanceAndMetrics />}
-            />
-            <Route path="web-dev/security" element={<Security />} />
+          {/* other */}
+          <Route path="dom-api" element={<DomApi />} />
+          <Route path="css" element={<CSS />} />
+          <Route path="javascript" element={<JavaScript />} />
+          <Route path="react" element={<React />} />
+          <Route path="general-programming" element={<GeneralProgramming />} />
+          <Route path="interview-prep" element={<InterviewPrep />} />
+          <Route path="html" element={<HTML />} />
 
-            {/* other */}
-            <Route path="dom-api" element={<DomApi />} />
-            <Route path="css-questions" element={<CSS />} />
-            <Route path="javascript-questions" element={<JavaScript />} />
-            <Route path="react-questions" element={<React />} />
-            <Route
-              path="general-programming"
-              element={<GeneralProgramming />}
-            />
-
-            {/* system design */}
-            <Route
-              path="frontend-system-design"
-              element={<SystemDesignDocs />}
-            />
-            <Route
-              path="frontend-system-design/requirements"
-              element={<Requirements />}
-            />
-            <Route
-              path="frontend-system-design/architecture"
-              element={<Architecture />}
-            />
-          </Route>
+          {/* system design */}
+          <Route path="frontend-system-design" element={<SystemDesignDocs />} />
+          <Route
+            path="frontend-system-design/requirements"
+            element={<Requirements />}
+          />
+          <Route
+            path="frontend-system-design/architecture"
+            element={<Architecture />}
+          />
 
           <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </Suspense>
+        </Route>
+      </Routes>
     </Router>
   );
 }

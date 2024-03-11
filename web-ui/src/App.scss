@@ -1,54 +1,29 @@
+// Global styles
 body {
   background-color: rgb(43, 42, 39);
   color: #ddd;
-  font-size: 18px;
-  padding: 12px 30px;
+  font-size: 16px;
+  padding: 0;
   margin: 0;
-
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
-  overflow-y: scroll;
-
+  font-variation-settings: "slnt" 0;
+  overflow-y: hidden;
   height: 100vh;
+  max-height: 100vh;
 }
 
 #root {
   height: 100%;
 }
 
-::-webkit-scrollbar {
-  width: 13px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #666;
-}
-
-::-webkit-scrollbar-track {
-  background: #333;
-}
-
-::-webkit-scrollbar-corner {
-  background: #222;
-}
-
 * {
   box-sizing: border-box;
 }
 
-.questionAnswer {
-  p:first-of-type {
-    margin: 0;
-  }
-}
-
+// Typography
 h1,
 h2,
 h3,
@@ -84,8 +59,15 @@ h6 {
 
 p {
   margin-top: 12px;
+  line-height: 1.5rem;
 }
 
+li {
+  margin: 8px 0;
+  line-height: 1.4rem;
+}
+
+// Links
 a {
   color: inherit;
   text-decoration: none;
@@ -93,53 +75,111 @@ a {
   &:hover {
     text-decoration: underline;
   }
+
+  &:visited {
+    color: #ddd;
+  }
 }
 
-.back-button {
-  padding: 10px 0px;
-  background-color: #444;
-  background-color: transparent;
-  color: #ddd;
-  border: none;
+// Layout
+.app-wrapper {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  height: 100%;
+
+  @media (max-width: 900px) {
+    display: none;
+    grid-template-columns: 1fr;
+
+    &.open {
+      display: grid;
+    }
+  }
+}
+
+.main-content {
+  padding: 20px;
+  overflow-y: scroll;
+  height: calc(100% - 52px);
+  display: flex;
+  flex-direction: column;
+  margin-top: 54px;
+  padding-bottom: 600px;
+}
+
+.main-inner-content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+// Sidebar
+.sidebar {
+  background-color: #333;
+  padding-left: 10px;
+  padding-top: 60px;
+  font-size: 14px;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .sub-category {
+      padding-left: 20px;
+    }
+  }
+}
+
+.sidebar-item {
   cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+
+  a {
+    text-decoration: none;
+  }
+
+  &.active {
+    background-color: rgb(106, 61, 116);
+  }
+
+  &:hover * {
+    color: white !important;
+  }
 }
 
-.btn {
-  padding: 10px 20px;
-  background-color: #444;
-  color: #ddd;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-li {
-  margin: 8px 0;
-  line-height: 1.5rem;
-}
-
+// Navigation
 .nav {
   li {
     line-height: 1.25rem;
   }
 }
 
-p {
-  line-height: 1.5rem;
+.navbar {
+  a:hover * {
+    fill: white;
+  }
 }
 
-a:visited {
+// Components
+.badge {
+  background-color: #444;
   color: #ddd;
-}
-
-.node {
-  fill: purple;
-  display: flex;
-  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-flex;
   align-items: center;
+  gap: 5px;
+  text-decoration: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  user-select: none;
+
+  &:hover {
+    color: white;
+  }
 }
 
 .label {
@@ -147,17 +187,6 @@ a:visited {
   font-size: 16px;
   textanchor: middle;
   alignment-baseline: middle;
-}
-
-.edge {
-  stroke: gray;
-  strokewidth: 2px;
-  fill: none;
-}
-
-code {
-  border-radius: 5px;
-  font-size: 16px;
 }
 
 .tag {
@@ -175,11 +204,6 @@ code {
   border-bottom: 1px solid #444;
 }
 
-#content {
-  max-width: 2000px;
-  margin: 0 auto;
-}
-
 .bubble {
   background-color: #303030;
   padding: 10px;
@@ -187,6 +211,53 @@ code {
   margin: 10px 0;
 }
 
+.question {
+  background-color: rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+
+  &:hover {
+    .showAnswer {
+      color: white;
+    }
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.questionAnswer {
+  p:first-of-type {
+    margin: 0;
+  }
+}
+
+.showAnswer {
+  font-size: 12px;
+  cursor: pointer;
+  transition: color 0.1s;
+  user-select: none;
+  text-wrap: nowrap;
+}
+
+// Form elements
+input,
+textarea {
+  background-color: #444;
+  border: none;
+  color: #ddd;
+}
+
+// Lists
+ol.selectable {
+  li {
+    cursor: pointer;
+    transition: background-color 0.1s;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// Utility classes
 .flex {
   display: flex;
 }
@@ -204,115 +275,35 @@ code {
   flex-direction: column;
 }
 
-.home-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: transform 0.1s;
+// Scrollbar
+::-webkit-scrollbar {
+  width: 13px;
+}
 
-  &:active {
-    transform: scale(0.9);
-  }
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
 
-  & svg {
-    transition: fill 0.1s;
-
-    &:hover {
-      fill: white;
-    }
+  &:hover {
+    background: #666;
   }
 }
 
-.header {
-  a {
-    flex-grow: 1;
-    text-decoration: none;
-  }
+::-webkit-scrollbar-track {
+  background: #333;
 }
 
-.sub-header {
-  a {
-    flex-grow: 1;
-  }
-
-  .header-button {
-    width: 100%;
-    justify-content: center;
-  }
+::-webkit-scrollbar-corner {
+  background: #222;
 }
 
-.header-button {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ddd;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: transform 0.1s;
+// Miscellaneous
+code {
   border-radius: 5px;
-  padding: 7px 10px;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 700;
-  width: 100%;
-  justify-content: center;
-  transition: fill 0.1s;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    & svg {
-      fill: white;
-    }
-  }
-  &.selected {
-    background-color: #2d4b81;
-
-    &:hover {
-      background-color: #476bad;
-    }
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
+  font-size: 16px;
 }
 
-.showAnswer {
-  font-size: 12px;
-  cursor: pointer;
-  transition: color 0.1s;
-  user-select: none;
-  text-wrap: nowrap;
-}
-
-.question {
-  background-color: rgba(255, 255, 255, 0.07);
-  cursor: pointer;
-
-  &:hover {
-    .showAnswer {
-      color: white;
-    }
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-input,
-textarea {
-  background-color: #444;
-  border: none;
-  color: #ddd;
-}
-
-ol.selectable {
-  li {
-    cursor: pointer;
-    transition: background-color 0.1s;
-
-    &:hover {
-      color: white;
-    }
-  }
+#content {
+  max-width: 2000px;
+  margin: 0 auto;
 }

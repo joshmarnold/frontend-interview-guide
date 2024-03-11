@@ -1,11 +1,11 @@
 import { useLocation } from "react-router-dom";
 
-const paramToTitle = {
+export const paramToTitle = {
   "ds-algos": "Algorithms & Data Structures",
   "dom-api": "DOM API",
-  "css-questions": "CSS",
-  "javascript-questions": "JavaScript",
-  "react-questions": "React",
+  css: "CSS",
+  javascript: "JavaScript",
+  react: "React",
   "general-programming": "General Programming",
   "frontend-system-design": "Frontend System Design",
   // Subtopics for DS & Algos
@@ -40,13 +40,18 @@ const paramToTitle = {
   "performance-and-metrics": "Performance & Metrics",
   security: "Security",
   "web-dev": "Web Development",
+  html: "HTML",
 };
 
 export const PageHeader = () => {
   const location = useLocation();
   const pathSegments = location.pathname.split("/").filter(Boolean);
-  const endPath = pathSegments[pathSegments.length - 1]; // Get the last segment of the path
-  const title = paramToTitle[endPath] || "Unknown Topic"; // Retrieve the title based on the last segment
+  const endPath = pathSegments[pathSegments.length - 1];
+  const title = paramToTitle[endPath];
+
+  if (!title) {
+    return null;
+  }
 
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>

@@ -1,5 +1,8 @@
 import React from "react";
 
+//  <strong>Question:</strong> Design a system for a social media platform
+//     like Twitter.{" "}
+
 const Requirements = () => {
   return (
     <div>
@@ -8,20 +11,28 @@ const Requirements = () => {
         need a11y? Okay! Add it to the list. Don't discuss it yet.
       </p>
 
-      <h3>Functional Requirements</h3>
+      <h2>Functional Requirements</h2>
+      <p>
+        Functional requirements describe the specific behaviors and actions that
+        the system must support. This is where you narrow down the scope of the
+        system and define what it should do.
+      </p>
       <ul>
-        <li>What actions can users take on the website/application?</li>
+        <li>What feature of the application are we building?</li>
+        <li>What features does the feature need to support?</li>
+        <li>What actions can users take on the feature?</li>
         <li>
           Are there any specific workflows or user stories that need to be
           supported?
         </li>
-        <li>
-          Does the application require user authentication? What levels of
-          access control are required for different types of users?
-        </li>
       </ul>
 
-      <h3>Non-Functional Requirements</h3>
+      <h2>Non-Functional Requirements</h2>
+      <p>
+        Non-functional requirements describe the quality attributes of the
+        system and the constraints that it must adhere to. This is where you
+        define how the system should behave and perform.
+      </p>
       <ol>
         <li>
           <strong>Responsiveness:</strong>
@@ -103,6 +114,47 @@ const Requirements = () => {
               How is the codebase structured to support long-term
               maintainability and readability?
             </li>
+          </ul>
+        </li>
+      </ol>
+      <div className="divider"></div>
+      <h2>Twitter Example</h2>
+      <h3>Functional Requirements</h3>
+      <p>Focus on building the timeline feature</p>
+      <ul>
+        <li>View tweets</li>
+        <li>Post tweets</li>
+        <li>Like tweets</li>
+      </ul>
+      <h3>Non-Functional Requirements</h3>
+      <p>Focus on desktop app</p>
+      <ol>
+        <li>
+          <strong>Responsiveness:</strong>
+          <ul>
+            <li>Support desktop and tablet devices</li>
+            <li>Follow a desktop-first approach</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Accessibility (a11y):</strong>
+          <ul>
+            <li>AA compliance</li>
+            <li>Support screen readers</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Internationalization (i18n):</strong>
+          <ul>
+            <li>Support English and Spanish</li>
+            <li>Handle RTL languages</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Performance:</strong>
+          <ul>
+            <li>Load time under 3 seconds</li>
+            <li>Optimize image loading</li>
           </ul>
         </li>
       </ol>

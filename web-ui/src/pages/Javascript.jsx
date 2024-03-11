@@ -1,7 +1,5 @@
-import { useState } from "react";
 import QuestionAnswer from "../shared/QuestionAnswer";
 import TopicsList from "../shared/TopicsList";
-import { IconExternalLink } from "@tabler/icons-react";
 import ListItemLink from "../shared/ListItemLink";
 
 const questionsAndAnswers = [
@@ -278,6 +276,70 @@ const questionsAndAnswers = [
     question: "How can you clone an object in JavaScript?",
     answer: "By using `Object.assign` or the spread operator `{...obj}`.",
   },
+  // memory mgmt
+  {
+    question:
+      "How does memory management differ between low-level and high-level programming languages?",
+    answer: (
+      <>
+        <p>
+          In low-level languages like C and C++, developers are responsible for
+          manually allocating and freeing up memory. This involves using
+          functions like <code>malloc()</code> or <code>new</code> for
+          allocation and <code>free()</code> or <code>delete</code> for
+          deallocation. This manual process gives developers more control but
+          also makes it more complex and error-prone, potentially leading to
+          issues like memory leaks and pointer errors.
+        </p>
+        <p>
+          High-level languages like JavaScript, Python, and C# abstract away
+          these details by automatically managing memory. They allocate memory
+          when new objects are created and release it when objects are no longer
+          in use, which is typically done through a process known as garbage
+          collection. Garbage collection simplifies development by automating
+          memory management, reducing the chances of memory-related errors and
+          allowing developers to focus more on writing the logic of their
+          applications.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "What are the differences between the stack and the heap in programming?",
+    answer: (
+      <>
+        <p>
+          The stack and heap are two areas of memory used for different types of
+          memory allocation in programming languages.
+        </p>
+        <ul>
+          <li>
+            <strong>Stack:</strong> The stack is a structured area of memory
+            that operates on a last-in-first-out basis (LIFO). It is used for
+            static memory allocation, which includes local variables and
+            function calls. Memory allocation and deallocation on the stack are
+            done automatically when a function is called and when it returns.
+          </li>
+          <li>
+            <strong>Heap:</strong> The heap is used for dynamic memory
+            allocation, which allows variables to be allocated and freed in any
+            order. Unlike the stack, the heap is managed by the programmer (in
+            low-level languages) or by the garbage collector (in high-level
+            languages). The heap is more flexible than the stack but managing
+            memory allocation and deallocation is more complex and can lead to
+            issues like memory leaks if not handled correctly.
+          </li>
+        </ul>
+        <p>
+          In essence, the stack is fast and managed by the system, whereas the
+          heap is more flexible and usually larger, but requires more management
+          overhead, either by the developer or the runtime environment's garbage
+          collector.
+        </p>
+      </>
+    ),
+  },
 ];
 
 const About = () => {
@@ -361,6 +423,7 @@ const JavaScript = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

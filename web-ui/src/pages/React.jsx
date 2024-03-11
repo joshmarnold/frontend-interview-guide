@@ -1,6 +1,3 @@
-import { useState } from "react";
-import Header from "../shared/Header";
-import { PageHeader } from "../shared/PageHeader";
 import QuestionAnswer from "../shared/QuestionAnswer";
 
 const questionsAndAnswers = [
@@ -270,8 +267,6 @@ const questionsAndAnswers = [
 ];
 
 const React = () => {
-  const [showTopics, setShowTopics] = useState(false);
-
   return (
     <>
       <div
@@ -280,6 +275,7 @@ const React = () => {
           flexDirection: "column",
           gap: "10px",
           marginTop: "20px",
+          width: "100%",
         }}
       >
         {questionsAndAnswers.map((qa, index) => (
@@ -287,6 +283,7 @@ const React = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

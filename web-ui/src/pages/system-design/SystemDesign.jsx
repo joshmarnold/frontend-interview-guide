@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 
-import { PageHeader } from "../../shared/PageHeader";
-import Header from "../../shared/Header";
+import { IconBrandTwitterFilled } from "@tabler/icons-react";
 
 const SystemDesignDocs = () => {
   return (
@@ -21,10 +20,10 @@ const SystemDesignDocs = () => {
       </p>
       <p>
         When approaching system design questions, it's essential to have a
-        structured framework to ensure that all key aspects are covered. The
-        R.A.D.I.O. framework provides a comprehensive approach to tackle
-        frontend system design. Credit to Shivam Bhalla for developing the
-        framework{" "}
+        structured framework to ensure that all key aspects are covered. I
+        personally have found the R.A.D.I.O framework provides a comprehensive
+        approach to tackle frontend system design and it's what I use. Credit to
+        Shivam Bhalla for developing the framework{" "}
         <a
           href="https://www.youtube.com/watch?v=NEzu4FD25KM"
           target="_blank"
@@ -34,7 +33,15 @@ const SystemDesignDocs = () => {
         </a>
       </p>
 
-      <br></br>
+      <div className="divider"></div>
+      <p>Lets use an example to discuss a typical system design question</p>
+      <h3>
+        <strong>Question:</strong> Design a system for a social media platform
+        like Twitter.{" "}
+        <IconBrandTwitterFilled size={24} style={{ color: "#1DA1F2" }} />
+      </h3>
+      <div className="divider"></div>
+
       <h3>
         <Link to="requirements">
           R - Requirements: Laying the Foundation (10%)

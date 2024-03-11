@@ -744,6 +744,7 @@ const Accessibility = () => {
               key={index}
               question={qa.question}
               answer={qa.answer}
+              index={index}
             />
           )
         )}
@@ -754,6 +755,7 @@ const Accessibility = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

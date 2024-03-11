@@ -137,6 +137,7 @@ const DevTools = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>

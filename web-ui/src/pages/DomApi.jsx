@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { PageHeader } from "../shared/PageHeader";
 import Highlight from "react-highlight";
-import Header from "../shared/Header";
 import QuestionAnswer from "../shared/QuestionAnswer";
+import TopicsList from "../shared/TopicsList";
 
 import "./DomApi.scss";
+import { IconExternalLink, IconShare } from "@tabler/icons-react";
 
 const accessingDOMElementsQuestions = [
   {
@@ -399,6 +399,7 @@ const AccessingDOMElements = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>
@@ -650,6 +651,7 @@ const ManipulatingDOMElements = () => {
             key={index}
             question={qa.question}
             answer={qa.answer}
+            index={index}
           />
         ))}
       </div>
@@ -687,7 +689,7 @@ const AccordionExample = () => {
 
   return (
     <div>
-      <h3>UI</h3>
+      <br></br>
       <br></br>
       <div className="example-wrapper">
         <div className="form-wrapper">
@@ -739,7 +741,8 @@ const AccordionExample = () => {
         </div>
       </div>
 
-      <h3>Code</h3>
+      <br></br>
+      {/* <h3>Code</h3> */}
       <Highlight className="html">
         {`<div id="app">
   <div class="form-wrapper">
@@ -891,6 +894,60 @@ const handlingEventsQuestions = [
       </div>
     ),
   },
+  {
+    question:
+      "How do you handle the form submission to add a new accordion item?",
+    answer: (
+      <>
+        <Highlight className="javascript">
+          {`document.getElementById("itemForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Get the form input values from the event object
+  const title = event.target.elements.title.value;
+  const description = event.target.elements.description.value;
+
+  // Call the addAccordionItem function to add the new item
+  addAccordionItem(title, description);
+
+  // Reset the form
+  event.target.reset();
+});`}
+        </Highlight>
+        <p>
+          In this example, an event listener is added to the form's submit
+          event. When the form is submitted, the event listener triggers a
+          function that prevents the default form submission behavior using{" "}
+          <code>event.preventDefault()</code>.
+        </p>
+        <p>
+          The function then retrieves the values of the title and description
+          input fields from the event object.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "How would you listen for key events on the title input and log them to the backend?",
+    answer: (
+      <>
+        <Highlight className="javascript">
+          {`document.getElementById("title").addEventListener("keyup", function(event) {
+  const inputValue = event.target.value;
+  const keyPressed = event.key;
+
+  // Log the key event to the backend using the logger method
+  logger("Key Event", {
+    input: "Title",
+    value: inputValue,
+    key: keyPressed
+  });
+});`}
+        </Highlight>
+      </>
+    ),
+  },
 ];
 
 const HandlingEvents = () => {
@@ -907,6 +964,7 @@ const HandlingEvents = () => {
       >
         {handlingEventsQuestions.map((qa, index) => (
           <QuestionAnswer
+            index={index}
             key={index}
             question={qa.question}
             answer={qa.answer}
@@ -1036,6 +1094,132 @@ const WorkingWithForms = () => {
       >
         {formQuestionsAnswers.map((qa, index) => (
           <QuestionAnswer
+            index={index}
+            key={index}
+            question={qa.question}
+            answer={qa.answer}
+          />
+        ))}
+      </div>
+    </>
+  );
+};
+
+const generalQuestions = [
+  {
+    question: "Explain what the Document Object Model (DOM) is.",
+    answer: (
+      <>
+        <p>
+          The Document Object Model (DOM) is a programming interface for web
+          documents. It represents the page so that programs can change the
+          document structure, style, and content. The DOM represents the
+          document as a tree of nodes and objects; this way, programming
+          languages can interact with the page.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "How does the browser render a web page from the HTML document?",
+    answer: (
+      <>
+        <p>
+          When a browser loads a web page, it converts the HTML document into a
+          DOM tree. It then processes CSS, applying styles to the elements in
+          the DOM tree and creating a render tree. After that, the browser's
+          layout engine calculates the size and position of each object.
+          Finally, the browser paints the render tree onto the screen.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What's the difference between 'window' and 'document'?",
+    answer: (
+      <>
+        <p>
+          The <code>window</code> object represents the browser's window and
+          serves as the global object for the JavaScript running in that window.
+          It provides methods and properties to interact with the browser, such
+          as manipulating the location, setting timers, and storing data.
+        </p>
+        <p>
+          On the other hand, the <code>document</code> object represents the DOM
+          of an HTML document. It's a property of the <code>window</code> and
+          provides methods to access and manipulate the content, structure, and
+          styles of the document.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What are Web APIs, and how do they relate to the DOM?",
+    answer: (
+      <>
+        <p>
+          Web APIs are application programming interfaces provided by browsers
+          that can be used with JavaScript (and other languages) to create
+          dynamic web content. They relate to the DOM by providing methods and
+          properties that allow scripts to create content, store data, send and
+          retrieve network requests, and more. Essentially, Web APIs extend the
+          functionality that can be performed on the DOM.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What is the difference between 'innerText' and 'textContent'?",
+    answer: (
+      <>
+        <p>
+          The <code>innerText</code> property retrieves and sets the content of
+          the tag as plain text, whereas <code>textContent</code> retrieves and
+          sets the content with all spacing and inner element tags removed.
+        </p>
+        <p>
+          <code>innerText</code> is aware of styling and will not return the
+          text of hidden elements, whereas <code>textContent</code> will return
+          the text of all elements, regardless of their CSS styling (including
+          text in <code>{`<script>`}</code> and <code>{`<style>`}</code>{" "}
+          elements).
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "How can you attach an event handler to an element in the DOM?",
+    answer: (
+      <>
+        <p>
+          You can attach an event handler using <code>addEventListener()</code>.
+          This method attaches an event handler to the specified element without
+          overwriting existing event handlers.
+        </p>
+        <p>Example:</p>
+        <pre>{`element.addEventListener('click', function() {
+  console.log('Element clicked!');
+});`}</pre>
+      </>
+    ),
+  },
+];
+
+const General = () => {
+  return (
+    <>
+      <h3>General Questions</h3>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          marginTop: "20px",
+        }}
+      >
+        {generalQuestions.map((qa, index) => (
+          <QuestionAnswer
+            index={index}
             key={index}
             question={qa.question}
             answer={qa.answer}
@@ -1064,6 +1248,29 @@ const DomApi = () => {
         fundamentals.
       </p>
       <p>
+        To see a full list of DOM methods and properties, refer to the official{" "}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white", fontWeight: "bold" }}
+        >
+          Mozilla Developer Network (MDN) documentation{" "}
+          <IconExternalLink size="1rem" />
+        </a>
+      </p>
+      <p>
+        Or, if you'd like a video explanation, check out this video{" "}
+        <a
+          href="https://www.youtube.com/watch?v=wbQLEXg_urE"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white", fontWeight: "bold" }}
+        >
+          DOM API by ColorCode <IconExternalLink size="1rem" />
+        </a>
+      </p>
+      <p>
         In this section, we'll explore a series of pragmatic questions related
         to working with the DOM API. We'll provide code samples of HTML and ask
         questions about how to interact with and manipulate the DOM elements.
@@ -1071,66 +1278,73 @@ const DomApi = () => {
         traversing the DOM tree, and handling events.
       </p>
 
-      <h3>Key topics:</h3>
-      <ol className="selectable">
-        <li
-          onClick={() => {
-            window.location.href = "#access-dom-elements";
-          }}
-        >
-          Accessing DOM Elements
-          <ul>
-            <li>
-              Methods for selecting elements (getElementById, querySelector,
-              etc.)
-            </li>
-            <li>
-              Traversing the DOM tree (parentNode, childNodes, firstChild,
-              lastChild, etc.)
-            </li>
-          </ul>
-        </li>
-        <li
-          onClick={() => {
-            window.location.href = "#manipulating-dom-elements";
-          }}
-        >
-          Manipulating DOM Elements
-          <ul>
-            <li>Creating new elements (createElement)</li>
-            <li>Inserting elements into the DOM (appendChild, insertBefore)</li>
-            <li>Removing elements from the DOM (removeChild)</li>
-            <li>Cloning elements (cloneNode)</li>
-            <li>Styling elements</li>
-          </ul>
-        </li>
-        <li
-          onClick={() => {
-            window.location.href = "#working-with-forms";
-          }}
-        >
-          Working with Forms
-          <ul>
-            <li>Accessing form elements</li>
-            <li>Getting and setting form values</li>
-            <li>Handling form submissions</li>
-            <li>Form validation</li>
-          </ul>
-        </li>
-        <li
-          onClick={() => {
-            window.location.href = "#handling-events";
-          }}
-        >
-          Handling Events
-          <ul>
-            <li>Adding event listeners (addEventListener)</li>
-            <li>Removing event listeners (removeEventListener)</li>
-            <li>Event object and its properties</li>
-            <li>Event propagation and delegation</li>
-          </ul>
-        </li>
-      </ol>
+      <br></br>
+      <br></br>
+
+      <TopicsList>
+        <ol className="selectable">
+          <li
+            onClick={() => {
+              window.location.href = "#access-dom-elements";
+            }}
+          >
+            Accessing DOM Elements
+            <ul>
+              <li>
+                Methods for selecting elements (getElementById, querySelector,
+                etc.)
+              </li>
+              <li>
+                Traversing the DOM tree (parentNode, childNodes, firstChild,
+                lastChild, etc.)
+              </li>
+            </ul>
+          </li>
+          <li
+            onClick={() => {
+              window.location.href = "#manipulating-dom-elements";
+            }}
+          >
+            Manipulating DOM Elements
+            <ul>
+              <li>Creating new elements (createElement)</li>
+              <li>
+                Inserting elements into the DOM (appendChild, insertBefore)
+              </li>
+              <li>Removing elements from the DOM (removeChild)</li>
+              <li>Cloning elements (cloneNode)</li>
+              <li>Styling elements</li>
+            </ul>
+          </li>
+          <li
+            onClick={() => {
+              window.location.href = "#working-with-forms";
+            }}
+          >
+            Working with Forms
+            <ul>
+              <li>Accessing form elements</li>
+              <li>Getting and setting form values</li>
+              <li>Handling form submissions</li>
+              <li>Form validation</li>
+            </ul>
+          </li>
+          <li
+            onClick={() => {
+              window.location.href = "#handling-events";
+            }}
+          >
+            Handling Events
+            <ul>
+              <li>Adding event listeners (addEventListener)</li>
+              <li>Removing event listeners (removeEventListener)</li>
+              <li>Event object and its properties</li>
+              <li>Event propagation and delegation</li>
+            </ul>
+          </li>
+        </ol>
+      </TopicsList>
+      <br></br>
 
       <h2>Example</h2>
       <p>
@@ -1144,6 +1358,7 @@ const DomApi = () => {
       <ManipulatingDOMElements />
       <HandlingEvents />
       <WorkingWithForms />
+      <General />
     </div>
   );
 };
