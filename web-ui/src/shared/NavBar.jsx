@@ -10,7 +10,7 @@ const Navbar = ({ setExpanded }) => {
         position: "absolute",
         top: "0",
         left: "0",
-        backgroundColor: "#222",
+        backgroundColor: "#333",
         width: "100%",
       }}
       className="navbar"
@@ -23,7 +23,7 @@ const Navbar = ({ setExpanded }) => {
           alignItems: "center",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <button
             className="hamburger"
             onClick={() => setExpanded((prev) => !prev)}
@@ -41,7 +41,7 @@ const Navbar = ({ setExpanded }) => {
             Front End Engineer Interview Guide
           </p>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <a
               href="https://github.com/joshmarnold/frontend-interview-guide.git"
@@ -49,8 +49,8 @@ const Navbar = ({ setExpanded }) => {
               rel="noopener noreferrer"
             >
               <svg
-                width="30"
-                height="28"
+                width="28"
+                height="26"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 100 100"
               >
@@ -71,8 +71,8 @@ const Navbar = ({ setExpanded }) => {
               rel="noopener noreferrer"
             >
               <svg
-                width="30px"
-                height="30px"
+                width="28px"
+                height="28px"
                 viewBox="0 -40 256 256"
                 version="1.1"
                 preserveAspectRatio="xMidYMid"

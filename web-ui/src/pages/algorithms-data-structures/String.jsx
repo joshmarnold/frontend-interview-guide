@@ -1,11 +1,21 @@
 import React from "react";
-import { PageHeader } from "../../shared/PageHeader";
 import Highlight from "react-highlight";
 
 const StringMethodsComponent = () => {
   return (
     <>
       <h2>Methods</h2>
+      <p>
+        Full list of string methods can be found{" "}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          here
+        </a>
+      </p>
+
       <h3>substring()</h3>
       <p>
         The <strong>substring()</strong> method returns the part of the string
@@ -120,13 +130,14 @@ console.log(newStr); // Output: Th* q**ck br*wn f*x j*mps *v*r th* l*zy d*g.`}
         <li>
           <strong>/^[a-zA-Z0-9]+$/</strong>: Matches alphanumeric characters
           only
-          <li>
-            <strong>/^[a-zA-Z\s]+$/</strong>: Matches letters and whitespace
-            characters only
-          </li>
-          <li>
-            <strong>/^[0-9]+$/</strong>: Matches digits only
-          </li>
+        </li>
+        <li>
+          <strong>/^[a-zA-Z\s]+$/</strong>: Matches letters and whitespace
+          characters only
+        </li>
+
+        <li>
+          <strong>/^[0-9]+$/</strong>: Matches digits only
         </li>
       </ul>
     </>

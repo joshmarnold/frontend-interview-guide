@@ -159,7 +159,7 @@ function Node({ node, style, dragHandle, currentPage, setExpanded, isMobile }) {
         ...style,
         display: "grid",
         alignItems: "center",
-        gridTemplateColumns: "1fr 25px",
+        gridTemplateColumns: "1fr 30px",
       }}
       className={`sidebar-item ${isActive ? "active" : ""}`}
     >
@@ -173,6 +173,7 @@ function Node({ node, style, dragHandle, currentPage, setExpanded, isMobile }) {
           display: "flex",
           alignItems: "center",
           gap: "4px",
+          height: "100%",
         }}
       >
         {node?.data?.icon && <node.data.icon size="1rem" />}
@@ -180,11 +181,11 @@ function Node({ node, style, dragHandle, currentPage, setExpanded, isMobile }) {
       </Link>
       {!node.isLeaf && (
         <span
-          style={{ display: "flex", alignItems: "center" }}
           onClick={() => {
             if (node.isOpen) node.close();
             else node.open();
           }}
+          className="sidebar-item-expand-icon"
         >
           {!node.isOpen ? (
             <IconChevronUp size="1.2rem" />
@@ -248,7 +249,7 @@ const Sidebar = ({ expanded, setExpanded }) => {
         initialData={routeData}
         width={width}
         height={windowHeight - 55}
-        rowHeight={31}
+        rowHeight={32}
         disableDrag
         indent={25}
         initialOpenState={initialOpenState}

@@ -5,6 +5,16 @@ export default function Array() {
   return (
     <>
       <h2>Methods</h2>
+      <p>
+        Full list of array methods can be found{" "}
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          here
+        </a>
+      </p>
       <h3>slice()</h3>
       <p>
         <code>slice()</code> returns a shallow copy of a portion of an array
@@ -26,9 +36,13 @@ console.log(arr.slice(2)); // Output: [3, 4, 5]`}
         returns an array containing the deleted elements.
       </p>
       <Highlight className="javascript">
-        {`const arr = [1, 2, 3, 4, 5];
+        {`const arr = [1, 2, 3, 4, 5, 6];
+// Remove 2 elements starting from index 2
 console.log(arr.splice(2, 2)); // Output: [3, 4]
-console.log(arr); // Output: [1, 2, 5]`}
+console.log(arr); // Output: [1, 2, 5, 6]
+// Insert 3 and 4 starting from index 1
+console.log(arr.splice(1, 2, 3, 4));  // Output: [2, 5]
+console.log(arr); // Output: [1, 3, 4, 6]`}
       </Highlight>
 
       <h3>sort()</h3>
