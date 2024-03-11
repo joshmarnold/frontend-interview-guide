@@ -50,7 +50,15 @@ const PerformanceAndMetrics = lazy(() =>
   import("./pages/web-dev/PerformanceAndMetrics")
 );
 const Security = lazy(() => import("./pages/web-dev/Security"));
-const InterviewPrep = lazy(() => import("./pages/InterviewPrep"));
+const InterviewPrep = lazy(() =>
+  import("./pages/interview-prep/InterviewPrep")
+);
+const QuestionsForInterviewer = lazy(() =>
+  import("./pages/interview-prep/QuestionsForInterviewer")
+);
+const HandlingCodingExercises = lazy(() =>
+  import("./pages/interview-prep/HandlingCodingExercises")
+);
 const HTML = lazy(() => import("./pages/HTML"));
 
 function App() {
@@ -102,6 +110,15 @@ function App() {
           <Route path="react" element={<React />} />
           <Route path="general-programming" element={<GeneralProgramming />} />
           <Route path="interview-prep" element={<InterviewPrep />} />
+          <Route
+            path="interview-prep/questions-for-interviewer"
+            element={<QuestionsForInterviewer />}
+          />
+          <Route
+            path="interview-prep/handling-coding-exercises"
+            element={<HandlingCodingExercises />}
+          />
+
           <Route path="html" element={<HTML />} />
 
           {/* system design */}

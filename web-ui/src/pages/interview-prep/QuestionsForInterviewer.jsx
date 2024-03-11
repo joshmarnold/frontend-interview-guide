@@ -1,10 +1,9 @@
-const InterviewPrep = () => {
+const QuestionsForInterviewer = () => {
   return (
     <div>
-      <h1>Interview Prep</h1>
       <p>
         Here's a set of questions for your interviewer. Pick the ones that are
-        most relevant to you.
+        most relevant to you. Definitely don't ask all of them, but pick a few.
       </p>
       <h4>Engineering-focused questions</h4>
       <ul>
@@ -99,4 +98,4 @@ const InterviewPrep = () => {
   );
 };
 
-export default InterviewPrep;
+export default QuestionsForInterviewer;

@@ -97,7 +97,23 @@ const routeData = [
       },
     ],
   },
-  { id: "10", name: "Interview Prep", path: "interview-prep" },
+  {
+    id: "10",
+    name: "Interview Prep",
+    path: "interview-prep",
+    children: [
+      {
+        id: "10-1",
+        name: "Questions For Interviewer",
+        path: "interview-prep/questions-for-interviewer",
+      },
+      {
+        id: "10-2",
+        name: "Handling Coding Exercises",
+        path: "interview-prep/handling-coding-exercises",
+      },
+    ],
+  },
 ];
 
 function Node({ node, style, dragHandle, currentPage }) {

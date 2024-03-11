@@ -41,6 +41,9 @@ export const paramToTitle = {
   security: "Security",
   "web-dev": "Web Development",
   html: "HTML",
+  "interview-prep": "Interview Prep",
+  "questions-for-interviewer": "Questions for Interviewer",
+  "handling-coding-exercises": "Handling Coding Exercises",
 };
 
 export const PageHeader = () => {
