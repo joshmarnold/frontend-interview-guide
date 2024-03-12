@@ -143,7 +143,7 @@ const ApproachingLeetCodeProblems = () => {
 }`}
       </Highlight>
 
-      <h3>Set Capability (Visited Set)</h3>
+      <h3>Set Capability (Visited set used in graphs to prevent cycles)</h3>
       <Highlight language="javascript">
         {`function bfs(start, target) {
   const queue = [start];

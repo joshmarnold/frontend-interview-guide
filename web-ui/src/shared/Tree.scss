@@ -1,0 +1,41 @@
+.MuiTreeItem-root {
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.MuiTreeItem-content,
+.MuiTreeItem-label,
+.MuiTreeItem-iconContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.MuiTreeItem-label {
+  font-size: 14px !important;
+  padding: 0 0 0 8px !important;
+}
+
+.MuiTreeItem-iconContainer {
+  width: 32px !important;
+  margin: 0 !important;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.MuiTreeItem-content {
+  height: 32px;
+
+  &.Mui-selected {
+    background-color: transparent !important;
+    color: rgb(247, 187, 67) !important;
+  }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+}

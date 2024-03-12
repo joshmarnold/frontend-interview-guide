@@ -11,13 +11,13 @@ const HandlingCodingExercises = () => {
           work with you and how you approach problems.
         </p>
         <p>
-          Skipping or rushing through the problem-solving process can be a
-          costly mistake during a coding interview. If you overlook the Clarify
-          and Explain sections and dive straight into writing code, you may
-          severely jeopardize your chances of getting the job. It's crucial to
-          recognize that interviewers are not solely interested in your final
-          solution; they place significant emphasis on your thought process and
-          problem-solving approach.
+          Skipping or rushing through the communication and collaboration
+          process can be a costly mistake during a coding interview. If you
+          overlook the Clarify and Explain sections and dive straight into
+          writing code, you may severely jeopardize your chances of getting the
+          job. It's crucial to recognize that interviewers are not solely
+          interested in your final solution; they place significant emphasis on
+          your thought process and problem-solving approach.
         </p>
         <p>
           The following sections provide a framework for handling coding
