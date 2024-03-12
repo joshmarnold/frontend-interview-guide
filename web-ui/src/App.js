@@ -1,11 +1,15 @@
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import "highlight.js/styles/stackoverflow-dark.css"; // Import the CSS file
+
+// import "highlight.js/styles/agate.css";
+// import "highlight.js/styles/atom-one-dark.css";
+import "highlight.js/styles/vs2015.css";
+
 import "./App.scss";
 
 const Home = lazy(() => import("./pages/Home"));

@@ -279,6 +279,10 @@ a {
   text-wrap: nowrap;
 }
 
+.hljs {
+  background-color: #181818;
+}
+
 // Form elements
 input,
 textarea {
@@ -298,7 +302,6 @@ ol.selectable {
     }
   }
 }
-
 
 // Utility classes
 .flex {
