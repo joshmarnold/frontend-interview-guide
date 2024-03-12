@@ -78,6 +78,22 @@ const HandlingCodingExercises = lazy(() =>
   import("./pages/interview-prep/HandlingCodingExercises")
 );
 const HTML = lazy(() => import("./pages/HTML"));
+// project mgmt
+const ProjectManagement = lazy(() =>
+  import("./pages/project-management/ProjectManagement")
+);
+const ExecutionAndControl = lazy(() =>
+  import("./pages/project-management/ExecutionAndControl")
+);
+const Initiation = lazy(() => import("./pages/project-management/Initiation"));
+const Frameworks = lazy(() => import("./pages/project-management/Frameworks"));
+const Methodologies = lazy(() =>
+  import("./pages/project-management/Methodologies")
+);
+const MonitoringAndEvaluation = lazy(() =>
+  import("./pages/project-management/MonitoringAndEvaluation")
+);
+const Planning = lazy(() => import("./pages/project-management/Planning"));
 
 function App() {
   return (
@@ -148,6 +164,30 @@ function App() {
           <Route
             path="frontend-system-design/architecture"
             element={<Architecture />}
+          />
+
+          {/* project management */}
+          <Route path="project-management" element={<ProjectManagement />} />
+          <Route
+            path="project-management/initiation"
+            element={<Initiation />}
+          />
+          <Route path="project-management/planning" element={<Planning />} />
+          <Route
+            path="project-management/execution-and-control"
+            element={<ExecutionAndControl />}
+          />
+          <Route
+            path="project-management/monitoring-and-evaluation"
+            element={<MonitoringAndEvaluation />}
+          />
+          <Route
+            path="project-management/methodologies"
+            element={<Methodologies />}
+          />
+          <Route
+            path="project-management/frameworks"
+            element={<Frameworks />}
           />
 
           <Route path="*" element={<Navigate to="/" />} />

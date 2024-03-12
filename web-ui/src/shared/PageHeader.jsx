@@ -44,8 +44,13 @@ export const paramToTitle = {
   "interview-prep": "Interview Prep",
   "questions-for-interviewer": "Questions for Interviewer",
   "handling-coding-exercises": "Handling Coding Exercises",
-  'project-management': "Project Management",
-  
+  "project-management": "Project Management",
+  initiation: "Project Initiation",
+  planning: "Project Planning",
+  "execution-and-control": "Project Execution & Control",
+  "monitoring-and-evaluation": "Project Monitoring & Evaluation",
+  methodologies: "Project Methodologies",
+  frameworks: "Project Frameworks",
 };
 
 export const PageHeader = () => {

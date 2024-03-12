@@ -1,13 +1,11 @@
 import {
   IconChevronDown,
   IconChevronRight,
-  IconChevronUp,
   IconHome,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import { Tree } from "react-arborist";
 import { Link, useLocation } from "react-router-dom";
-import { paramToTitle } from "./PageHeader";
 
 const routeData = [
   { id: "1", name: "Home", path: "/", icon: IconHome },
@@ -115,36 +113,34 @@ const routeData = [
       },
     ],
   },
+  { id: "12", name: "Extras", isHeader: true },
   // project management
   {
     id: "11",
     name: "Project Management",
     path: "project-management",
     children: [
-      {
-        id: "11-1",
-        name: "Agile",
-        path: "project-management/agile",
-      },
-      {
-        id: "11-2",
-        name: "Scrum",
-        path: "project-management/scrum",
-      },
+      { id: "11-1", name: "Initiation", path: "project-management/initiation" },
+      { id: "11-2", name: "Planning", path: "project-management/planning" },
       {
         id: "11-3",
-        name: "Kanban",
-        path: "project-management/kanban",
+        name: "Execution & Control",
+        path: "project-management/execution-and-control",
       },
       {
         id: "11-4",
-        name: "Lean",
-        path: "project-management/lean",
+        name: "Monitoring & Evaluation",
+        path: "project-management/monitoring-and-evaluation",
       },
       {
         id: "11-5",
-        name: "Waterfall",
-        path: "project-management/waterfall",
+        name: "Methodologies",
+        path: "project-management/methodologies",
+      },
+      {
+        id: "11-6",
+        name: "Frameworks",
+        path: "project-management/frameworks",
       },
     ],
   },
@@ -161,7 +157,9 @@ function Node({ node, style, dragHandle, currentPage, setExpanded, isMobile }) {
         alignItems: "center",
         gridTemplateColumns: "1fr 30px",
       }}
-      className={`sidebar-item ${isActive ? "active" : ""}`}
+      className={`sidebar-item ${isActive ? "active" : ""} ${
+        node.data?.isHeader ? "header" : ""
+      }`}
     >
       <Link
         onClick={() => {
@@ -188,7 +186,7 @@ function Node({ node, style, dragHandle, currentPage, setExpanded, isMobile }) {
           className="sidebar-item-expand-icon"
         >
           {!node.isOpen ? (
-            <IconChevronUp size="1.2rem" />
+            <IconChevronRight size="1.2rem" />
           ) : (
             <IconChevronDown size="1.2rem" />
           )}

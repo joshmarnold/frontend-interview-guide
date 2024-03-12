@@ -162,6 +162,10 @@ a {
   &.active * {
     color: rgb(239, 190, 40) !important;
   }
+
+  &.header * {
+    color: #777 !important;
+  }
 }
 
 // Navigation
