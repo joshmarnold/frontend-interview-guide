@@ -97,7 +97,6 @@ const data = {
       id: "7",
       name: "Frontend System Design",
       path: "frontend-system-design",
-      children: [],
     },
     {
       id: "8",
