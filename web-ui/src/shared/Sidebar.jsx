@@ -4,7 +4,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import clsx from "clsx";
 import Typography from "@mui/material/Typography";
 import { forwardRef, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { TreeView } from "@mui/x-tree-view/TreeView";
 import { TreeItem, useTreeItem } from "@mui/x-tree-view/TreeItem";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -326,7 +326,8 @@ const Sidebar = ({ expanded, setExpanded }) => {
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpandIcon={<ChevronRightIcon />}
         defaultExpanded={initialOpenState || []}
-        defaultSelected={[pathsToIds[currentPage]]}
+        // defaultSelected={[pathsToIds[currentPage]]}
+        selected={[pathsToIds[currentPage]]}
         sx={{
           minHeight: 110,
           flexGrow: 1,
