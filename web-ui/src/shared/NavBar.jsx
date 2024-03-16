@@ -64,7 +64,7 @@ const Navbar = ({ setExpanded }) => {
             </a>
           </div>
           {/* discord */}
-          <div style={{ display: "flex", alignItems: "center" }}>
+          {/* <div style={{ display: "flex", alignItems: "center" }}>
             <a
               href="https://github.com/joshmarnold/frontend-interview-guide.git"
               target="_blank"
@@ -86,7 +86,7 @@ const Navbar = ({ setExpanded }) => {
                 </g>
               </svg>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

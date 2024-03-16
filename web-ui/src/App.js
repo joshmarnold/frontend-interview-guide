@@ -5,12 +5,19 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 // import "highlight.js/styles/agate.css";
 // import "highlight.js/styles/atom-one-dark.css";
 import "highlight.js/styles/vs2015.css";
-
 import "./App.scss";
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 const Home = lazy(() => import("./pages/Home"));
 const DomApi = lazy(() => import("./pages/DomApi"));
@@ -98,104 +105,116 @@ const Behavioral = lazy(() => import("./pages/Behavioral"));
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          {/* algorithsm and data structures */}
-          <Route path="ds-algos" element={<DSAndAlgos />} />
-          <Route path="ds-algos/string" element={<String />} />
-          <Route path="ds-algos/array" element={<Array />} />
-          <Route path="ds-algos/backtracking" element={<Backtracking />} />
-          <Route path="ds-algos/bfs" element={<BFS />} />
-          <Route path="ds-algos/binary-search" element={<BinarySearch />} />
-          <Route path="ds-algos/binary-tree" element={<BinaryTree />} />
-          <Route path="ds-algos/dfs" element={<DFS />} />
-          <Route path="ds-algos/graph" element={<Graph />} />
-          <Route path="ds-algos/heap" element={<Heap />} />
-          <Route path="ds-algos/how-to-approach" element={<HowToApproach />} />
-          <Route path="ds-algos/linked-list" element={<LinkedList />} />
-          <Route path="ds-algos/map" element={<Map />} />
-          <Route path="ds-algos/queue" element={<Queue />} />
-          <Route path="ds-algos/recursion" element={<Recursion />} />
-          <Route path="ds-algos/set" element={<Set />} />
-          <Route path="ds-algos/stack" element={<Stack />} />
-          <Route path="ds-algos/string" element={<String />} />
-          <Route path="ds-algos/trie" element={<Trie />} />
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            {/* algorithsm and data structures */}
+            <Route path="ds-algos" element={<DSAndAlgos />} />
+            <Route path="ds-algos/string" element={<String />} />
+            <Route path="ds-algos/array" element={<Array />} />
+            <Route path="ds-algos/backtracking" element={<Backtracking />} />
+            <Route path="ds-algos/bfs" element={<BFS />} />
+            <Route path="ds-algos/binary-search" element={<BinarySearch />} />
+            <Route path="ds-algos/binary-tree" element={<BinaryTree />} />
+            <Route path="ds-algos/dfs" element={<DFS />} />
+            <Route path="ds-algos/graph" element={<Graph />} />
+            <Route path="ds-algos/heap" element={<Heap />} />
+            <Route
+              path="ds-algos/how-to-approach"
+              element={<HowToApproach />}
+            />
+            <Route path="ds-algos/linked-list" element={<LinkedList />} />
+            <Route path="ds-algos/map" element={<Map />} />
+            <Route path="ds-algos/queue" element={<Queue />} />
+            <Route path="ds-algos/recursion" element={<Recursion />} />
+            <Route path="ds-algos/set" element={<Set />} />
+            <Route path="ds-algos/stack" element={<Stack />} />
+            <Route path="ds-algos/string" element={<String />} />
+            <Route path="ds-algos/trie" element={<Trie />} />
 
-          {/* web dev */}
-          <Route path="web-dev" element={<WebDev />} />
-          <Route path="web-dev/a11y" element={<A11y />} />
-          <Route path="web-dev/i18n" element={<I18n />} />
-          <Route path="web-dev/api" element={<API />} />
-          <Route path="web-dev/caching" element={<Caching />} />
-          <Route path="web-dev/database" element={<Database />} />
-          <Route path="web-dev/devtools" element={<Devtools />} />
-          <Route path="web-dev/networking" element={<Networking />} />
-          <Route
-            path="web-dev/performance-and-metrics"
-            element={<PerformanceAndMetrics />}
-          />
-          <Route path="web-dev/security" element={<Security />} />
+            {/* web dev */}
+            <Route path="web-dev" element={<WebDev />} />
+            <Route path="web-dev/a11y" element={<A11y />} />
+            <Route path="web-dev/i18n" element={<I18n />} />
+            <Route path="web-dev/api" element={<API />} />
+            <Route path="web-dev/caching" element={<Caching />} />
+            <Route path="web-dev/database" element={<Database />} />
+            <Route path="web-dev/devtools" element={<Devtools />} />
+            <Route path="web-dev/networking" element={<Networking />} />
+            <Route
+              path="web-dev/performance-and-metrics"
+              element={<PerformanceAndMetrics />}
+            />
+            <Route path="web-dev/security" element={<Security />} />
 
-          {/* other */}
-          <Route path="dom-api" element={<DomApi />} />
-          <Route path="css" element={<CSS />} />
-          <Route path="javascript" element={<JavaScript />} />
-          <Route path="react" element={<React />} />
-          <Route path="general-programming" element={<GeneralProgramming />} />
-          <Route path="behavioral" element={<Behavioral />} />
-          <Route path="interview-prep" element={<InterviewPrep />} />
-          <Route
-            path="interview-prep/questions-for-interviewer"
-            element={<QuestionsForInterviewer />}
-          />
-          <Route
-            path="interview-prep/handling-coding-exercises"
-            element={<HandlingCodingExercises />}
-          />
+            {/* other */}
+            <Route path="dom-api" element={<DomApi />} />
+            <Route path="css" element={<CSS />} />
+            <Route path="javascript" element={<JavaScript />} />
+            <Route path="react" element={<React />} />
+            <Route
+              path="general-programming"
+              element={<GeneralProgramming />}
+            />
+            <Route path="behavioral" element={<Behavioral />} />
+            <Route path="interview-prep" element={<InterviewPrep />} />
+            <Route
+              path="interview-prep/questions-for-interviewer"
+              element={<QuestionsForInterviewer />}
+            />
+            <Route
+              path="interview-prep/handling-coding-exercises"
+              element={<HandlingCodingExercises />}
+            />
 
-          <Route path="html" element={<HTML />} />
+            <Route path="html" element={<HTML />} />
 
-          {/* system design */}
-          <Route path="frontend-system-design" element={<SystemDesignDocs />} />
-          <Route
-            path="frontend-system-design/requirements"
-            element={<Requirements />}
-          />
-          <Route
-            path="frontend-system-design/architecture"
-            element={<Architecture />}
-          />
+            {/* system design */}
+            <Route
+              path="frontend-system-design"
+              element={<SystemDesignDocs />}
+            />
+            <Route
+              path="frontend-system-design/requirements"
+              element={<Requirements />}
+            />
+            <Route
+              path="frontend-system-design/architecture"
+              element={<Architecture />}
+            />
 
-          {/* project management */}
-          <Route path="project-management" element={<ProjectManagement />} />
-          <Route
-            path="project-management/initiation"
-            element={<Initiation />}
-          />
-          <Route path="project-management/planning" element={<Planning />} />
-          <Route
-            path="project-management/execution-and-control"
-            element={<ExecutionAndControl />}
-          />
-          <Route
-            path="project-management/monitoring-and-evaluation"
-            element={<MonitoringAndEvaluation />}
-          />
-          <Route
-            path="project-management/methodologies"
-            element={<Methodologies />}
-          />
-          <Route
-            path="project-management/frameworks"
-            element={<Frameworks />}
-          />
+            {/* project management */}
+            <Route path="project-management" element={<ProjectManagement />} />
+            <Route
+              path="project-management/initiation"
+              element={<Initiation />}
+            />
+            <Route path="project-management/planning" element={<Planning />} />
+            <Route
+              path="project-management/execution-and-control"
+              element={<ExecutionAndControl />}
+            />
+            <Route
+              path="project-management/monitoring-and-evaluation"
+              element={<MonitoringAndEvaluation />}
+            />
+            <Route
+              path="project-management/methodologies"
+              element={<Methodologies />}
+            />
+            <Route
+              path="project-management/frameworks"
+              element={<Frameworks />}
+            />
 
-          <Route path="*" element={<Navigate to="/" />} />
-        </Route>
-      </Routes>
-    </Router>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

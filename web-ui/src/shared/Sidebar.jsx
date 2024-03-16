@@ -270,7 +270,7 @@ const CustomContent = forwardRef(function CustomContent(props, ref) {
   );
 });
 
-const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
+function CustomTreeItem(props) {
   return (
     <TreeItem
       ContentComponent={(compProps) => {
@@ -283,12 +283,11 @@ const CustomTreeItem = forwardRef(function CustomTreeItem(props, ref) {
         );
       }}
       {...props}
-      ref={ref}
       children={props.hasChildren ? props.children : null}
       expandIcon={null}
     />
   );
-});
+}
 
 const renderTree = (nodes, navigate) => {
   return (
