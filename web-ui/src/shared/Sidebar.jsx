@@ -326,8 +326,8 @@ const Sidebar = ({ expanded, setExpanded }) => {
         aria-label="rich object"
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpandIcon={<ChevronRightIcon />}
-        defaultExpanded={initialOpenState}
-        defaultSelected={[pathsToIds[currentPage]]}
+        // defaultExpanded={initialOpenState}
+        // defaultSelected={[pathsToIds[currentPage]]}
         sx={{
           minHeight: 110,
           flexGrow: 1,
