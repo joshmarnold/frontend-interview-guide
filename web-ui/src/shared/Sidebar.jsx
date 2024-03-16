@@ -164,7 +164,7 @@ const data = {
       ],
     },
     { id: "15", name: "Behavorial", path: "behavioral", isHeader: false },
-    { id: "12", name: "Extras", isHeader: true },
+    { id: "12", name: "Extras", isHeader: true, disabled: true },
     // project management
     {
       id: "11",
@@ -284,6 +284,7 @@ function CustomTreeItem(props) {
       {...props}
       children={props.hasChildren ? props.children : null}
       expandIcon={null}
+      disabled={props.disabled}
     />
   );
 }
@@ -297,6 +298,7 @@ const renderTree = (nodes, navigate) => {
       hasChildren={Array.isArray(nodes.children)}
       navigate={() => navigate(nodes.path)}
       className={nodes.children ? "has-children" : ""}
+      disabled={nodes.disabled}
     >
       {Array.isArray(nodes.children)
         ? nodes.children.map((node) => renderTree(node, navigate))
@@ -325,8 +327,8 @@ const Sidebar = ({ expanded, setExpanded }) => {
         defaultCollapseIcon={<ExpandMoreIcon />}
         defaultExpandIcon={<ChevronRightIcon />}
         defaultExpanded={initialOpenState || []}
-        // defaultSelected={[pathsToIds[currentPage]]}
         selected={[pathsToIds[currentPage]]}
+        disableSelection={true}
         sx={{
           minHeight: 110,
           flexGrow: 1,
