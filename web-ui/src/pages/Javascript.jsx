@@ -1,6 +1,12 @@
 import QuestionAnswer from "../shared/QuestionAnswer";
 import TopicsList from "../shared/TopicsList";
 import ListItemLink from "../shared/ListItemLink";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Highlight from "react-highlight";
+
+import { useState } from "react";
+import CustomTabPanel, { a11yProps } from "../shared/CustomTabPanel";
 
 const questionsAndAnswers = [
   // Primitive and Object Types
@@ -362,15 +368,11 @@ const About = () => {
         />
         <ListItemLink
           to="https://www.youtube.com/watch?v=Nt-qa_LlUH0"
-          text="Hoisting / Execution Context"
+          text="Hoisting / Execution Context (Broken)"
         />
         <ListItemLink
-          to="https://www.youtube.com/watch?v=zE9iro4r918"
+          to="https://www.youtube.com/watch?v=fVXp7ZWjlO4"
           text="this, call, apply, bind"
-        />
-        <ListItemLink
-          to="https://www.youtube.com/watch?v=XskMWBXNbp0&t=1s"
-          text="prototype (Video 1)"
         />
         <ListItemLink
           to="https://www.youtube.com/watch?v=GhJTy5-X3kA&t=2s"
@@ -386,6 +388,12 @@ const About = () => {
 };
 
 const JavaScript = () => {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
     <>
       <div
@@ -396,36 +404,127 @@ const JavaScript = () => {
           marginTop: "20px",
         }}
       >
-        <About />
-        <br></br>
-        <TopicsList>
-          <ol style={{ margin: 0 }}>
-            <li style={{ margin: 0 }}>Data Types and Objects</li>
-            <li>
-              <span className="tag">this</span> Keyword and Binding
-            </li>
-            <li>Prototypal Inheritance</li>
-            <li>Functions and Scope</li>
-            <li>Promises and Async/Await</li>
-            <li>Execution Context and Call Stack</li>
-            <li>Event Loop and Web APIs</li>
-            <li>Type Coercion and Comparison Operators</li>
-            <li>ES6 Features (Arrow Functions, Classes, etc.)</li>
-            <li>Error Handling</li>
-            <li>Object Manipulation</li>
-            <li>Closures</li>
-          </ol>
-        </TopicsList>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          variant="fullWidth"
+          textColor="white"
+        >
+          <Tab label="Learn" {...a11yProps(0)} />
+          <Tab label="Quiz" {...a11yProps(1)} />
+        </Tabs>
+        <CustomTabPanel value={value} index={0}>
+          <About />
+          <br></br>
+          <h2 className="tag">this</h2>
+          <p>
+            practically speaking, in the context of an object's method, this
+            refers to the object itself. It's a way for the method to access the
+            object's other properties and methods. So, when you see "this" used
+            within a method, it's generally pointing to the object that the
+            method is a part of. This allows the method to interact with the
+            object's data or call its other methods, acting as a reference to
+            the object itself.
+          </p>
+          <p>
+            However, arrow functions do not have their own this. If this is used
+            within an arrow function, it will be inherited from the enclosing
+            scope/ execution context. This could be the global object, the
+            object containing the method that the arrow function is within, or
+            any other scope where the arrow function is defined.
+          </p>
+          {/* code example */}
+          <Highlight language="javascript">
+            {`
+// Using a regular function
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function() {
+    // 'this' refers to the person object
+    return this.firstName + " " + this.lastName;
+  }
+};
+console.log(person.fullName()); // John Doe
 
-        <br></br>
-        {questionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+// Adding an arrow function example
+const personWithArrow = {
+  firstName: "Jane",
+  lastName: "Doe",
+  getFullName: () => {
+    // Arrow functions don't bind 'this', so this won't work as expected
+    // 'this' will refer to the global object, not the person object
+    return this.firstName + " " + this.lastName;
+  }
+};
+console.log(personWithArrow.getFullName()); // undefined undefined
+
+// Correct use of arrow function with 'this' outside the method
+const firstName = "Global Jane";
+const lastName = "Global Doe";
+console.log(personWithArrow.getFullName()); // Global Jane Global Doe            
+            `}
+          </Highlight>
+
+          {/* call appl bind */}
+          <h2 className="tag">call, apply, bind</h2>
+          <p>
+            These are methods that can be used to set the value of this, and
+            invoke a function with a specific this value. They are used to
+            borrow methods from other objects, set the value of this, and invoke
+            functions with a specific this value.
+          </p>
+          <Highlight language="javascript">
+            {`
+// call
+function greet() {
+  return "Hello, " + this.name;
+}
+const person = { name: "John" };
+console.log(greet.call(person)); // Hello, John
+
+// apply
+function greet2(greeting) {
+  return greeting + ", " + this.name;
+}
+console.log(greet2.apply(person, ["Hi"])); // Hi, John
+
+// bind
+const greet3 = greet.bind(person);
+console.log(greet3()); // Hello, John
+            `}
+          </Highlight>
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1}>
+          <TopicsList>
+            <ol style={{ margin: 0 }}>
+              <li style={{ margin: 0 }}>Data Types and Objects</li>
+              <li>
+                <span className="tag">this</span> Keyword and Binding
+              </li>
+              <li>Prototypal Inheritance</li>
+              <li>Functions and Scope</li>
+              <li>Promises and Async/Await</li>
+              <li>Execution Context and Call Stack</li>
+              <li>Event Loop and Web APIs</li>
+              <li>Type Coercion and Comparison Operators</li>
+              <li>ES6 Features (Arrow Functions, Classes, etc.)</li>
+              <li>Error Handling</li>
+              <li>Object Manipulation</li>
+              <li>Closures</li>
+            </ol>
+          </TopicsList>
+          <br></br>
+          {questionsAndAnswers.map((qa, index) => (
+            <QuestionAnswer
+              key={index}
+              question={qa.question}
+              answer={qa.answer}
+              index={index}
+            />
+          ))}
+        </CustomTabPanel>
       </div>
     </>
   );

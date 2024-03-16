@@ -192,9 +192,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <br></br>
-
       <Accordion items={sections} openedByDefault={0} />
-
       <h3 style={{ fontSize: "16px", marginBottom: "16px" }}>
         Recommended Videos When Starting
       </h3>
@@ -219,7 +217,6 @@ const Home = () => {
           <IconExternalLink size="1rem" />
         </a>
       </div>
-
       <h3 style={{ fontSize: "16px" }}>Topics</h3>
       <div className="grid-items-container">
         {topics.map((topic, index) => (
@@ -234,6 +231,19 @@ const Home = () => {
           </button>
         ))}
       </div>
+      <h3 style={{ fontSize: "16px" }}>Pracice UI problems</h3>
+      <span>
+        Visit{" "}
+        <a
+          href="https://www.greatfrontend.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          greatfrontend.com
+          <IconExternalLink size="1rem" />
+        </a>{" "}
+        to practice UI coding problems.
+      </span>
     </div>
   );
 };

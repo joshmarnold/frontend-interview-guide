@@ -340,6 +340,96 @@ const htmlQuestions = [
       </p>
     ),
   },
+  {
+    question: "Describe event bubbling",
+    answer: (
+      <>
+        <p>
+          Event bubbling is a mechanism in which an event triggered on a nested
+          element propagates up through its ancestor elements in the DOM tree
+          until it reaches the root element or an element with an event listener
+          that stops the propagation. When an event is triggered on an element,
+          the event is first captured and handled by the innermost element and
+          then propagated to outer elements.
+        </p>
+        <p>
+          During the bubbling phase, the event is transmitted from the target
+          element to its parent elements, then to their parent elements, and so
+          on, until it reaches the top of the DOM hierarchy. This allows parent
+          elements to respond to events that occur on their child elements.
+        </p>
+        <p>
+          Event bubbling enables event delegation, where a single event listener
+          can be attached to a parent element to handle events triggered by its
+          child elements. This is useful when you have multiple child elements
+          that require the same event handling logic, as it reduces the number
+          of event listeners needed and improves performance.
+        </p>
+        <p>
+          To stop event bubbling and prevent the event from being propagated to
+          parent elements, you can use the <code>stopPropagation()</code> method
+          on the event object. This prevents the event from being handled by any
+          parent elements in the bubbling phase.
+        </p>
+      </>
+    ),
+  },
+
+  {
+    question: "Explain event delegation",
+    answer: (
+      <>
+        <p>
+          Event delegation is a technique in JavaScript where a single event
+          listener is attached to a parent element to handle events triggered by
+          its child elements, instead of attaching event listeners to each
+          individual child element. It relies on the event bubbling mechanism,
+          where events triggered on child elements propagate up to their parent
+          elements.
+        </p>
+        <p>
+          The main idea behind event delegation is that when an event occurs on
+          a child element, it will bubble up to its parent elements. By
+          attaching an event listener to a parent element, you can capture and
+          handle the event when it reaches the parent, regardless of which child
+          element triggered the event.
+        </p>
+        <p>Event delegation has several benefits:</p>
+        <ul>
+          <li>
+            <strong>Efficiency:</strong> Instead of attaching event listeners to
+            each child element, you only need to attach a single event listener
+            to the parent element. This reduces the number of event listeners
+            needed, improving performance and memory usage.
+          </li>
+          <li>
+            <strong>Dynamic elements:</strong> Event delegation works well with
+            dynamically added elements. When new child elements are added to the
+            parent, they automatically inherit the event listener attached to
+            the parent, without the need to explicitly attach event listeners to
+            each new child element.
+          </li>
+          <li>
+            <strong>Simplified code:</strong> Event delegation simplifies your
+            code by reducing the need to manage individual event listeners for
+            each child element. You can handle events for multiple child
+            elements with a single event listener on the parent.
+          </li>
+        </ul>
+        <p>
+          To implement event delegation, you attach the event listener to the
+          parent element and then use the <code>event.target</code> property to
+          determine which child element triggered the event. You can then
+          perform the desired actions based on the target element.
+        </p>
+        <p>
+          Event delegation is particularly useful when dealing with a large
+          number of child elements or when the child elements are dynamically
+          added or removed from the DOM.
+        </p>
+      </>
+    ),
+  },
 ];
 
 const AboutHTML = () => {

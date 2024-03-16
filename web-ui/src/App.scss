@@ -218,10 +218,16 @@ a {
   }
 }
 
+.questions-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .label {
   fill: white;
   font-size: 16px;
-  textanchor: middle;
+  text-anchor: middle;
   alignment-baseline: middle;
 }
 
@@ -230,8 +236,10 @@ a {
   background-color: #44475a;
   padding: 2px 5px;
   border-radius: 5px;
-  font-size: 15px;
+  // font-size: 15px;
   font-weight: bold;
+  display: inline-block;
+  width: fit-content;
 }
 
 .divider {
