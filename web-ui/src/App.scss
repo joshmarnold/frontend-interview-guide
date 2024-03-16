@@ -167,6 +167,20 @@ a {
   }
 }
 
+code {
+  background-color: #444;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
 // Navigation
 .nav {
   li {
@@ -288,6 +302,9 @@ a {
   transition: color 0.1s;
   user-select: none;
   text-wrap: nowrap;
+  display: flex;
+  align-items: center;
+  padding-right: 4px;
 }
 
 .hljs {

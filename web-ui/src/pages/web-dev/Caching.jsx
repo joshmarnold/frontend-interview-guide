@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionAnswer from "../../shared/QuestionAnswer";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const frontendCaching = [
   {
@@ -617,14 +617,10 @@ const Caching = () => {
           marginTop: "20px",
         }}
       >
-        {frontendCaching.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="caching-frontend"
+          questions={frontendCaching}
+        />
 
         <h2>Backend Caching</h2>
         <div
@@ -635,14 +631,10 @@ const Caching = () => {
             marginTop: "20px",
           }}
         >
-          {backendCaching.map((qa, index) => (
-            <QuestionAnswer
-              key={index}
-              question={qa.question}
-              answer={qa.answer}
-              index={index}
-            />
-          ))}
+          <QuestionsWrapper
+            storageKey="caching-backend"
+            questions={backendCaching}
+          />
         </div>
       </div>
     </div>

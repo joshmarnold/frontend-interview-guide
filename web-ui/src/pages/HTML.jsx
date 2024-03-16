@@ -1,7 +1,7 @@
 import React from "react";
 import ListItemLink from "../shared/ListItemLink";
-import QuestionAnswer from "../shared/QuestionAnswer";
 import Highlight from "react-highlight";
+import QuestionsWrapper from "../shared/QuestionsWrapper";
 
 const htmlQuestions = [
   {
@@ -69,14 +69,46 @@ const htmlQuestions = [
     ),
   },
   {
-    question: "What is the purpose of the 'label' tag in HTML forms?",
+    question:
+      "What is the purpose of the 'label' tag and the 'for' attribute in HTML forms?",
     answer: (
-      <p>
-        The <code>label</code> tag is used to provide a text label for an input
-        element in an HTML form. It helps associate the label with its
-        corresponding input field, improving usability and accessibility.
-        Clicking on the label text will focus the associated input field.
-      </p>
+      <>
+        <p>
+          The <code>label</code> tag is used to provide a text label for an
+          input element in an HTML form. It enhances usability and accessibility
+          by associating the label with its corresponding input field. The{" "}
+          <code>for</code> attribute is used to establish this association.
+        </p>
+        <p>
+          The <code>for</code> attribute of the <code>label</code> tag should be
+          equal to the <code>id</code> attribute of the related input element.
+          This creates a logical connection between the label and the input
+          field.
+        </p>
+        <Highlight language="html">
+          {`<label for="username">Username:</label>
+<input type="text" id="username" name="username">`}
+        </Highlight>
+
+        <p>
+          It's important to note that the <code>for</code> attribute is not
+          required if the <code>label</code> tag is wrapped around the input
+          element itself. In this case, the association is implied by the
+          nesting structure.
+        </p>
+        <Highlight language="html">
+          {`<label>
+  Username:
+  <input type="text" name="username">
+</label>`}
+        </Highlight>
+        <p>
+          However, using the <code>for</code> attribute is still considered a
+          best practice for explicitly associating labels with their
+          corresponding input fields, especially when the label and input are
+          not adjacent in the HTML structure.
+        </p>
+      </>
     ),
   },
   {
@@ -498,14 +530,7 @@ const HTML = () => {
         </ul>
 
         <br />
-        {htmlQuestions.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper storageKey="html" questions={htmlQuestions} />
       </div>
     </>
   );

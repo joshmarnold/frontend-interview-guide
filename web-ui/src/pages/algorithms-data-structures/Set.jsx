@@ -1,5 +1,4 @@
 import Highlight from "react-highlight";
-import { PageHeader } from "../../shared/PageHeader"; // Adjust the path as needed
 
 const SetComponent = () => {
   return (

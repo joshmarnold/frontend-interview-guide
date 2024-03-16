@@ -1,6 +1,6 @@
 import { useState } from "react";
-import QuestionAnswer from "../../shared/QuestionAnswer";
 import TopicsList from "../../shared/TopicsList";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const questionsAndAnswers = [
   {
@@ -738,26 +738,21 @@ const Accessibility = () => {
         </TopicsList>
 
         <br></br>
-        {[...questionsAndAnswers, ...googleLightHouseQuestionsAnswers].map(
-          (qa, index) => (
-            <QuestionAnswer
-              key={index}
-              question={qa.question}
-              answer={qa.answer}
-              index={index}
-            />
-          )
-        )}
+
+        <QuestionsWrapper
+          storageKey={"a11y-other"}
+          questionsAndAnswers={[
+            ...questionsAndAnswers,
+            ...googleLightHouseQuestionsAnswers,
+          ]}
+        />
 
         <h2>Chrome Accessibility Questions</h2>
-        {chromeQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+
+        <QuestionsWrapper
+          storageKey={"a11y-chrome"}
+          questionsAndAnswers={questionsAndAnswers}
+        />
       </div>
       <br></br>
       <br></br>

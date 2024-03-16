@@ -1,4 +1,4 @@
-import QuestionAnswer from "../shared/QuestionAnswer";
+import QuestionsWrapper from "../shared/QuestionsWrapper";
 
 const questionsAndAnswers = [
   {
@@ -278,14 +278,7 @@ const React = () => {
           width: "100%",
         }}
       >
-        {questionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper storageKey="react" questions={questionsAndAnswers} />
       </div>
     </>
   );

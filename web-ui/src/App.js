@@ -94,6 +94,7 @@ const MonitoringAndEvaluation = lazy(() =>
   import("./pages/project-management/MonitoringAndEvaluation")
 );
 const Planning = lazy(() => import("./pages/project-management/Planning"));
+const Behavioral = lazy(() => import("./pages/Behavioral"));
 
 function App() {
   return (
@@ -143,6 +144,7 @@ function App() {
           <Route path="javascript" element={<JavaScript />} />
           <Route path="react" element={<React />} />
           <Route path="general-programming" element={<GeneralProgramming />} />
+          <Route path="behavioral" element={<Behavioral />} />
           <Route path="interview-prep" element={<InterviewPrep />} />
           <Route
             path="interview-prep/questions-for-interviewer"

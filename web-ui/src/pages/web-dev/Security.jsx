@@ -1,4 +1,4 @@
-import QuestionAnswer from "../../shared/QuestionAnswer";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const securityQuestions = [
   {
@@ -316,14 +316,7 @@ const Security = () => {
           marginTop: "20px",
         }}
       >
-        {securityQuestions.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper storageKey="Security" questions={securityQuestions} />
       </div>
     </>
   );

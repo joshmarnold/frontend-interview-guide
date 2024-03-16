@@ -1,4 +1,4 @@
-import QuestionAnswer from "../../shared/QuestionAnswer";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const generalQuestionsAndAnswers = [
   {
@@ -303,34 +303,24 @@ const Database = () => {
           marginTop: "20px",
         }}
       >
-        {generalQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="db-general"
+          questions={generalQuestionsAndAnswers}
+        />
 
         <h2>Replication & Sharding</h2>
-        {replicationShardingQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+
+        <QuestionsWrapper
+          storageKey="db-replication-sharding"
+          questions={replicationShardingQuestionsAndAnswers}
+        />
 
         <h2>Object Storage</h2>
-        {objectStorageQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+
+        <QuestionsWrapper
+          storageKey="db-object-storage"
+          questions={objectStorageQuestionsAndAnswers}
+        />
       </div>
       <br></br>
       <br></br>

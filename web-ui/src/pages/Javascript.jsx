@@ -1,4 +1,3 @@
-import QuestionAnswer from "../shared/QuestionAnswer";
 import TopicsList from "../shared/TopicsList";
 import ListItemLink from "../shared/ListItemLink";
 import Tabs from "@mui/material/Tabs";
@@ -7,6 +6,7 @@ import Highlight from "react-highlight";
 
 import { useState } from "react";
 import CustomTabPanel, { a11yProps } from "../shared/CustomTabPanel";
+import QuestionsWrapper from "../shared/QuestionsWrapper";
 
 const questionsAndAnswers = [
   // Primitive and Object Types
@@ -516,14 +516,8 @@ console.log(greet3()); // Hello, John
             </ol>
           </TopicsList>
           <br></br>
-          {questionsAndAnswers.map((qa, index) => (
-            <QuestionAnswer
-              key={index}
-              question={qa.question}
-              answer={qa.answer}
-              index={index}
-            />
-          ))}
+
+          <QuestionsWrapper storageKey="js" questions={questionsAndAnswers} />
         </CustomTabPanel>
       </div>
     </>

@@ -1,4 +1,4 @@
-import QuestionAnswer from "../../shared/QuestionAnswer";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const generalQuestionsAndAnswers = [
   {
@@ -240,24 +240,18 @@ const Internationalization = () => {
         </p>
 
         <h2>General Internationalization</h2>
-        {generalQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+
+        <QuestionsWrapper
+          storageKey="i18n-general"
+          questions={generalQuestionsAndAnswers}
+        />
 
         <h2>React Intl</h2>
-        {reactIntlQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+
+        <QuestionsWrapper
+          storageKey="i18n-react"
+          questions={reactIntlQuestionsAndAnswers}
+        />
       </div>
       <br></br>
       <br></br>

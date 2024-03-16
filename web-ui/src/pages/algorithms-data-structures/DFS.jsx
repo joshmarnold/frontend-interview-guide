@@ -1,5 +1,4 @@
 import React from "react";
-import { PageHeader } from "../../shared/PageHeader";
 import Highlight from "react-highlight";
 
 const DepthFirstSearch = () => {

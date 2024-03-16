@@ -51,6 +51,7 @@ export const paramToTitle = {
   "monitoring-and-evaluation": "Project Monitoring & Evaluation",
   methodologies: "Project Methodologies",
   frameworks: "Project Frameworks",
+  behavioral: "Behavioral",
 };
 
 export const PageHeader = () => {

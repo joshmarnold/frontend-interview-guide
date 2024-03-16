@@ -80,9 +80,6 @@ const sections = [
           </li>
           <li>Minimal, essential content to teach new concepts.</li>
           <li>
-            No "locked" content. Everything is <strong>free</strong> to access.
-          </li>
-          <li>
             Open source. This guide is open to contributions and feedback.
           </li>
         </ol>
@@ -112,19 +109,12 @@ const sections = [
           {`frontend-interview-guide
   ├── web-ui
   ├── practice-problems
-  │   ├── UI
   │   ├── algo`}
         </Highlight>
 
         <ul>
           <li>
             <strong>web-ui</strong>: Is this site.
-          </li>
-          <li>
-            <strong>UI</strong>: Contains practical UI-related questions like
-            build an accordion or build a calculator. The expectation is that
-            you can build these components from scratch first using vanilla JS
-            and then using a framework like React.
           </li>
           <li>
             <strong>Algorithms & Data Structures</strong>: This section follows
@@ -232,18 +222,20 @@ const Home = () => {
         ))}
       </div>
       <h3 style={{ fontSize: "16px" }}>Pracice UI problems</h3>
-      <span>
-        Visit{" "}
-        <a
-          href="https://www.greatfrontend.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          greatfrontend.com
-          <IconExternalLink size="1rem" />
-        </a>{" "}
-        to practice UI coding problems.
-      </span>
+      <p>
+        <span>
+          Visit{" "}
+          <a
+            href="https://www.greatfrontend.com/prepare/coding"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            greatfrontend.com
+            <IconExternalLink size="1rem" />
+          </a>{" "}
+          to practice UI coding problems.
+        </span>
+      </p>
     </div>
   );
 };

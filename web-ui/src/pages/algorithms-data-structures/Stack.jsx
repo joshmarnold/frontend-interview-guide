@@ -1,5 +1,4 @@
 import Highlight from "react-highlight";
-import { PageHeader } from "../../shared/PageHeader";
 
 const StackComponent = () => {
   return (

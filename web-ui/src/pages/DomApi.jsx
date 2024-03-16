@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Highlight from "react-highlight";
-import QuestionAnswer from "../shared/QuestionAnswer";
 import TopicsList from "../shared/TopicsList";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
@@ -8,6 +7,7 @@ import Tabs from "@mui/material/Tabs";
 import "./DomApi.scss";
 import { IconExternalLink } from "@tabler/icons-react";
 import CustomTabPanel, { a11yProps } from "../shared/CustomTabPanel";
+import QuestionsWrapper from "../shared/QuestionsWrapper";
 
 const accessingDOMElementsQuestions = [
   {
@@ -397,14 +397,10 @@ const AccessingDOMElements = () => {
           marginTop: "20px",
         }}
       >
-        {accessingDOMElementsQuestions.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="domapi-dom-elements"
+          questions={accessingDOMElementsQuestions}
+        />
       </div>
     </>
   );
@@ -649,14 +645,10 @@ const ManipulatingDOMElements = () => {
           marginTop: "20px",
         }}
       >
-        {manipulatingDOMElementsQuestions.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="domapi-manipulating-dom-elements"
+          questions={manipulatingDOMElementsQuestions}
+        />
       </div>
     </>
   );
@@ -965,14 +957,10 @@ const HandlingEvents = () => {
           marginTop: "20px",
         }}
       >
-        {handlingEventsQuestions.map((qa, index) => (
-          <QuestionAnswer
-            index={index}
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="domapi-handling-events"
+          questions={handlingEventsQuestions}
+        />
       </div>
     </>
   );
@@ -1095,14 +1083,10 @@ const WorkingWithForms = () => {
           marginTop: "20px",
         }}
       >
-        {formQuestionsAnswers.map((qa, index) => (
-          <QuestionAnswer
-            index={index}
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="domapi-forms"
+          questions={formQuestionsAnswers}
+        />
       </div>
     </>
   );
@@ -1220,14 +1204,7 @@ const General = () => {
           marginTop: "20px",
         }}
       >
-        {generalQuestions.map((qa, index) => (
-          <QuestionAnswer
-            index={index}
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-          />
-        ))}
+        <QuestionsWrapper storageKey="domapi" questions={generalQuestions} />
       </div>
     </>
   );

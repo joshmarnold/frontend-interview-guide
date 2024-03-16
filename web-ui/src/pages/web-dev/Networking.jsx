@@ -1,4 +1,4 @@
-import QuestionAnswer from "../../shared/QuestionAnswer";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const generalQuestionsAndAnswers = [
   {
@@ -230,7 +230,7 @@ const generalQuestionsAndAnswers = [
   },
 ];
 
-const Database = () => {
+const Networking = () => {
   return (
     <>
       <div
@@ -241,14 +241,10 @@ const Database = () => {
           marginTop: "20px",
         }}
       >
-        {generalQuestionsAndAnswers.map((qa, index) => (
-          <QuestionAnswer
-            key={index}
-            question={qa.question}
-            answer={qa.answer}
-            index={index}
-          />
-        ))}
+        <QuestionsWrapper
+          storageKey="networking"
+          questions={generalQuestionsAndAnswers}
+        />
       </div>
       <br></br>
       <br></br>
@@ -263,4 +259,4 @@ const Database = () => {
   );
 };
 
-export default Database;
+export default Networking;

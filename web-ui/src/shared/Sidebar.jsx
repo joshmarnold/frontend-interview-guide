@@ -97,18 +97,7 @@ const data = {
       id: "7",
       name: "Frontend System Design",
       path: "frontend-system-design",
-      children: [
-        {
-          id: "7-1",
-          name: "Requirements",
-          path: "frontend-system-design/requirements",
-        },
-        {
-          id: "7-2",
-          name: "Architecture",
-          path: "frontend-system-design/architecture",
-        },
-      ],
+      children: [],
     },
     {
       id: "8",
@@ -175,6 +164,7 @@ const data = {
         },
       ],
     },
+    { id: "15", name: "Behavorial", path: "behavioral", isHeader: false },
     { id: "12", name: "Extras", isHeader: true },
     // project management
     {

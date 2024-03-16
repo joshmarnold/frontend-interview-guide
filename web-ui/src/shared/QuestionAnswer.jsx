@@ -3,9 +3,20 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Checkbox from "@mui/material/Checkbox";
 
-const QuestionAnswer = ({ question, answer, index, storageKey }) => {
+const QuestionAnswer = ({
+  question,
+  answer,
+  index,
+  storageKey,
+  handleGlobalChange,
+  isGloballyChecked,
+}) => {
   const [showAnswer, setShowAnswer] = useState(false);
-  const [isAnswered, setIsAnswered] = useState(false);
+  const [isAnswered, setIsAnswered] = useState(isGloballyChecked);
+
+  useEffect(() => {
+    setIsAnswered(isGloballyChecked);
+  }, [isGloballyChecked]);
 
   useEffect(() => {
     const storedState = localStorage.getItem(`${storageKey}_${index}`);
@@ -21,6 +32,7 @@ const QuestionAnswer = ({ question, answer, index, storageKey }) => {
   const handleCheckboxChange = (event) => {
     setIsAnswered(event.target.checked);
     localStorage.setItem(`${storageKey}_${index}`, event.target.checked);
+    handleGlobalChange(index, event.target.checked);
   };
 
   return (
@@ -42,20 +54,21 @@ const QuestionAnswer = ({ question, answer, index, storageKey }) => {
               color="primary"
               sx={{
                 color: "white",
+                "&.Mui-checked": {
+                  color: "white",
+                },
               }}
             />
           </div>
           <span>{question}</span>
         </div>
-        <div>
-          <span className="showAnswer">
-            {showAnswer ? (
-              <ExpandMore style={{ fontSize: "20px" }} />
-            ) : (
-              <ChevronRightIcon style={{ fontSize: "20px" }} />
-            )}
-          </span>
-        </div>
+        <span className="showAnswer">
+          {showAnswer ? (
+            <ExpandMore style={{ fontSize: "20px" }} />
+          ) : (
+            <ChevronRightIcon style={{ fontSize: "20px" }} />
+          )}
+        </span>
       </div>
       {showAnswer && <p className="answer">{answer}</p>}
     </div>

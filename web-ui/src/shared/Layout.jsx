@@ -14,7 +14,7 @@ const Layout = () => {
         <div className="main-inner-content">
           <NavBar setExpanded={setExpanded} />
           <br></br>
-          <PageHeader />
+          {/* <PageHeader /> */}
           <Suspense fallback={<div>Loading...</div>}>
             <Outlet />
           </Suspense>
