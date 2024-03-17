@@ -420,28 +420,23 @@ const JavaScript = () => {
         </Tabs>
         <CustomTabPanel value={value} index={0}>
           <About />
-          <br></br>
           <h2 className="tag">this</h2>
           <p>
-            practically speaking, in the context of an object's method, this
-            refers to the object itself. It's a way for the method to access the
-            object's other properties and methods. So, when you see "this" used
-            within a method, it's generally pointing to the object that the
-            method is a part of. This allows the method to interact with the
-            object's data or call its other methods, acting as a reference to
-            the object itself.
+            In JavaScript, "this" is exclusively encountered within functions or
+            methods, serving as a reference to the context in which the function
+            or method is executed. It's a way for the method to access the
+            object's other properties and methods. That's it!
           </p>
+
           <p>
-            However, arrow functions do not have their own this. If this is used
-            within an arrow function, it will be inherited from the enclosing
-            scope/ execution context. This could be the global object, the
-            object containing the method that the arrow function is within, or
-            any other scope where the arrow function is defined.
+            However, arrow functions do not have their own{" "}
+            <span className="tag">this</span>. If{" "}
+            <span className="tag">this</span> is used within an arrow function,
+            it will be inherited from the enclosing scope.
           </p>
           {/* code example */}
           <Highlight language="javascript">
-            {`
-// Using a regular function
+            {`// Using a regular function
 const person = {
   firstName: "John",
   lastName: "Doe",
@@ -467,8 +462,7 @@ console.log(personWithArrow.getFullName()); // undefined undefined
 // Correct use of arrow function with 'this' outside the method
 const firstName = "Global Jane";
 const lastName = "Global Doe";
-console.log(personWithArrow.getFullName()); // Global Jane Global Doe            
-            `}
+console.log(personWithArrow.getFullName()); // Global Jane Global Doe`}
           </Highlight>
 
           {/* call appl bind */}
@@ -480,8 +474,7 @@ console.log(personWithArrow.getFullName()); // Global Jane Global Doe
             functions with a specific this value.
           </p>
           <Highlight language="javascript">
-            {`
-// call
+            {`// call
 function greet() {
   return "Hello, " + this.name;
 }
@@ -496,8 +489,7 @@ console.log(greet2.apply(person, ["Hi"])); // Hi, John
 
 // bind
 const greet3 = greet.bind(person);
-console.log(greet3()); // Hello, John
-            `}
+console.log(greet3()); // Hello, John`}
           </Highlight>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
