@@ -21,8 +21,7 @@ const Behavioral = () => {
         <p>Be specific. Interviewers want to hear about your experiences.</p>
         <p>
           When presenting results, prioritize quantifiable outcomes whenever
-          possible. If those aren't available, opt for the following qualitative
-          results instead:
+          possible.
         </p>
         <div className="flex between">
           <div>

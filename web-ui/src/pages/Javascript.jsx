@@ -388,9 +388,13 @@ const About = () => {
 };
 
 const JavaScript = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(() => {
+    const storedTabValue = localStorage.getItem("javascript-currentTab");
+    return storedTabValue !== null ? parseInt(storedTabValue, 10) : 0;
+  });
 
   const handleChange = (event, newValue) => {
+    localStorage.setItem("javascript-currentTab", newValue);
     setValue(newValue);
   };
 

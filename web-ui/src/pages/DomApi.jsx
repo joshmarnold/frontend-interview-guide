@@ -28,31 +28,34 @@ document.getElementsByClassName("accordion-wrapper")[0]`}
           {`const accordionItems = document.querySelectorAll(".accordion");`}
         </Highlight>
         <p>
-          <code>document.querySelectorAll()</code> returns a{" "}
-          <code>NodeList</code>, which is a static collection of elements. It
-          represents a snapshot of the elements at the time the query was made
-          and does not reflect any subsequent changes to the DOM.
+          <div className="tag">document.querySelectorAll()</div> returns a{" "}
+          <div className="tag">NodeList</div>, which is a static collection of
+          elements. It represents a snapshot of the elements at the time the
+          query was made and does not reflect any subsequent changes to the DOM.
         </p>
         <Highlight className="javascript">
           {`const accordionItems = Array.from(document.getElementsByClassName("accordion"));`}
         </Highlight>
         <p>
-          <code>document.getElementsByClassName()</code> returns an{" "}
-          <code>HTMLCollection</code>, which is a live collection of elements.
-          It dynamically updates to reflect changes in the DOM, such as the
-          addition or removal of elements that match the class name.
+          <div className="tag">document.getElementsByClassName()</div> returns
+          an <div className="tag">HTMLCollection</div>, which is a live
+          collection of elements. It dynamically updates to reflect changes in
+          the DOM, such as the addition or removal of elements that match the
+          class name.
         </p>
         <p>
-          The <code>Array.from()</code> method is used to convert the{" "}
-          <code>HTMLCollection</code> into a new array instance. This is
-          necessary because <code>HTMLCollection</code> is an array-like object
-          but not an actual array. It does not have access to common array
-          methods like <code>forEach()</code>, <code>map()</code>,{" "}
-          <code>filter()</code>, etc.
+          The <div className="tag">Array.from()</div> method is used to convert
+          the <div className="tag">HTMLCollection</div> into a new array
+          instance. This is necessary because{" "}
+          <div className="tag">HTMLCollection</div> is an array-like object but
+          not an actual array. It does not have access to common array methods
+          like <div className="tag">forEach()</div>,{" "}
+          <div className="tag">map()</div>, <div className="tag">filter()</div>,
+          etc.
         </p>
         <p>
           Here's an example that demonstrates the usefulness of an{" "}
-          <code>HTMLCollection</code> being a live collection:
+          <div className="tag">HTMLCollection</div> being a live collection:
         </p>
         <Highlight className="html">
           {`<!-- index.html -->
@@ -83,12 +86,13 @@ function addItem() {
 document.getElementById('add-item').addEventListener('click', addItem);`}
         </Highlight>
         <p>
-          In this example, <code>items</code> is an <code>HTMLCollection</code>{" "}
-          that automatically updates when new elements with the class
-          'list-item' are added to the DOM. When the "Add Item" button is
-          clicked, a new item is created and appended to the list container. The{" "}
-          <code>items</code> collection automatically reflects the updated count
-          of elements, making it convenient to work with dynamic collections.
+          In this example, <div className="tag">items</div> is an{" "}
+          <div className="tag">HTMLCollection</div> that automatically updates
+          when new elements with the class 'list-item' are added to the DOM.
+          When the "Add Item" button is clicked, a new item is created and
+          appended to the list container. The <div className="tag">items</div>{" "}
+          collection automatically reflects the updated count of elements,
+          making it convenient to work with dynamic collections.
         </p>
       </div>
     ),
@@ -685,7 +689,6 @@ const AccordionExample = () => {
   return (
     <div>
       <br></br>
-      <br></br>
       <div className="example-wrapper">
         <div className="form-wrapper">
           <form id="itemForm" onSubmit={handleSubmit}>
@@ -1211,9 +1214,13 @@ const General = () => {
 };
 
 const DomApi = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(() => {
+    const storedTabValue = localStorage.getItem("domapi-currentTab");
+    return storedTabValue !== null ? parseInt(storedTabValue, 10) : 0;
+  });
 
   const handleChange = (event, newValue) => {
+    localStorage.setItem("domapi-currentTab", newValue);
     setValue(newValue);
   };
 
@@ -1340,13 +1347,11 @@ const DomApi = () => {
             </li>
           </ol>
         </TopicsList>
-        <br></br>
 
-        <h2>Example</h2>
+        {/* <h2>Example</h2> */}
         <p>
-          Let's consider an example of an accordion with a default item and a
-          form to add new items. We'll use this example to discuss and analyze
-          the DOM API concepts.
+          Example accordion with a default item and a form to add new items to
+          discuss and analyze the DOM API concepts.
         </p>
 
         <AccordionExample />

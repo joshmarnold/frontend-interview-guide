@@ -202,9 +202,13 @@ const About = () => {
 };
 
 const CSS = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(() => {
+    const storedTabValue = localStorage.getItem("css-currentTab");
+    return storedTabValue !== null ? parseInt(storedTabValue, 10) : 0;
+  });
 
   const handleChange = (event, newValue) => {
+    localStorage.setItem("css-currentTab", newValue);
     setValue(newValue);
   };
 

@@ -741,7 +741,7 @@ const Accessibility = () => {
 
         <QuestionsWrapper
           storageKey={"a11y-other"}
-          questionsAndAnswers={[
+          questions={[
             ...questionsAndAnswers,
             ...googleLightHouseQuestionsAnswers,
           ]}
@@ -751,7 +751,7 @@ const Accessibility = () => {
 
         <QuestionsWrapper
           storageKey={"a11y-chrome"}
-          questionsAndAnswers={questionsAndAnswers}
+          questions={chromeQuestionsAndAnswers}
         />
       </div>
       <br></br>

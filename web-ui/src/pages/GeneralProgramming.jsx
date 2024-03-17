@@ -61,17 +61,6 @@ const GeneralProgramming = () => {
           an object and attach whatever functionality (function) that you want.
         </li>
       </ul>
-
-      {/* Additional "need-to-know" items */}
-      <div className="divider"></div>
-      <h2>Software Development Methodologies</h2>
-      <ul>
-        <li>Waterfall Model</li>
-        <li>Agile Development</li>
-        <li>Scrum</li>
-        <li>Kanban</li>
-        <li>Test-Driven Development (TDD)</li>
-      </ul>
     </>
   );
 };
