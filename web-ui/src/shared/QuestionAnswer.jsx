@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+import React, { useState, useEffect } from "react";
+import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { Accordion, AccordionSummary, AccordionDetails } from "./Accordion";
 
 const QuestionAnswer = ({
   question,
@@ -11,7 +12,7 @@ const QuestionAnswer = ({
   handleGlobalChange,
   isGloballyChecked,
 }) => {
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [isAnswered, setIsAnswered] = useState(isGloballyChecked);
 
   useEffect(() => {
@@ -25,10 +26,6 @@ const QuestionAnswer = ({
     }
   }, [index, storageKey]);
 
-  const toggleAnswer = () => {
-    setShowAnswer(!showAnswer);
-  };
-
   const handleCheckboxChange = (event) => {
     setIsAnswered(event.target.checked);
     localStorage.setItem(`${storageKey}_${index}`, event.target.checked);
@@ -36,42 +33,50 @@ const QuestionAnswer = ({
   };
 
   return (
-    <div className="questionAnswer">
-      <div
-        className="flex between question"
-        style={{ padding: "0px", alignItems: "center" }}
-        onClick={toggleAnswer}
+    <Accordion
+      onChange={() => {
+        setExpanded(!expanded);
+      }}
+      expanded={expanded}
+      disableGutters
+    >
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls={`panel${index}-content`}
+        id={`panel${index}-header`}
+        sx={{
+          "& .MuiAccordionSummary-content": {
+            margin: 0,
+            padding: 0,
+            alignItems: "center",
+          },
+          "& .MuiAccordionSummary-expandIconWrapper": {
+            transform: "rotate(90deg)",
+          },
+          "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+            transform: "rotate(0deg)",
+          },
+        }}
       >
-        <div className="flex center">
-          <div
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
-            <Checkbox
-              checked={isAnswered}
-              onChange={handleCheckboxChange}
-              color="primary"
-              sx={{
-                color: "white",
-                "&.Mui-checked": {
-                  color: "white",
-                },
-              }}
-            />
-          </div>
-          <span>{question}</span>
-        </div>
-        <span className="showAnswer">
-          {showAnswer ? (
-            <ExpandMore style={{ fontSize: "20px" }} />
-          ) : (
-            <ChevronRightIcon style={{ fontSize: "20px" }} />
-          )}
-        </span>
-      </div>
-      {showAnswer && <p className="answer">{answer}</p>}
-    </div>
+        <Checkbox
+          checked={isAnswered}
+          onChange={handleCheckboxChange}
+          onClick={(e) => e.stopPropagation()} // Prevent Accordion toggle when interacting with the Checkbox
+          onFocus={(e) => e.stopPropagation()}
+          color="primary"
+          sx={{
+            color: "white",
+            "&.Mui-checked": {
+              color: "white",
+            },
+          }}
+        />
+        <Typography>{question}</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>{answer}</Typography>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 

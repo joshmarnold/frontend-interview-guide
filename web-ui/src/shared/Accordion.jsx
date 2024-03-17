@@ -7,7 +7,7 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 
-const Accordion = styled((props) => (
+export const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
   // border: `1px solid ${theme.palette.divider}`,
@@ -19,7 +19,7 @@ const Accordion = styled((props) => (
   },
 }));
 
-const AccordionSummary = styled((props) => (
+export const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
     expandIcon={<ExpandMoreIcon sx={{ fontSize: "0.9rem" }} />}
     {...props}
@@ -30,15 +30,18 @@ const AccordionSummary = styled((props) => (
       ? "rgba(255, 255, 255, .05)"
       : "rgba(0, 0, 0, .03)",
   flexDirection: "row",
-  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+  "& .MuiAccordionSummary-expandIconWrapper": {
     transform: "rotate(90deg)",
+  },
+  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+    transform: "rotate(0deg)",
   },
   "& .MuiAccordionSummary-content": {
     marginLeft: theme.spacing(1),
   },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   padding: theme.spacing(2),
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));

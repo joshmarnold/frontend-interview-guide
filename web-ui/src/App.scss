@@ -235,7 +235,9 @@ code {
 .questions-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid #333;
 }
 
 .label {
