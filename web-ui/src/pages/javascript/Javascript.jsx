@@ -165,6 +165,96 @@ const questionsAndAnswers = [
       </>
     ),
   },
+  {
+    question:
+      "Can instances directly access the prototype property of their constructor?",
+    answer: (
+      <>
+        <p>
+          No, instances do not directly access the{" "}
+          <span className="tag">prototype</span> property of their constructor.
+          Instead, they interact with the prototype through their internal{" "}
+          <span className="tag">__proto__</span> property, which links them to
+          their constructor’s prototype.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "Why is the __proto__ property considered deprecated and what should be used instead?",
+    answer: (
+      <>
+        <p>
+          The <span className="tag">__proto__</span> property is considered
+          deprecated due to its non-standard nature across different JavaScript
+          engines and potential performance issues. Instead,{" "}
+          <span className="tag">Object.getPrototypeOf(obj)</span> or{" "}
+          <span className="tag">Object.setPrototypeOf(obj, prototype)</span>{" "}
+          should be used for getting or setting an object’s prototype.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "How does changing the prototype of a constructor function affect existing instances?",
+    answer: (
+      <>
+        <p>
+          Changing the prototype of a constructor function affects all future
+          instances created with that constructor, but existing instances retain
+          their original prototype link and are not automatically updated with
+          the new prototype.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "What is the significance of the 'null' prototype in the prototype chain?",
+    answer: (
+      <>
+        <p>
+          A <span className="tag">'null'</span> prototype marks the end of the
+          prototype chain. When an object's{" "}
+          <span className="tag">__proto__</span> property is null, it indicates
+          that the object does not inherit properties or methods from any other
+          object, effectively stopping the inheritance chain.
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "How can you create an object with a specific prototype or no prototype at all?",
+    answer: (
+      <>
+        <p>
+          To create an object with a specific prototype, use{" "}
+          <span className="tag">Object.create(prototypeObj)</span>. To create an
+          object with no prototype, use{" "}
+          <span className="tag">Object.create(null)</span>, which creates an
+          object without a prototype (<span className="tag">__proto__</span>{" "}
+          property is null).
+        </p>
+      </>
+    ),
+  },
+  {
+    question:
+      "What are the implications of adding or modifying properties on a constructor's prototype?",
+    answer: (
+      <>
+        <p>
+          Adding or modifying properties on a constructor’s prototype affects
+          all instances that inherit from that prototype, providing a powerful
+          way to dynamically update the behavior of all instances, but also
+          requiring caution to avoid unintended side effects.
+        </p>
+      </>
+    ),
+  },
   // Functions
   {
     question:
@@ -466,28 +556,24 @@ const About = () => {
       </p>
       <ul>
         <ListItemLink
-          to="https://youtu.be/lW_erSjyMeM?si=_PqotoCBcdXX40_0"
-          text="Block scope and shadow DOM"
+          to="https://www.youtube.com/watch?v=-G9c4CMMUKc&list=PLillGF-Rfqbars4vKNtpcWVDUpVOVTlgB&index=1"
+          text="Hoisting / Execution Context / Call Stack"
         />
         <ListItemLink
-          to="https://www.youtube.com/watch?v=8zKuNo4ay8E"
+          to="https://www.youtube.com/watch?v=28AXSTCpsyU&list=PLillGF-Rfqbars4vKNtpcWVDUpVOVTlgB&index=3"
           text="Event Loop"
-        />
-        <ListItemLink
-          to="https://www.youtube.com/watch?v=Nt-qa_LlUH0"
-          text="Hoisting / Execution Context (Broken)"
         />
         <ListItemLink
           to="https://www.youtube.com/watch?v=fVXp7ZWjlO4"
           text="this, call, apply, bind"
         />
         <ListItemLink
-          to="https://www.youtube.com/watch?v=GhJTy5-X3kA&t=2s"
-          text="prototype (Video 2)"
+          to="https://www.youtube.com/watch?v=GhJTy5-X3kA"
+          text="prototype"
         />
         <ListItemLink
-          to="https://www.youtube.com/watch?v=1UTqFAjYx1k&t=62s"
-          text="prototype (Video 3)"
+          to="https://youtu.be/lW_erSjyMeM?si=_PqotoCBcdXX40_0"
+          text="Block scope and shadow DOM"
         />
       </ul>
     </>
