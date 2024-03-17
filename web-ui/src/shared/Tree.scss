@@ -1,5 +1,4 @@
 .MuiTreeItem-root {
-  border-radius: 5px;
   overflow: hidden;
 }
 
@@ -22,7 +21,7 @@
   width: 32px !important;
   margin: 0 !important;
   border-radius: 5px;
-
+  
   &:hover {
     background-color: rgba(255, 255, 255, 0.04);
   }
@@ -30,6 +29,7 @@
 
 .MuiTreeItem-content {
   height: 32px;
+  border-radius: 5px;
 
   &.Mui-selected {
     background-color: transparent !important;
