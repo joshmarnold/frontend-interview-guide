@@ -46,9 +46,19 @@ export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-const MaterialAccordionItem = ({ title, description, expanded, onChange }) => {
+const MaterialAccordionItem = ({
+  title,
+  description,
+  expanded,
+  onChange,
+  timeout,
+}) => {
   return (
-    <Accordion expanded={expanded} onChange={onChange}>
+    <Accordion
+      expanded={expanded}
+      onChange={onChange}
+      slotProps={{ transition: { unmountOnExit: true, timeout } }}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel-content"
@@ -62,12 +72,8 @@ const MaterialAccordionItem = ({ title, description, expanded, onChange }) => {
   );
 };
 
-const MaterialHondaAccordion = ({ items }) => {
+const MaterialHondaAccordion = ({ items, timeout }) => {
   const [expandedPanel, setExpandedPanel] = useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpandedPanel(isExpanded ? panel : false);
-  };
 
   return (
     <div
@@ -85,7 +91,10 @@ const MaterialHondaAccordion = ({ items }) => {
             title={item.title}
             description={item.description}
             expanded={expandedPanel === panelId}
-            onChange={handleChange(panelId)}
+            onChange={() => {
+              setExpandedPanel(expandedPanel === panelId ? false : panelId);
+            }}
+            timeout={timeout}
           />
         );
       })}

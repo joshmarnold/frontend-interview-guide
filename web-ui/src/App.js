@@ -24,7 +24,7 @@ const DomApi = lazy(() => import("./pages/DomApi"));
 const GeneralProgramming = lazy(() => import("./pages/GeneralProgramming"));
 const React = lazy(() => import("./pages/React"));
 const CSS = lazy(() => import("./pages/CSS"));
-const JavaScript = lazy(() => import("./pages/Javascript"));
+const JavaScript = lazy(() => import("./pages/javascript/Javascript"));
 const Layout = lazy(() => import("./shared/Layout"));
 const Array = lazy(() => import("./pages/algorithms-data-structures/Array"));
 const Backtracking = lazy(() =>
@@ -89,18 +89,10 @@ const HTML = lazy(() => import("./pages/HTML"));
 const ProjectManagement = lazy(() =>
   import("./pages/project-management/ProjectManagement")
 );
-const ExecutionAndControl = lazy(() =>
-  import("./pages/project-management/ExecutionAndControl")
-);
-const Initiation = lazy(() => import("./pages/project-management/Initiation"));
 const Frameworks = lazy(() => import("./pages/project-management/Frameworks"));
 const Methodologies = lazy(() =>
   import("./pages/project-management/Methodologies")
 );
-const MonitoringAndEvaluation = lazy(() =>
-  import("./pages/project-management/MonitoringAndEvaluation")
-);
-const Planning = lazy(() => import("./pages/project-management/Planning"));
 const Behavioral = lazy(() => import("./pages/Behavioral"));
 
 function App() {

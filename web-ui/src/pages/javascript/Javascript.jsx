@@ -1,12 +1,16 @@
-import TopicsList from "../shared/TopicsList";
-import ListItemLink from "../shared/ListItemLink";
+import TopicsList from "../../shared/TopicsList";
+import ListItemLink from "../../shared/ListItemLink";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Highlight from "react-highlight";
+import CircularProgress from "@mui/material/CircularProgress";
 
-import { useState } from "react";
-import CustomTabPanel, { a11yProps } from "../shared/CustomTabPanel";
-import QuestionsWrapper from "../shared/QuestionsWrapper";
+import { Suspense, lazy, useState } from "react";
+import CustomTabPanel, { a11yProps } from "../../shared/CustomTabPanel";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
+import Accordion from "../../shared/Accordion";
+// dynamic import ThisSection
+const ThisSection = lazy(() => import("./ThisSection"));
+const PrototypeSection = lazy(() => import("./PrototypeSection"));
 
 const questionsAndAnswers = [
   // Primitive and Object Types
@@ -490,431 +494,28 @@ const About = () => {
   );
 };
 
-const ThisSection = () => {
-  return (
-    <>
-      <h2 className="tag">this</h2>
-      <p>
-        <span className="tag">this</span> ALWAYS refers to and holds the value
-        of an object. Okay, why? It's a way for the object to reference itself,
-        ie, to access its own properties and methods.
-      </p>
-      <p>
-        Further, its important to note that it is actually a reference to the
-        object which invokes the current function. The specific object to which
-        this refers can vary depending on how and where the function is called.
-        Here's a quick rundown of the different ways this can be bound:
-      </p>
-      <ol>
-        <li>
-          <strong>Global Context:</strong> In the global execution context,
-          outside of any function, this refers to the global object. In web
-          browsers, the global object is <span class="tag">window</span>, while
-          in Node.js, it's
-          <span class="tag">global</span>.
-          <Highlight language="javascript">
-            {`console.log(this === window); // true`}
-          </Highlight>
-        </li>
-        <li>
-          <strong>Function Call:</strong> In a regular function call,{" "}
-          <span className="tag">this</span> refers to the global object in
-          non-strict mode and <span class="tag">undefined</span> in strict mode
-          (<span class="tag">'use strict';</span>).
-          <Highlight language="javascript">
-            {`function greet() {
-  return "Hello, " + this.name;
-}
-console.log(greet()); // Hello, undefined`}
-          </Highlight>
-        </li>
-        <li>
-          <strong>Method Call:</strong> When a function is called as a method of
-          an object (<span class="tag">objectName.methodName()</span>),{" "}
-          <span className="tag">this</span> refers to the object from which the
-          method was called. This is only if the method is not an arrow
-          function.
-          <Highlight language="javascript">
-            {`const person = {
-  name: "John",
-  greet: function() {
-    return "Hello, " + this.name;
-  }
-};
-console.log(person.greet()); // Hello, John`}
-          </Highlight>
-        </li>
-        <li>
-          <strong>Constructor Call:</strong> When a function is used as a
-          constructor with the new keyword (
-          <span class="tag">new ConstructorName()</span>), this refers to the
-          newly created instance.
-          <Highlight language="javascript">
-            {`function Person(name) {
-  this.name = name;
-}
-const john = new Person("John");
-console.log(john.name); // John`}
-          </Highlight>
-        </li>
-        <li>
-          <strong>Explicit Setting:</strong> Using{" "}
-          <span class="tag">call()</span>,<span class="tag">apply()</span>, or{" "}
-          <span class="tag">bind()</span> methods, you can explicitly set the
-          value of this to any object you choose.
-          <Highlight language="javascript">
-            {`function greet() {
-  return "Hello, " + this.name;
-}
-const person = { name: "John" };
-console.log(greet.call(person)); // Hello, John`}
-          </Highlight>
-        </li>
-        <li>
-          <strong>Arrow Functions:</strong> Arrow functions do not have their
-          own this context; instead, they capture the this value of the
-          enclosing context in which they are defined. So, within an arrow
-          function, this refers to the this value of its surrounding scope.
-          <Highlight language="javascript">
-            {`const personWithArrow = {
-  firstName: "Jane",
-  lastName: "Doe",
-  getFullName: () => {
-    return this.firstName + " " + this.lastName;
-  }
-};
-console.log(personWithArrow.getFullName()); // undefined undefined
-
-// Correct use of arrow function with 'this' outside the method
-const firstName = "Global Jane";
-const lastName = "Global Doe";
-console.log(personWithArrow.getFullName()); // Global Jane Global Doe`}
-          </Highlight>
-        </li>
-        <li>
-          <strong>Event Handlers:</strong> In the context of DOM event handlers,
-          this refers to the HTML element that received the event.
-          <Highlight language="javascript">
-            {`document.querySelector("button").addEventListener("click", function() {
-  console.log(this); // the button element
-
-  this.style.display = "none"; // hide the button
-
-  // careful, 'setTimout' is a method of the window object
-  setTimeout(function() {
-    console.log(this); // the window object
-  }, 1000);
-
-  // using arrow function to preserve 'this'
-  setTimeout(() => {
-    console.log(this); // the button element
-  }, 1000);
-});`}
-          </Highlight>
-        </li>
-      </ol>
-
-      <p>
-        In case you didn't catch it, arrow functions do not have their own{" "}
-        <span className="tag">this</span>. If <span className="tag">this</span>{" "}
-        is used within an arrow function, it will be inherited from the
-        enclosing scope.
-      </p>
-
-      {/* call appl bind */}
-      <h2 className="tag">call, apply, bind</h2>
-      <p>
-        These are methods that can be used to set the value of this, and invoke
-        a function with a specific this value. They are used to borrow methods
-        from other objects, set the value of this, and invoke functions with a
-        specific this value.
-      </p>
-      <Highlight language="javascript">
-        {`// call
-function greet() {
-  return "Hello, " + this.name;
-}
-const person = { name: "John" };
-console.log(greet.call(person)); // Hello, John
-
-// apply
-function greet2(greeting) {
-  return greeting + ", " + this.name;
-}
-console.log(greet2.apply(person, ["Hi"])); // Hi, John
-
-// bind
-const greet3 = greet.bind(person);
-console.log(greet3()); // Hello, John`}
-      </Highlight>
-    </>
-  );
-};
-
-const PrototypeSection = () => {
-  return (
-    <>
-      <div className="divider"></div>
-      <h2 className="tag">Prototypal Inheritance</h2>
-      <h4>Terminology</h4>
-      <ul>
-        <li>
-          <p>
-            I'm using "Creator Function" to refer to a function that is used to
-            create objects. This is synonymous with "constructor function" and
-            "class" in JavaScript. This distinction is made to avoid confusion
-            with the "constructor" property of prototypes, which is a function.
-          </p>
-          <Highlight language={"javascript"}>
-            {`// Creator Function (Formally known as Constructor Function)
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-}`}
-          </Highlight>
-        </li>
-        <li>
-          <p>
-            When discussing an object's prototype in JavaScript, we are usually
-            referring to the <code>__proto__</code> property. This property
-            links an object to another object, which serves as its prototype,
-            enabling inheritance of properties and methods. This concept is
-            separate from the <code>prototype</code> property found on creator
-            functions. The <code>prototype</code> property on a creator function
-            specifies the properties and methods that should be inherited by
-            instances created through the <code>new</code> keyword from that
-            creator function. It's important to distinguish between these two
-            uses of the term "prototype" to understand JavaScript's inheritance
-            model accurately.
-          </p>
-        </li>
-      </ul>
-
-      <h4>What is the "prototype"?</h4>
-      <p>
-        In JavaScript, the term "prototype" refers to a mechanism by which
-        objects inherit features from one another. The prototype of an object is
-        connected through its <code>__proto__</code> property, which points to
-        the prototype object from which it inherits properties and methods.
-      </p>
-      <ul>
-        <li>
-          <strong>Properties and Methods:</strong> Prototypes associated with
-          creator functions contain shared properties and methods. These shared
-          attributes provide common functionality to all instances created from
-          the creator function, preventing the need for duplicate code.
-        </li>
-        <li>
-          <strong>Linking:</strong> Instances are linked to the prototype object
-          via the <code>__proto__</code> property. This link enables instances
-          to access and use properties and methods from the prototype chain,
-          implementing prototypical inheritance.
-        </li>
-        <li>
-          <strong>Creation:</strong> A prototype object is automatically created
-          when a creator function is defined. This prototype serves as a
-          blueprint for instances generated using the creator function with the{" "}
-          <code>new</code> keyword, and is assigned to the creator function's{" "}
-          <code>prototype</code> property.
-        </li>
-      </ul>
-
-      <h4>Inheritance</h4>
-      <p>
-        When you create an object in JavaScript, this object internally links to
-        another object. This thing that does the linking is referred to as its
-        "prototype". I want to clear upfront that this is not the "prototype"
-        property though. It's actually the "__proto__". This prototype object
-        (__proto__) itself may have a prototype ( __proto__) from which it
-        points to another objects prototype and inherits methods and properties,
-        and so on. This chain continues until an object with null as its
-        prototype is reached, which is the end of the prototype chain.
-      </p>
-
-      <p>
-        It's important to note "what" has a prototype and why. Also note that we
-        refer to constructor functions as "constructors". This might be
-        confusing because a functions prototype itself has a property called
-        "constructor" which is a function. When reading, keep this in mind and
-        try to understand the context.
-      </p>
-      <h4>Functions</h4>
-      <p>
-        Functions in JavaScript have a <span className="tag">prototype</span>{" "}
-        property because they can be used as constructors to create instances.
-        This <span className="tag">prototype</span> property is a blueprint for
-        the instances, providing them with properties and methods to inherit.
-      </p>
-
-      <h4>Instances</h4>
-      <p>
-        Instances do not have a <span className="tag">prototype</span> property
-        because they are the end products, created by constructors or defined
-        via object literals. Instead, instances have a{" "}
-        <span className="tag">__proto__</span> property, linking them to their
-        constructor's <span className="tag">prototype</span>, enabling
-        inheritance.
-      </p>
-      <Highlight language={"javascript"}>
-        {`const john = new Person("John", 30);
-
-console.log(john.prototype); // undefined (instances do not have a prototype property)
-console.log(john.__proto__ === Person.prototype); // true
-console.log(john.__proto__.__proto__ === Object.prototype); // true
-console.log(john.__proto__.__proto__.__proto__); // null
-        
-const sarah = {};
-console.log(sarah.__proto__ === Object.prototype); // true
-        `}
-      </Highlight>
-
-      <h4>Constructor Functions and Prototype Inheritance</h4>
-      <p>
-        Within the prototype of each function is a property called{" "}
-        <span className="tag">constructor</span>, which points back to the
-        function itself.
-      </p>
-      <p>
-        The role of the constructor is to create and initialize an object when a
-        function is used with the <span className="tag">new</span> keyword. It
-        will:
-      </p>
-      <ol>
-        <li>Create a new object.</li>
-        <li>
-          Copies properties and methods from the objects body to the new object.
-          (Not the prototype)
-        </li>
-        <li>Set the prototype of the new object to the constructor's.</li>
-        <li>
-          Invoke the constructor function with <span className="tag">this</span>{" "}
-          bound to the new object.
-        </li>
-        <li>Return the new object.</li>
-      </ol>
-
-      <h4>
-        Difference between direct properties and methods and prototype
-        properties and methods
-      </h4>
-      <p>
-        When using a creator function or class in JavaScript, like{" "}
-        <span className="tag">Person</span>, properties and methods attached to{" "}
-        <span className="tag">this</span> within the creator are copied over to
-        each instance created by the creator. This means each instance receives
-        its own unique set of properties and methods.
-      </p>
-      <p>
-        For example, in a <span className="tag">Person</span> creator,
-        properties such as <span className="tag">name</span> and{" "}
-        <span className="tag">age</span>, and methods like{" "}
-        <span className="tag">sayName</span>, are directly attached to each
-        instance. Thus, if multiple instances of{" "}
-        <span className="tag">Person</span> are created, each one has its own{" "}
-        <span className="tag">name</span>, <span className="tag">age</span>, and{" "}
-        <span className="tag">sayName</span> method, based on the arguments
-        provided to the creator and the function definition within it.
-      </p>
-      <p>
-        Conversely, properties and methods defined on the creator's{" "}
-        <span className="tag">prototype</span> are not copied to each instance.
-        Instead, they are accessible to all instances via the prototype chain.
-        This mechanism allows instances to share access to common properties and
-        methods without having individual copies, exemplified by the{" "}
-        <span className="tag">greet</span> method in our{" "}
-        <span className="tag">Person</span> example. Defined on{" "}
-        <span className="tag">Person.prototype</span>,{" "}
-        <span className="tag">greet</span> is available to all instances,
-        showcasing efficient memory usage and inheritance.
-      </p>
-
-      <Highlight language={"javascript"}>
-        {`function Person(name, age) {
-  // Direct properties unique to each instance
-  this.name = name;
-  this.age = age;
-
-  // Direct method unique to each instance (not recommended for methods due to memory inefficiency)
-  this.sayName = function() {
-    console.log(this.name);
-  };
-}
-
-// Prototype method, shared by all instances
-Person.prototype.greet = function() {
-  console.log("Hello, my name is " + this.name + " and I am " + this.age + " years old.");
-};
-
-let person1 = new Person("Alice", 30);
-let person2 = new Person("Bob", 25);
-
-// Each has direct properties
-console.log(person1.name); // Alice
-console.log(person2.name); // Bob
-
-// And each can access the shared prototype method
-person1.greet(); // Hello, my name is Alice and I am 30 years old.
-person2.greet(); // Hello, my name is Bob and I am 25 years old.
-`}
-      </Highlight>
-
-      {/* typical inhertiage example using animal and dog */}
-      <h4>Typical Inheritance Example</h4>
-      <p>
-        In the following example, we have a <span className="tag">Dog</span>{" "}
-        creator that inherits from an <span className="tag">Animal</span>{" "}
-        creator. This is achieved by setting the prototype of{" "}
-        <span className="tag">Dog</span> to an instance of{" "}
-        <span className="tag">Animal</span>.
-      </p>
-      <Highlight language={"javascript"}>
-        {`function Animal(name) {
-  this.name = name;
-}
-
-Animal.prototype.speak = function() {
-  console.log(this.name + " makes a noise.");
-}
-
-function Dog(name, breed) {
-  Animal.call(this, name);
-  this.breed = breed;
-}
-
-Dog.prototype = Object.create(Animal.prototype);
-Dog.prototype.constructor = Dog;
-
-Dog.prototype.bark = function() {
-  console.log(this.name + " barks.");
-
-  // Call the parent method
-  this.speak();
-}
-
-let dog = new Dog("Rex", "Golden Retriever");
-dog.bark(); // Rex barks. Rex makes a noise.
-`}
-      </Highlight>
-      <p>
-        In the example above, the <span className="tag">Dog</span> creator calls
-        the <span className="tag">Animal</span> creator using{" "}
-        <span className="tag">call</span> to set the{" "}
-        <span className="tag">name</span> property. The{" "}
-        <span className="tag">Dog</span> prototype is then set to an instance of
-        the <span className="tag">Animal</span> prototype using{" "}
-        <span className="tag">Object.create</span>, and the{" "}
-        <span className="tag">creator</span> property is reset to{" "}
-        <span className="tag">Dog</span>.
-      </p>
-      <p>
-        This pattern is a common way to achieve inheritance in JavaScript,
-        allowing <span className="tag">Dog</span> instances to inherit from{" "}
-        <span className="tag">Animal</span> and access its methods, while also
-        having their own unique properties and methods.
-      </p>
-    </>
-  );
-};
+const sections = [
+  {
+    title: "this",
+    description: (
+      <div>
+        <Suspense fallback={<CircularProgress />}>
+          <ThisSection />
+        </Suspense>
+      </div>
+    ),
+  },
+  {
+    title: "Prototypal Inheritance",
+    description: (
+      <div>
+        <Suspense fallback={<CircularProgress />}>
+          <PrototypeSection />
+        </Suspense>
+      </div>
+    ),
+  },
+];
 
 const JavaScript = () => {
   const [value, setValue] = useState(() => {
@@ -950,8 +551,8 @@ const JavaScript = () => {
 
         <CustomTabPanel value={value} index={0}>
           <About />
-          <ThisSection />
-          <PrototypeSection />
+          <br></br>
+          <Accordion items={sections} openedByDefault={0} timeout={0} />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
           <TopicsList>

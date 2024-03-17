@@ -60,6 +60,7 @@ const pathsToIds = {
   "project-management/monitoring-and-evaluation": "11-4",
   "project-management/methodologies": "11-5",
   "project-management/frameworks": "11-6",
+  behavioral: "15",
 };
 
 const data = {
