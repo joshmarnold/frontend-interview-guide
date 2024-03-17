@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
 import { Outlet } from "react-router-dom";
-import { PageHeader } from "./PageHeader";
 import NavBar from "./NavBar";
 import Sidebar from "./Sidebar";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Layout = () => {
   const [expanded, setExpanded] = React.useState(false);
@@ -14,8 +14,7 @@ const Layout = () => {
         <div className="main-inner-content">
           <NavBar setExpanded={setExpanded} />
           <br></br>
-          {/* <PageHeader /> */}
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<CircularProgress />}>
             <Outlet />
           </Suspense>
         </div>
