@@ -54,6 +54,20 @@ const Behavioral = () => {
       </div>
       <br></br>
       <div className="divider"></div>
+      <h4>Setting Expectations</h4>
+      <p>
+        We want to know what's expected of us at our level. This way we can
+        deleiver the best responses. Go view the expectations at your level at{" "}
+        <a
+          href="https://www.greatfrontend.com/behavioral-interview-guidebook#typical-behavioral-interview-leveling-expectations"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          greatfrontend.com
+          <IconExternalLink size="1rem" />
+        </a>
+      </p>
+      <div className="divider"></div>
       <p>
         The following is a summary and example of the STAR method. Again, the
         greatfrontend.com is a more comprehensive guide.
