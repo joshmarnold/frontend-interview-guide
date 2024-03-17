@@ -188,11 +188,11 @@ function App() {
 
             {/* project management */}
             <Route path="project-management" element={<ProjectManagement />} />
-            <Route
+            {/* <Route
               path="project-management/initiation"
               element={<Initiation />}
-            />
-            <Route path="project-management/planning" element={<Planning />} />
+            /> */}
+            {/* <Route path="project-management/planning" element={<Planning />} />
             <Route
               path="project-management/execution-and-control"
               element={<ExecutionAndControl />}
@@ -200,7 +200,7 @@ function App() {
             <Route
               path="project-management/monitoring-and-evaluation"
               element={<MonitoringAndEvaluation />}
-            />
+            /> */}
             <Route
               path="project-management/methodologies"
               element={<Methodologies />}

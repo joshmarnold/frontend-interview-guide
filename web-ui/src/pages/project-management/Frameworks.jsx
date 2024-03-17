@@ -5,11 +5,14 @@ const ProjectMethodologiesAndFrameworks = () => {
   return (
     <div>
       <p>
-        Project management frameworks provide structured approaches for
-        front-end engineers to align their development work with a project's
-        overall strategy. They define the stages, activities, and principles
-        that guide teams to deliver successful outcomes effectively.
+        Project management frameworks provide structured approaches for all
+        stakeholders involved in a project, including product managers,
+        designers, and front-end engineers, to align their work with the
+        project's overall strategy. These frameworks define the stages,
+        activities, and principles that guide teams to deliver successful
+        outcomes effectively.
       </p>
+
       <h3>PDLC (Project Development Life Cycle)</h3>
       <p>
         PDLC is a framework that outlines the stages a project goes through from
@@ -22,54 +25,64 @@ const ProjectMethodologiesAndFrameworks = () => {
       <h4>Phases of PDLC</h4>
       <ol>
         <li>
-          <strong>Initiation:</strong> In this phase, the project is
-          conceptualized, and the project charter is created. The frontend
-          engineer, as a leader, would be involved in defining the project's
-          objectives, scope, and high-level requirements. They would collaborate
-          with stakeholders to identify the project's feasibility and align it
-          with business goals.
+          <strong>Initiation:</strong> In this phase, the product manager
+          conceptualizes the project and creates the project charter. They
+          define the project's objectives, scope, and high-level requirements in
+          collaboration with stakeholders. The product manager assesses the
+          project's feasibility and aligns it with business goals. The front-end
+          engineer, along with other technical leads, may provide input on
+          technical feasibility and initial estimates.
         </li>
         <li>
-          <strong>Planning:</strong> During the planning phase, the project team
-          creates a detailed project plan, including timelines, resource
-          allocation, and deliverables. The frontend engineer leader would
-          contribute to the planning process by defining the technical
-          requirements, estimating efforts, and identifying potential risks and
-          dependencies. They would also help in creating a work breakdown
-          structure and assigning tasks to team members.
+          <strong>Planning:</strong> During the planning phase, the project
+          team, led by the product manager, creates a detailed project plan.
+          This includes defining timelines, resource allocation, and
+          deliverables. The product manager works closely with the design team
+          to create user stories, wireframes, and mockups. The front-end
+          engineer contributes to the planning process by providing technical
+          insights, estimating efforts, and identifying potential risks and
+          dependencies.
         </li>
         <li>
           <strong>Execution:</strong> In the execution phase, the project team
           carries out the planned activities and develops the deliverables. The
-          frontend engineer leader would oversee the development process,
-          ensuring that the team follows best practices and coding standards.
-          They would provide technical guidance, conduct code reviews, and
-          facilitate collaboration among team members. The rest of the frontend
-          team would focus on implementing the user interface, integrating with
-          backend services, and ensuring a smooth user experience.
+          design team finalizes the user interface designs and hands them off to
+          the front-end engineering team. The front-end engineer, along with the
+          rest of the frontend team, focuses on implementing the user interface,
+          integrating with backend services, and ensuring a smooth user
+          experience. The product manager oversees the development process,
+          tracks progress, and coordinates with other stakeholders.
         </li>
         <li>
           <strong>Monitoring and Control:</strong> Throughout the project, the
-          team monitors progress, tracks metrics, and manages risks and issues.
-          The frontend engineer leader would regularly review the project's
-          status, identify any deviations from the plan, and take corrective
-          actions if necessary. They would also communicate progress to
-          stakeholders and ensure that the project stays on track. The frontend
-          team would actively participate in testing, bug fixing, and
-          performance optimization.
+          product manager monitors progress, tracks metrics, and manages risks
+          and issues. They regularly review the project's status, identify any
+          deviations from the plan, and take corrective actions if necessary.
+          The front-end engineer and the team actively participate in testing,
+          bug fixing, and performance optimization. The product manager
+          communicates progress to stakeholders and ensures that the project
+          stays on track.
         </li>
         <li>
           <strong>Closure:</strong> In the closure phase, the project is
           formally concluded, and the deliverables are handed over to the client
-          or stakeholders. The frontend engineer leader would be involved in
-          preparing the final documentation, conducting post-project reviews,
-          and gathering feedback. They would also facilitate knowledge transfer
-          and ensure that the project's lessons learned are documented for
-          future reference. The frontend team would assist in creating user
-          guides, conducting user training, and providing support during the
-          transition period.
+          or stakeholders. The product manager, along with the project team,
+          prepares the final documentation, conducts post-project reviews, and
+          gathers feedback. The front-end engineer assists in creating user
+          guides and provides support during the transition period. The team
+          documents the project's lessons learned for future reference.
         </li>
       </ol>
+
+      <p>
+        Throughout the PDLC, the product manager plays a central role in
+        coordinating the efforts of various stakeholders, including designers,
+        front-end engineers, and other team members. The front-end engineer
+        contributes to the project's success by providing technical expertise,
+        implementing the user interface, and ensuring a high-quality user
+        experience. Effective collaboration and communication among all
+        stakeholders are crucial for the successful execution of the project.
+      </p>
     </div>
   );
 };

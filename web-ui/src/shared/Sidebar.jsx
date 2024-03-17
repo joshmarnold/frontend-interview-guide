@@ -172,22 +172,6 @@ const data = {
       path: "project-management",
       children: [
         {
-          id: "11-1",
-          name: "Initiation",
-          path: "project-management/initiation",
-        },
-        { id: "11-2", name: "Planning", path: "project-management/planning" },
-        {
-          id: "11-3",
-          name: "Execution & Control",
-          path: "project-management/execution-and-control",
-        },
-        {
-          id: "11-4",
-          name: "Monitoring & Evaluation",
-          path: "project-management/monitoring-and-evaluation",
-        },
-        {
           id: "11-5",
           name: "Methodologies",
           path: "project-management/methodologies",
@@ -197,6 +181,22 @@ const data = {
           name: "Frameworks",
           path: "project-management/frameworks",
         },
+        // {
+        //   id: "11-1",
+        //   name: "Initiation",
+        //   path: "project-management/initiation",
+        // },
+        // { id: "11-2", name: "Planning", path: "project-management/planning" },
+        // {
+        //   id: "11-3",
+        //   name: "Execution & Control",
+        //   path: "project-management/execution-and-control",
+        // },
+        // {
+        //   id: "11-4",
+        //   name: "Monitoring & Evaluation",
+        //   path: "project-management/monitoring-and-evaluation",
+        // },
       ],
     },
   ],
