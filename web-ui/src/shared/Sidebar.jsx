@@ -70,7 +70,7 @@ const data = {
     { id: "52", name: "HTML", path: "html" },
     { id: "5", name: "CSS", path: "css" },
     { id: "6", name: "JavaScript", path: "javascript" },
-    { id: "2", name: "DOM APIs", path: "dom-api" },
+    { id: "2", name: "DOM API", path: "dom-api" },
     {
       id: "9",
       name: "Web Dev",
