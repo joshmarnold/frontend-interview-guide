@@ -80,9 +80,7 @@ Person.prototype.introduce = function() {
 const john = new Person("John", 22);
 
 // Testing the introduce method, which is inherited from the prototype
-john.introduce(); // Output: "Hello, my name is John and I am 22 years old."
-        
-        `}
+john.introduce(); // Output: "Hello, my name is John and I am 22 years old."`}
       </Highlight>
 
       <h4>Instances</h4>

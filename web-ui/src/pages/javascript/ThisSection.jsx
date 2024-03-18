@@ -5,14 +5,14 @@ const ThisSection = () => {
     <>
       <p>
         <span className="tag">this</span> ALWAYS refers to and holds the value
-        of an object. Okay, why? It's a way for the object to reference itself,
+        of an object. Okay, why? It's a way for an object to reference itself,
         ie, to access its own properties and methods.
       </p>
       <p>
-        Further, its important to note that it is actually a reference to the
-        object which invokes the current function. The specific object to which
-        this refers can vary depending on how and where the function is called.
-        Here's a quick rundown of the different ways this can be bound:
+        The specific object to which <span className="tag">this</span> refers
+        can vary based on the context in which it's used. While commonly
+        associated with functions, <span className="tag">this</span> can refer
+        to different objects depending on how and where it's invoked.
       </p>
       <ol>
         <li>

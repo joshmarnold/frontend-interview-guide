@@ -1237,6 +1237,18 @@ const DomApi = () => {
         <Tab label="Quiz" {...a11yProps(1)} />
       </Tabs>
       <CustomTabPanel value={value} index={0}>
+        {/* https://www.youtube.com/watch?v=5fb2aPlgoys */}
+        {/* JavaScript DOM Manipulation – Full Course for Beginners */}
+        <a
+          href="https://www.youtube.com/watch?v=5fb2aPlgoys"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "white", fontWeight: "bold" }}
+        >
+          JavaScript DOM Manipulation – Full Course for Beginners{" "}
+          <IconExternalLink size="1rem" />
+        </a>
+
         <p>
           The Document Object Model (DOM) API is a programming interface for web
           documents. It represents the structure of a document as a tree of

@@ -582,7 +582,7 @@ const About = () => {
 
 const sections = [
   {
-    title: "this",
+    title: "this, call, apply, bind",
     description: (
       <div>
         <Suspense fallback={<CircularProgress />}>
