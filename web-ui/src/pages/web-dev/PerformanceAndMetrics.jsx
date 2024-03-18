@@ -59,11 +59,26 @@ const generalQuestionsAndAnswers = [
     question:
       "What is the Critical Rendering Path, and how can it be optimized?",
     answer: (
-      <p>
-        It's the process for rendering a web page from code to visual content.
-        Optimization involves minimizing resources, prioritizing essential
-        content, and deferring non-critical resources.
-      </p>
+      <>
+        <p>
+          The critical rendering path is about ensuring the most important parts
+          of a website are visible first when someone visits a page. It
+          prioritizes the quick loading and display of immediately visible
+          content, allowing users to start interacting with the site faster.
+        </p>
+        <p>
+          In technical terms, it's the sequence of steps the browser goes
+          through to turn the site's code into the visual elements on the
+          screen. This involves processing HTML, CSS, and JavaScript to render
+          the layout and content.
+        </p>
+        <p>
+          To optimize this process, you should minimize file sizes, prioritize
+          the loading of essential content, and defer less important resources
+          until needed. This strategy enhances the user experience by making the
+          main content accessible more quickly and keeping users engaged.
+        </p>
+      </>
     ),
   },
   {
