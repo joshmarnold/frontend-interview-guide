@@ -3,6 +3,7 @@ import Highlight from "react-highlight";
 import QuestionsWrapper from "../shared/QuestionsWrapper";
 import Chip from "@mui/material/Chip";
 import { IconExternalLink } from "@tabler/icons-react";
+import { Tag } from "../shared/Tag";
 
 const htmlQuestions = [
   {
@@ -12,9 +13,9 @@ const htmlQuestions = [
         Semantic HTML tags are used to give meaning and structure to the content
         of a webpage. They help search engines, screen readers, and developers
         understand the purpose and context of different parts of the document.
-        Examples of semantic tags include <code>header</code>, <code>nav</code>,{" "}
-        <code>main</code>, <code>article</code>, <code>section</code>,{" "}
-        <code>aside</code>, and <code>footer</code>.
+        Examples of semantic tags include <Tag>header</Tag>, <Tag>nav</Tag>,{" "}
+        <Tag>main</Tag>, <Tag>article</Tag>, <Tag>section</Tag>,{" "}
+        <Tag>aside</Tag>, and <Tag>footer</Tag>.
       </p>
     ),
   },
@@ -26,10 +27,10 @@ const htmlQuestions = [
         Block-level elements start on a new line and take up the full width
         available, while inline elements do not start on a new line and only
         take up as much width as necessary. Examples of block-level elements
-        include <code>div</code>, <code>p</code>, <code>h1</code>-
-        <code>h6</code>, <code>ul</code>, <code>ol</code>, and <code>li</code>.
-        Examples of inline elements include <code>span</code>, <code>a</code>,{" "}
-        <code>img</code>, <code>strong</code>, and <code>em</code>.
+        include <Tag>div</Tag>, <Tag>p</Tag>, <Tag>h1</Tag>-<Tag>h6</Tag>,{" "}
+        <Tag>ul</Tag>, <Tag>ol</Tag>, and <Tag>li</Tag>. Examples of inline
+        elements include <Tag>span</Tag>, <Tag>a</Tag>, <Tag>img</Tag>,{" "}
+        <Tag>strong</Tag>, and <Tag>em</Tag>.
       </p>
     ),
   },
@@ -37,7 +38,7 @@ const htmlQuestions = [
     question: "What is the purpose of the 'alt' attribute in an 'img' tag?",
     answer: (
       <p>
-        The <code>alt</code> attribute provides alternative text for an image if
+        The <Tag>alt</Tag> attribute provides alternative text for an image if
         the image cannot be displayed or if the user is using a screen reader.
         It is important for accessibility and should describe the content or
         purpose of the image.
@@ -49,10 +50,10 @@ const htmlQuestions = [
       "What is the difference between the 'GET' and 'POST' methods in HTML forms?",
     answer: (
       <p>
-        The <code>GET</code> method sends form data as part of the URL, making
-        it visible in the browser's address bar and limiting the amount of data
-        that can be sent. The <code>POST</code> method sends form data in the
-        body of the HTTP request, making it more secure and allowing for larger
+        The <Tag>GET</Tag> method sends form data as part of the URL, making it
+        visible in the browser's address bar and limiting the amount of data
+        that can be sent. The <Tag>POST</Tag> method sends form data in the body
+        of the HTTP request, making it more secure and allowing for larger
         amounts of data to be sent.
       </p>
     ),
@@ -61,7 +62,7 @@ const htmlQuestions = [
     question: "What is the purpose of the 'meta' tag in HTML?",
     answer: (
       <p>
-        The <code>meta</code> tag is used to provide metadata about an HTML
+        The <Tag>meta</Tag> tag is used to provide metadata about an HTML
         document. It can include information such as the document's character
         encoding, viewport settings, keywords, description, and author. This
         information is used by browsers, search engines, and other web services
@@ -75,14 +76,14 @@ const htmlQuestions = [
     answer: (
       <>
         <p>
-          The <code>label</code> tag is used to provide a text label for an
-          input element in an HTML form. It enhances usability and accessibility
-          by associating the label with its corresponding input field. The{" "}
-          <code>for</code> attribute is used to establish this association.
+          The <Tag>label</Tag> tag is used to provide a text label for an input
+          element in an HTML form. It enhances usability and accessibility by
+          associating the label with its corresponding input field. The{" "}
+          <Tag>for</Tag> attribute is used to establish this association.
         </p>
         <p>
-          The <code>for</code> attribute of the <code>label</code> tag should be
-          equal to the <code>id</code> attribute of the related input element.
+          The <Tag>for</Tag> attribute of the <Tag>label</Tag> tag should be
+          equal to the <Tag>id</Tag> attribute of the related input element.
           This creates a logical connection between the label and the input
           field.
         </p>
@@ -92,8 +93,8 @@ const htmlQuestions = [
         </Highlight>
 
         <p>
-          It's important to note that the <code>for</code> attribute is not
-          required if the <code>label</code> tag is wrapped around the input
+          It's important to note that the <Tag>for</Tag> attribute is not
+          required if the <Tag>label</Tag> tag is wrapped around the input
           element itself. In this case, the association is implied by the
           nesting structure.
         </p>
@@ -104,10 +105,10 @@ const htmlQuestions = [
 </label>`}
         </Highlight>
         <p>
-          However, using the <code>for</code> attribute is still considered a
-          best practice for explicitly associating labels with their
-          corresponding input fields, especially when the label and input are
-          not adjacent in the HTML structure.
+          However, using the <Tag>for</Tag> attribute is still considered a best
+          practice for explicitly associating labels with their corresponding
+          input fields, especially when the label and input are not adjacent in
+          the HTML structure.
         </p>
       </>
     ),
@@ -128,10 +129,10 @@ const htmlQuestions = [
     answer: (
       <p>
         To serve a page with content in multiple languages, you can use the{" "}
-        <code>lang</code> attribute on the <code>html</code> tag to specify the
-        default language of the document. Then, you can use the{" "}
-        <code>lang</code> attribute on specific elements to indicate content in
-        different languages. Additionally, you can use server-side techniques or
+        <Tag>lang</Tag> attribute on the <Tag>html</Tag> tag to specify the
+        default language of the document. Then, you can use the <Tag>lang</Tag>{" "}
+        attribute on specific elements to indicate content in different
+        languages. Additionally, you can use server-side techniques or
         JavaScript to detect the user's preferred language and serve the
         appropriate content.
       </p>
@@ -169,9 +170,9 @@ const htmlQuestions = [
     question: "What are 'data-' attributes good for?",
     answer: (
       <p>
-        <code>data-</code> attributes, also known as data attributes, allow you
-        to store custom data within HTML elements. They provide a way to
-        associate additional information with elements that can be accessed and
+        <Tag>data-</Tag> attributes, also known as data attributes, allow you to
+        store custom data within HTML elements. They provide a way to associate
+        additional information with elements that can be accessed and
         manipulated using JavaScript. Data attributes are useful for creating
         custom functionality, tracking analytics, or providing context to
         JavaScript code without altering the semantic structure of the HTML.
@@ -252,19 +253,19 @@ const htmlQuestions = [
     answer: (
       <ul>
         <li>
-          <code>&lt;script&gt;</code>: The default behavior. The script is
+          <Tag>&lt;script&gt;</Tag>: The default behavior. The script is
           downloaded and executed immediately, blocking the parsing of the HTML
           document until the script is completed.
         </li>
         <li>
-          <code>&lt;script async&gt;</code>: The script is downloaded
+          <Tag>&lt;script async&gt;</Tag>: The script is downloaded
           asynchronously in the background, allowing the HTML parsing to
           continue. The script is executed as soon as it is downloaded, without
           waiting for the HTML parsing to complete. Async scripts are not
           guaranteed to execute in a specific order.
         </li>
         <li>
-          <code>&lt;script defer&gt;</code>: The script is downloaded
+          <Tag>&lt;script defer&gt;</Tag>: The script is downloaded
           asynchronously in the background, allowing the HTML parsing to
           continue. However, the script is executed only after the HTML document
           has been fully parsed. Deferred scripts are executed in the order they
@@ -278,20 +279,20 @@ const htmlQuestions = [
       "Why is it generally a good idea to position CSS '<link>'s between '<head></head>' and JS '<script>'s just before '</body>'? Do you know any exceptions?",
     answer: (
       <p>
-        It is generally recommended to position CSS <code>&lt;link&gt;</code>{" "}
-        tags in the <code>&lt;head&gt;</code> section and JS{" "}
-        <code>&lt;script&gt;</code> tags just before the closing{" "}
-        <code>&lt;/body&gt;</code> tag for the following reasons:
+        It is generally recommended to position CSS <Tag>&lt;link&gt;</Tag> tags
+        in the <Tag>&lt;head&gt;</Tag> section and JS <Tag>&lt;script&gt;</Tag>{" "}
+        tags just before the closing <Tag>&lt;/body&gt;</Tag> tag for the
+        following reasons:
         <ul>
           <li>
-            Placing CSS in the <code>&lt;head&gt;</code> allows the styles to be
+            Placing CSS in the <Tag>&lt;head&gt;</Tag> allows the styles to be
             loaded and applied early in the page rendering process, avoiding a
             flash of unstyled content (FOUC).
           </li>
           <li>
-            Placing JS scripts at the end of the <code>&lt;body&gt;</code>{" "}
-            allows the HTML content to be parsed and rendered first, improving
-            the perceived page load time and user experience.
+            Placing JS scripts at the end of the <Tag>&lt;body&gt;</Tag> allows
+            the HTML content to be parsed and rendered first, improving the
+            perceived page load time and user experience.
           </li>
         </ul>
         However, there are exceptions to this general guideline:
@@ -299,11 +300,11 @@ const htmlQuestions = [
           <li>
             If a script is required for rendering above-the-fold content or
             initializing critical functionality, it can be placed in the{" "}
-            <code>&lt;head&gt;</code> section.
+            <Tag>&lt;head&gt;</Tag> section.
           </li>
           <li>
             If a script is small and does not impact the rendering of the page,
-            it can be placed in the <code>&lt;head&gt;</code> for simplicity.
+            it can be placed in the <Tag>&lt;head&gt;</Tag> for simplicity.
           </li>
           <li>
             If a stylesheet is large and not critical for above-the-fold
@@ -342,18 +343,18 @@ const htmlQuestions = [
       "Why would you use a 'srcset' attribute in an image tag? Explain the process the browser uses when evaluating the content of this attribute.",
     answer: (
       <p>
-        The <code>srcset</code> attribute in an <code>&lt;img&gt;</code> tag is
-        used to specify multiple image sources with different resolutions or
-        sizes. It allows the browser to choose the most appropriate image based
-        on the device's display density and viewport size. The browser uses the
-        following process when evaluating the <code>srcset</code> attribute:
+        The <Tag>srcset</Tag> attribute in an <Tag>&lt;img&gt;</Tag> tag is used
+        to specify multiple image sources with different resolutions or sizes.
+        It allows the browser to choose the most appropriate image based on the
+        device's display density and viewport size. The browser uses the
+        following process when evaluating the <Tag>srcset</Tag> attribute:
         <ol>
           <li>
             The browser determines the device's display density (pixel ratio)
             and the size of the image container in CSS pixels.
           </li>
           <li>
-            It parses the <code>srcset</code> attribute and creates a list of
+            It parses the <Tag>srcset</Tag> attribute and creates a list of
             available image sources along with their width descriptors or pixel
             densities.
           </li>
@@ -367,7 +368,7 @@ const htmlQuestions = [
           </li>
           <li>The browser downloads and displays the selected image.</li>
         </ol>
-        Using the <code>srcset</code> attribute allows the browser to choose an
+        Using the <Tag>srcset</Tag> attribute allows the browser to choose an
         optimized image for the user's device, reducing bandwidth usage and
         improving page load performance.
       </p>
@@ -400,7 +401,7 @@ const htmlQuestions = [
         </p>
         <p>
           To stop event bubbling and prevent the event from being propagated to
-          parent elements, you can use the <code>stopPropagation()</code> method
+          parent elements, you can use the <Tag>stopPropagation()</Tag> method
           on the event object. This prevents the event from being handled by any
           parent elements in the bubbling phase.
         </p>
@@ -451,7 +452,7 @@ const htmlQuestions = [
         </ul>
         <p>
           To implement event delegation, you attach the event listener to the
-          parent element and then use the <code>event.target</code> property to
+          parent element and then use the <Tag>event.target</Tag> property to
           determine which child element triggered the event. You can then
           perform the desired actions based on the target element.
         </p>
@@ -516,18 +517,17 @@ const HTML = () => {
         <ul>
           <li>
             The basic structure of an HTML document includes the{" "}
-            <code>doctype</code>, <code>html</code>, <code>head</code>, and{" "}
-            <code>body</code> tags.
+            <Tag>doctype</Tag>, <Tag>html</Tag>, <Tag>head</Tag>, and{" "}
+            <Tag>body</Tag> tags.
           </li>
           <li>
-            The <code>head</code> section contains meta-information about the
+            The <Tag>head</Tag> section contains meta-information about the
             document, such as its title and links to stylesheets.
           </li>
           <li>
-            The <code>body</code> section contains the content of the document,
+            The <Tag>body</Tag> section contains the content of the document,
             including text, images, and other media.
           </li>
-          {/* Add more items as needed */}
         </ul>
         <Resources />
 

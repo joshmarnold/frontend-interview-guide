@@ -1,7 +1,7 @@
 import Specificity from "../../svgs/css/specificity";
 import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
 import { IconExternalLink } from "@tabler/icons-react";
+import { Tag } from "../../shared/Tag";
 
 const Resources = () => {
   const handleChipClick = (url) => {
@@ -57,75 +57,74 @@ const Learn = () => {
       <ul>
         <li>
           Element selectors target elements by their tag name (e.g.,{" "}
-          <code>p</code>, <code>div</code>).
+          <Tag>p</Tag>, <Tag>div</Tag>).
         </li>
 
         <li>
           Class selectors target elements with a specific class (e.g.,{" "}
-          <code>.my-class</code>).
+          <Tag>.my-class</Tag>).
         </li>
         <li>
           ID selectors target elements with a specific ID (e.g.,{" "}
-          <code>#my-id</code>).
+          <Tag>#my-id</Tag>).
         </li>
         <li>
           Attribute selectors target elements based on their attributes (e.g.,{" "}
-          <code>[type="text"]</code>).
+          <Tag>[type="text"]</Tag>).
         </li>
         <li>
           Pseudo-class selectors target elements based on a specific state
-          (e.g., <code>:hover</code>, <code>:active</code>).
+          (e.g., <Tag>:hover</Tag>, <Tag>:active</Tag>).
         </li>
         <li>
           Pseudo-element selectors target specific parts of an element (e.g.,{" "}
-          <code>::before</code>, <code>::after</code>).
+          <Tag>::before</Tag>, <Tag>::after</Tag>).
         </li>
       </ul>
 
       <h3 style={{ margin: "0px" }}>Display</h3>
       <ul>
         <li>
-          <code>display: block;</code> - Elements take up the full width
-          available and start on a new line.
+          <Tag>display: block;</Tag> - Elements take up the full width available
+          and start on a new line.
         </li>
         <li>
-          <code>display: inline;</code> - Elements only take up as much width as
+          <Tag>display: inline;</Tag> - Elements only take up as much width as
           needed and do not start on a new line.
         </li>
         <li>
-          <code>display: inline-block;</code> - Elements behave like inline
+          <Tag>display: inline-block;</Tag> - Elements behave like inline
           elements but can have a width and height.
         </li>
         <li>
-          <code>display: flex;</code> - Creates a flex container for flexible
-          box layout.
+          <Tag>display: flex;</Tag> - Creates a flex container for flexible box
+          layout.
         </li>
         <li>
-          <code>display: grid;</code> - Creates a grid container for grid
-          layout.
+          <Tag>display: grid;</Tag> - Creates a grid container for grid layout.
         </li>
       </ul>
 
       <h3 style={{ margin: "0px" }}>Position</h3>
       <ul>
         <li>
-          <code>position: static;</code> - Default positioning, elements follow
+          <Tag>position: static;</Tag> - Default positioning, elements follow
           the normal document flow.
         </li>
         <li>
-          <code>position: relative;</code> - Elements are positioned relative to
+          <Tag>position: relative;</Tag> - Elements are positioned relative to
           their normal position.
         </li>
         <li>
-          <code>position: absolute;</code> - Elements are positioned relative to
+          <Tag>position: absolute;</Tag> - Elements are positioned relative to
           their nearest positioned ancestor.
         </li>
         <li>
-          <code>position: fixed;</code> - Elements are positioned relative to
-          the browser window.
+          <Tag>position: fixed;</Tag> - Elements are positioned relative to the
+          browser window.
         </li>
         <li>
-          <code>position: sticky;</code> - Elements are positioned based on the
+          <Tag>position: sticky;</Tag> - Elements are positioned based on the
           user's scroll position.
         </li>
       </ul>
