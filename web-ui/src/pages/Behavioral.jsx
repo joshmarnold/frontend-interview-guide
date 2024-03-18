@@ -20,7 +20,7 @@ const Behavioral = () => {
         <ul>
           <li>
             <strong>Be honest:</strong> If you don't know something, say so.
-            Don't rick it and try to fake it. Follow up questions will expose
+            Don't risk it and try to fake it. Follow up questions will expose
             you.
           </li>
           <li>
