@@ -439,15 +439,14 @@ const PerformanceAndMetrics = () => {
         Use the following metrics when evaluating web performance and user
         experience:
       </p>
-      <ul>
+      <ol>
         <li>Time to First Byte (TTFB)</li>
         <li>First Contentful Paint (FCP)</li>
         <li>Largest Contentful Paint (LCP)</li>
         <li>Total Blocking Time (TBT)</li>
         <li>Cumulative Layout Shift (CLS)</li>
         <li>Speed Index</li>
-        <li>Critical Rendering Path (Not a metric)</li>
-      </ul>
+      </ol>
       <div
         style={{
           display: "flex",
