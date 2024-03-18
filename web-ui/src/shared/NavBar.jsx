@@ -38,7 +38,7 @@ const Navbar = ({ setExpanded }) => {
             className="logo"
             style={{ margin: 0, fontSize: "18px", fontWeight: 700 }}
           >
-            Open Source Front End Engineer Interview Guide
+            My Open Source Front End Interview Notes
           </p>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
