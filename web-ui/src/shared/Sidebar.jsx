@@ -99,6 +99,7 @@ const data = {
       name: "Frontend System Design",
       path: "frontend-system-design",
     },
+    { id: "15", name: "Behavorial", path: "behavioral", isHeader: false },
     {
       id: "8",
       name: "Algorithms & Data Structures",
@@ -164,7 +165,6 @@ const data = {
         },
       ],
     },
-    { id: "15", name: "Behavorial", path: "behavioral", isHeader: false },
     { id: "12", name: "Extras", isHeader: true, disabled: true },
     // project management
     {

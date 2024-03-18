@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 export default function Main() {
   return (
     <>
-      
+      <p>
+        Before practicing LeetCode, ensure you've mastered frontend topics and
+        problems. Frontend interviews primarily test these subjects, possibly
+        without any LeetCode questions. If asked, they'll likely be easy or
+        medium-level problems.
+      </p>
       <p style={{ marginTop: "24px" }}>
+        But, in case you're asked a LeetCode question, you should be prepared.
         Time is limited so the goal is to focus on high ROI algorithms. These
         are the algorithms most frequently used in interviews.
       </p>

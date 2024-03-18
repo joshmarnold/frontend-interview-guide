@@ -5,6 +5,10 @@ import UnweightedGraph from "../../svgs/UnweightedGraph";
 const ApproachingLeetCodeProblems = () => {
   return (
     <>
+      <h2>
+        This is very much a concept I'm trying to work out to help solve
+        problems.{" "}
+      </h2>
       <h3>Templates, Capabilities, and Variations</h3>
       <p>
         When tackling LeetCode problems, it's helpful to have a structured
