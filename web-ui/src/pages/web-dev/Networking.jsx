@@ -132,6 +132,129 @@ const generalQuestionsAndAnswers = [
     ),
   },
   {
+    question: "What are the different versions of HTTP and their key features?",
+    answer: (
+      <div>
+        <p>
+          HTTP (Hypertext Transfer Protocol) has evolved through several
+          versions:
+        </p>
+        <ul>
+          <li>
+            <strong>HTTP/0.9 (1991):</strong> The first version, simple and
+            limited to GET requests for retrieving HTML documents.
+          </li>
+          <li>
+            <strong>HTTP/1.0 (1996):</strong> Introduced headers, additional
+            methods like POST, and status codes.
+          </li>
+          <li>
+            <strong>HTTP/1.1 (1997, updated in 1999):</strong> Added
+            (keep-alive) persistent connections, chunked transfer encoding, and
+            more methods and status codes for enhanced control.
+          </li>
+          <li>
+            <strong>HTTP/2 (2015):</strong> Brought binary framing,
+            multiplexing, header compression, and server push, significantly
+            improving efficiency and performance.
+          </li>
+          <li>
+            <strong>HTTP/3 (2022):</strong> Utilizes QUIC (Quick UDP Internet
+            Connections) to reduce latency, improve security, and overcome
+            limitations of previous versions.
+          </li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    question: "What are keep-alive connections in HTTP?",
+    answer: (
+      <div>
+        <p>
+          Keep-alive connections are a feature of the HTTP protocol that allow
+          multiple requests and responses to be sent over a single TCP
+          connection without having to open a new one for each transaction. This
+          feature significantly improves the efficiency of network communication
+          between clients and servers by:
+        </p>
+        <ul>
+          <li>
+            Reducing the overhead and latency associated with establishing new
+            connections.
+          </li>
+          <li>Decreasing the amount of CPU and memory usage on the server.</li>
+          <li>Allowing for faster loading times for webpages and resources.</li>
+        </ul>
+        <p>
+          Introduced in HTTP/1.1, keep-alive connections are enabled by default,
+          leveraging the <code>Connection: keep-alive</code> header to inform
+          the server that the client wishes to maintain the connection open for
+          additional requests.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "What is binary framing in HTTP/2?",
+    answer: (
+      <div>
+        <p>
+          Binary framing in HTTP/2 refers to the way data is packaged and
+          transported between the client and server. Unlike the text-based
+          format of HTTP/1.x, HTTP/2 uses a binary protocol that divides data
+          into smaller, manageable frames. This change allows for more efficient
+          parsing, reduced latency, and improved network utilization, as well as
+          enabling other HTTP/2 features like multiplexing and stream
+          prioritization.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "What is multiplexing in HTTP/2?",
+    answer: (
+      <div>
+        <p>
+          Multiplexing is a feature of HTTP/2 that allows multiple requests and
+          responses to be sent concurrently over a single TCP connection. This
+          solves the HTTP/1.x issue of head-of-line blocking, where the
+          request-response cycle had to be completed before a new one could
+          begin, significantly improving the efficiency and speed of data
+          transfer.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "How does header compression work in HTTP/2?",
+    answer: (
+      <div>
+        <p>
+          Header compression in HTTP/2, implemented via HPACK, reduces the size
+          of the headers for HTTP requests and responses. By compressing
+          headers, HTTP/2 minimizes the overall amount of data transmitted
+          between client and server, thus reducing latency and improving page
+          load times, especially in environments with constrained bandwidth.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "What is server push in HTTP/2?",
+    answer: (
+      <div>
+        <p>
+          Server push in HTTP/2 allows a server to proactively send resources to
+          a client before the client requests them. By predicting the resources
+          a client will need (such as CSS and JavaScript files) and sending them
+          in advance, server push aims to further reduce loading times for
+          webpages, enhancing the user experience.
+        </p>
+      </div>
+    ),
+  },
+  {
     question:
       "Can you give an example of when you might use UDP in application development?",
     answer: (

@@ -37,11 +37,22 @@ const generalQuestionsAndAnswers = [
     question:
       "What is First Contentful Paint (FCP), and why is it significant?",
     answer: (
-      <p>
-        FCP measures the time to start rendering page content, offering an early
-        view of perceived load speed. Faster FCP enhances user experience by
-        quickly providing visible content.
-      </p>
+      <>
+        <p>
+          FCP, or First Contentful Paint, tracks how long it takes for the first
+          piece of content to appear on the screen after a user navigates to a
+          page. It's a key measure of a site's speed, reflecting how quickly
+          users can see something on the page. Improving FCP means users are
+          less likely to leave due to waiting, enhancing their overall
+          experience.
+        </p>
+        <p>
+          For example, if you navigate to a news website and the headline
+          appears within 1.5 seconds, that's the site's FCP time. A faster FCP,
+          like this, ensures users have a positive first impression of the
+          website's performance.
+        </p>
+      </>
     ),
   },
   {
