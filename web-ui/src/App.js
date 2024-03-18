@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { Analytics } from "@vercel/analytics/react";
 
 // import "highlight.js/styles/agate.css";
 // import "highlight.js/styles/atom-one-dark.css";
@@ -99,6 +100,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
+      <Analytics />
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
