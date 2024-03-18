@@ -5,10 +5,14 @@ import UnweightedGraph from "../../svgs/UnweightedGraph";
 const ApproachingLeetCodeProblems = () => {
   return (
     <>
-      <h2>
-        This is very much a concept I'm trying to work out to help solve
-        problems.{" "}
-      </h2>
+      <p>
+        This framework concept (POC) aims to solve problems by identifying
+        common patterns and techniques. The goal is to analyze numerous
+        problems, categorize them into a finite set of patterns, and develop a
+        comprehensive framework. Inspired by AlgoMonster.com's templates, this
+        approach could be expanded to cover a wider range of problems, making it
+        easier to teach, understand, and solve them effectively.
+      </p>
       <h3>Templates, Capabilities, and Variations</h3>
       <p>
         When tackling LeetCode problems, it's helpful to have a structured
