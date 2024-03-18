@@ -2,7 +2,7 @@ import QuestionsWrapper from "../../shared/QuestionsWrapper";
 
 const generalQuestionsAndAnswers = [
   {
-    question: "What is Time to First Byte (TTFB), and why is it important?",
+    question: "What is Time to First Byte (TTFB), and what does it measure?",
     answer: (
       <p>
         TTFB measures the time from making an HTTP request to receiving the
