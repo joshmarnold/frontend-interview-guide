@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import QuestionsWrapper from "../../shared/QuestionsWrapper";
+import TopicsList from "../../shared/TopicsList";
 import Highlight from "react-highlight";
-import TopicsList from "../shared/TopicsList";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-
-import "./DomApi.scss";
-import { IconExternalLink } from "@tabler/icons-react";
-import CustomTabPanel, { a11yProps } from "../shared/CustomTabPanel";
-import QuestionsWrapper from "../shared/QuestionsWrapper";
 
 const accessingDOMElementsQuestions = [
   {
@@ -1213,168 +1207,87 @@ const General = () => {
   );
 };
 
-const DomApi = () => {
-  const [value, setValue] = useState(() => {
-    const storedTabValue = localStorage.getItem("domapi-currentTab");
-    return storedTabValue !== null ? parseInt(storedTabValue, 10) : 0;
-  });
-
-  const handleChange = (event, newValue) => {
-    localStorage.setItem("domapi-currentTab", newValue);
-    setValue(newValue);
-  };
-
+const Learn = () => {
   return (
-    <div>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        aria-label="basic tabs example"
-        variant="fullWidth"
-        textColor="white"
-      >
-        <Tab label="Learn" {...a11yProps(0)} />
-        <Tab label="Quiz" {...a11yProps(1)} />
-      </Tabs>
-      <CustomTabPanel value={value} index={0}>
-        {/* https://www.youtube.com/watch?v=5fb2aPlgoys */}
-        {/* JavaScript DOM Manipulation – Full Course for Beginners */}
-        <a
-          href="https://www.youtube.com/watch?v=5fb2aPlgoys"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "white", fontWeight: "bold" }}
-        >
-          JavaScript DOM Manipulation – Full Course for Beginners{" "}
-          <IconExternalLink size="1rem" />
-        </a>
-
-        <p>
-          The Document Object Model (DOM) API is a programming interface for web
-          documents. It represents the structure of a document as a tree of
-          objects, allowing developers to manipulate and interact with the
-          content, structure, and styles of a web page using JavaScript.
-        </p>
-        <p>
-          While modern web development heavily relies on frameworks and
-          libraries like React, understanding and working with the DOM API is
-          still crucial, especially in interview settings. Many interviews
-          assess a candidate's knowledge of vanilla JavaScript and their ability
-          to work directly with the DOM API, as it demonstrates a solid
-          foundation in web development fundamentals.
-        </p>
-        <p>
-          To see a full list of DOM methods and properties, refer to the
-          official{" "}
-          <a
-            href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white", fontWeight: "bold" }}
+    <>
+      <TopicsList>
+        <ol className="selectable">
+          <li
+            onClick={() => {
+              window.location.href = "#access-dom-elements";
+            }}
           >
-            Mozilla Developer Network (MDN) documentation{" "}
-            <IconExternalLink size="1rem" />
-          </a>
-        </p>
-        <p>
-          Or, if you'd like a video explanation, check out this video{" "}
-          <a
-            href="https://www.youtube.com/watch?v=wbQLEXg_urE"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: "white", fontWeight: "bold" }}
+            Accessing DOM Elements
+            <ul>
+              <li>
+                Methods for selecting elements (getElementById, querySelector,
+                etc.)
+              </li>
+              <li>
+                Traversing the DOM tree (parentNode, childNodes, firstChild,
+                lastChild, etc.)
+              </li>
+            </ul>
+          </li>
+          <li
+            onClick={() => {
+              window.location.href = "#manipulating-dom-elements";
+            }}
           >
-            DOM API by ColorCode <IconExternalLink size="1rem" />
-          </a>
-        </p>
-        <p>
-          In this section, we'll explore a series of pragmatic questions related
-          to working with the DOM API. We'll provide code samples of HTML and
-          ask questions about how to interact with and manipulate the DOM
-          elements. The focus will be on common areas such as forms, accessing
-          DOM elements, traversing the DOM tree, and handling events.
-        </p>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <TopicsList>
-          <ol className="selectable">
-            <li
-              onClick={() => {
-                window.location.href = "#access-dom-elements";
-              }}
-            >
-              Accessing DOM Elements
-              <ul>
-                <li>
-                  Methods for selecting elements (getElementById, querySelector,
-                  etc.)
-                </li>
-                <li>
-                  Traversing the DOM tree (parentNode, childNodes, firstChild,
-                  lastChild, etc.)
-                </li>
-              </ul>
-            </li>
-            <li
-              onClick={() => {
-                window.location.href = "#manipulating-dom-elements";
-              }}
-            >
-              Manipulating DOM Elements
-              <ul>
-                <li>Creating new elements (createElement)</li>
-                <li>
-                  Inserting elements into the DOM (appendChild, insertBefore)
-                </li>
-                <li>Removing elements from the DOM (removeChild)</li>
-                <li>Cloning elements (cloneNode)</li>
-                <li>Styling elements</li>
-              </ul>
-            </li>
-            <li
-              onClick={() => {
-                window.location.href = "#working-with-forms";
-              }}
-            >
-              Working with Forms
-              <ul>
-                <li>Accessing form elements</li>
-                <li>Getting and setting form values</li>
-                <li>Handling form submissions</li>
-                <li>Form validation</li>
-              </ul>
-            </li>
-            <li
-              onClick={() => {
-                window.location.href = "#handling-events";
-              }}
-            >
-              Handling Events
-              <ul>
-                <li>Adding event listeners (addEventListener)</li>
-                <li>Removing event listeners (removeEventListener)</li>
-                <li>Event object and its properties</li>
-                <li>Event propagation and delegation</li>
-              </ul>
-            </li>
-          </ol>
-        </TopicsList>
+            Manipulating DOM Elements
+            <ul>
+              <li>Creating new elements (createElement)</li>
+              <li>
+                Inserting elements into the DOM (appendChild, insertBefore)
+              </li>
+              <li>Removing elements from the DOM (removeChild)</li>
+              <li>Cloning elements (cloneNode)</li>
+              <li>Styling elements</li>
+            </ul>
+          </li>
+          <li
+            onClick={() => {
+              window.location.href = "#working-with-forms";
+            }}
+          >
+            Working with Forms
+            <ul>
+              <li>Accessing form elements</li>
+              <li>Getting and setting form values</li>
+              <li>Handling form submissions</li>
+              <li>Form validation</li>
+            </ul>
+          </li>
+          <li
+            onClick={() => {
+              window.location.href = "#handling-events";
+            }}
+          >
+            Handling Events
+            <ul>
+              <li>Adding event listeners (addEventListener)</li>
+              <li>Removing event listeners (removeEventListener)</li>
+              <li>Event object and its properties</li>
+              <li>Event propagation and delegation</li>
+            </ul>
+          </li>
+        </ol>
+      </TopicsList>
 
-        {/* <h2>Example</h2> */}
-        <p>
-          Example accordion with a default item and a form to add new items to
-          discuss and analyze the DOM API concepts.
-        </p>
+      {/* <h2>Example</h2> */}
+      <p>
+        Example accordion with a default item and a form to add new items to
+        discuss and analyze the DOM API concepts.
+      </p>
 
-        <AccordionExample />
-        <AccessingDOMElements />
-        <ManipulatingDOMElements />
-        <HandlingEvents />
-        <WorkingWithForms />
-        <General />
-      </CustomTabPanel>
-    </div>
+      <AccordionExample />
+      <AccessingDOMElements />
+      <ManipulatingDOMElements />
+      <HandlingEvents />
+      <WorkingWithForms />
+      <General />
+    </>
   );
 };
 
-export default DomApi;
+export default Learn;

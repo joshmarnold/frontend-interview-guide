@@ -232,6 +232,22 @@ code {
   }
 }
 
+.MuiChip-root {
+  flex-direction: row-reverse;
+
+  .MuiChip-label {
+    padding-right: 5px;
+    padding-left: 10px;
+    font-weight: bold;
+  }
+
+  .MuiChip-icon {
+    margin-left: 0 !important;
+    margin-right: 10px !important;
+    margin-bottom: 2px;
+  }
+}
+
 .questions-wrapper {
   display: flex;
   flex-direction: column;

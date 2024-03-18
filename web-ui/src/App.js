@@ -21,7 +21,7 @@ const darkTheme = createTheme({
 });
 
 const Home = lazy(() => import("./pages/Home"));
-const DomApi = lazy(() => import("./pages/DomApi"));
+const DomApi = lazy(() => import("./pages/dom-api/DomApi"));
 const GeneralProgramming = lazy(() => import("./pages/GeneralProgramming"));
 const React = lazy(() => import("./pages/React"));
 const CSS = lazy(() => import("./pages/CSS/CSS"));

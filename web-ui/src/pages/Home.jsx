@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Accordion from "../shared/Accordion";
 import Highlight from "react-highlight";
 import { IconExternalLink } from "@tabler/icons-react";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Stack";
 
 const colors = ["#d74a49", "#1b4552", "#6a3d74", "rgb(171 137 32)", "#1d863a"];
 
@@ -186,27 +188,29 @@ const Home = () => {
       <h3 style={{ fontSize: "16px", marginBottom: "16px" }}>
         Recommended Videos When Starting
       </h3>
-      {/* // this needs to link to youbube */}
-      <div style={{ display: "flex", gap: "6px" }}>
-        <a
-          href="https://www.youtube.com/watch?v=rMWDtxJQIbQ"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="badge"
-        >
-          Amazon Front End Interview Prep (TechRally)
-          <IconExternalLink size="1rem" />
-        </a>
-        <a
-          href="https://www.youtube.com/watch?v=0Z9RW_hhUT4"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="badge"
-        >
-          Most Tech Interview Prep is GARBAGE (A Life Engineered)
-          <IconExternalLink size="1rem" />
-        </a>
-      </div>
+      <Stack direction="row" spacing={1}>
+        <Chip
+          label="Amazon Front End Interview Prep by TechRally (YouTube)"
+          onClick={() => {
+            window.open(
+              "https://www.youtube.com/watch?v=rMWDtxJQIbQ",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />
+        <Chip
+          label="Most Tech Interview Prep is GARBAGE by A Life Engineered (YouTube)"
+          onClick={() => {
+            window.open(
+              "https://www.youtube.com/watch?v=0Z9RW_hhUT4",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />
+      </Stack>
+
       <h3 style={{ fontSize: "16px" }}>Topics</h3>
       <div className="grid-items-container">
         {topics.map((topic, index) => (
@@ -225,14 +229,16 @@ const Home = () => {
       <p>
         <span>
           Visit{" "}
-          <a
-            href="https://www.greatfrontend.com/prepare/coding"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            greatfrontend.com
-            <IconExternalLink size="1rem" />
-          </a>{" "}
+          <Chip
+            label="greatfrontend.com"
+            onClick={() => {
+              window.open(
+                "https://www.greatfrontend.com/prepare/coding",
+                "_blank"
+              );
+            }}
+            icon={<IconExternalLink size={"1.2rem"} />}
+          />{" "}
           to practice UI coding problems.
         </span>
       </p>
