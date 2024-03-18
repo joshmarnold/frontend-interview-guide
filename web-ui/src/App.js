@@ -23,7 +23,7 @@ const Home = lazy(() => import("./pages/Home"));
 const DomApi = lazy(() => import("./pages/DomApi"));
 const GeneralProgramming = lazy(() => import("./pages/GeneralProgramming"));
 const React = lazy(() => import("./pages/React"));
-const CSS = lazy(() => import("./pages/CSS"));
+const CSS = lazy(() => import("./pages/CSS/CSS"));
 const JavaScript = lazy(() => import("./pages/javascript/Javascript"));
 const Layout = lazy(() => import("./shared/Layout"));
 const Array = lazy(() => import("./pages/algorithms-data-structures/Array"));
