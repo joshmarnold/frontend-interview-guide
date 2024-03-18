@@ -80,7 +80,7 @@ const sections = [
     title: "Goal of this Guide",
     description: (
       <>
-        <p>Time is limited, and there's a lot to learn. My goal is to:</p>
+        <p>Time is limited, and there's a lot to learn. The goal is to:</p>
 
         <ol>
           <li>
