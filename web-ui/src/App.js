@@ -100,7 +100,8 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      {window.location.hostname !== "localhost" && <Analytics />}
+      {/* doesnt run on localhost */}
+      <Analytics />
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
