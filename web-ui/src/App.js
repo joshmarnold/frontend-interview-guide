@@ -100,7 +100,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Analytics />
+      {window.location.hostname !== "localhost" && <Analytics />}
       <Router>
         <Routes>
           <Route path="/" element={<Layout />}>
