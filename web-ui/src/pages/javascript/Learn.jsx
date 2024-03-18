@@ -92,7 +92,7 @@ const sections = [
 const Learn = () => {
   return (
     <>
-      <Accordion items={sections} openedByDefault={0} timeout={0} />
+      <Accordion items={sections} timeout={0} />
       <Resources />
     </>
   );

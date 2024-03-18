@@ -4,18 +4,17 @@ const Behavioral = () => {
   return (
     <div>
       {/* https://www.greatfrontend.com/behavioral-interview-guidebook */}
-      <p>
-        I would recommend reading{" "}
+      <h4>
         <a
           href="https://www.greatfrontend.com/behavioral-interview-guidebook"
           target="_blank"
           rel="noopener noreferrer"
         >
-          greatfrontend.com
+          greatfrontend.com/behavorial-interview-guidebook
           <IconExternalLink size="1rem" />
         </a>{" "}
-        for a more comprehensive guide on behavioral interviews.
-      </p>
+        is a great guide.
+      </h4>
       <div>
         <h3>My Personal Tips</h3>
         <p>Be specific. Interviewers want to hear about your experiences.</p>
