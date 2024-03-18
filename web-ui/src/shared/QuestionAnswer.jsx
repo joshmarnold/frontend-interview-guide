@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionSummary, AccordionDetails } from "./Accordion";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 const QuestionAnswer = ({
   question,
@@ -72,6 +73,29 @@ const QuestionAnswer = ({
           }}
         />
         <Typography>{question}</Typography>
+        <ContentCopyIcon
+          sx={{
+            marginLeft: "5px",
+            fontSize: ".9rem",
+            opacity: 0.5,
+            cursor: "pointer",
+            transition: "all 0.1s",
+
+            "&:hover": {
+              opacity: 1,
+            },
+
+            "&:active": {
+              transform: "translateY(1px)",
+            },
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            const el = document.getElementById(`panel${index}-header`);
+            const text = el.textContent;
+            navigator.clipboard.writeText(text);
+          }}
+        />
       </AccordionSummary>
       <AccordionDetails>
         <Typography>{answer}</Typography>

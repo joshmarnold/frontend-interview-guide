@@ -120,13 +120,40 @@ const generalQuestionsAndAnswers = [
   },
   {
     question:
-      "Describe how to use Web Performance APIs to measure performance in the browser.",
+      "Can you provide an example of using Web Performance APIs to analyze page performance?",
     answer: (
-      <p>
-        Web Performance APIs, like Navigation Timing and Resource Timing,
-        provide detailed insights into page loading and usage, helping to
-        pinpoint performance bottlenecks for optimization.
-      </p>
+      <div>
+        <p>
+          Sure! Here's a simple example using the Navigation Timing API to
+          measure how long it takes for a page to load:
+        </p>
+        <pre>
+          <code className="javascript">
+            {`if (window.performance) {
+  const timing = window.performance.timing;
+  const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+
+  console.log("Page Load Time: ", pageLoadTime);
+}`}
+          </code>
+        </pre>
+        <p>
+          And here's an example using the Resource Timing API to get insights
+          into the loading time of specific resources like scripts, stylesheets,
+          and images:
+        </p>
+        <pre>
+          <code className="javascript">
+            {`window.performance.getEntriesByType("resource").forEach((resource) => {
+  console.log(resource.name + ": " + (resource.responseEnd - resource.startTime));
+});`}
+          </code>
+        </pre>
+        <p>
+          Make sure to call <code>hljs.highlightAll();</code> after your content
+          is loaded to apply syntax highlighting.
+        </p>
+      </div>
     ),
   },
   {
