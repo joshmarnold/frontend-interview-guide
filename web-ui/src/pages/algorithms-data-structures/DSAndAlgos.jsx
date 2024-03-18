@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function Main() {
   return (
     <>
+      
       <p style={{ marginTop: "24px" }}>
         Time is limited so the goal is to focus on high ROI algorithms. These
         are the algorithms most frequently used in interviews.

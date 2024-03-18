@@ -16,7 +16,7 @@ In the limited time available for interview preparation, the goal is to offer a 
 
 This repository consists of two main directories:
 
-1. `practice-problems`: This directory contains a collection of practice problems related to algorithms, data structures, and UI.
+1. `practice-problems`: This directory contains a collection of practice problems related to algorithms, data structures. For UI problems, I'd recommend checking out [greatfrontend.com/](https://www.greatfrontend.com/prepare/coding). For Algo problems, still use leetcode.com.. I decided to implement them here for comments.
 
 2. `web-ui`: This directory houses the website for the Frontend Software Engineer Interview Guide.
 
