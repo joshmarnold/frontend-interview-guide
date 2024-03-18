@@ -32,7 +32,7 @@ If you're interested in using the Frontend Software Engineer Interview Guide to 
 
 2. Open the `practice-problems` directory in your preferred code editor.
 
-3. To run any of the practice problems, simply open the corresponding HTML file in a web browser. For example, to run the accordion problem, open the `accordion.html` file.
+3. To run any of the practice problems, simply open the corresponding HTML file in a web browser.
 
 4. If you're using Visual Studio Code (VSCode), it's recommended to install the "Live Server" extension for a better development experience:
 
