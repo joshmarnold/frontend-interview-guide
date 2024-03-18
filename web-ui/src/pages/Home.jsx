@@ -7,7 +7,14 @@ import { IconExternalLink } from "@tabler/icons-react";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 
-const colors = ["#d74a49", "#1b4552", "#6a3d74", "rgb(171 137 32)", "#1d863a"];
+const colors = [
+  "#d74a49",
+  "#1b4552",
+  "#6a3d74",
+  "rgb(171 137 32)",
+  "#1d863a",
+  "rgb(94 137 113)",
+];
 
 const topics = [
   {
@@ -59,6 +66,12 @@ const topics = [
     title: "Interview Prep",
     to: "interview-prep",
     color: colors[4],
+  },
+  // bheavrioal
+  {
+    title: "Behavioral",
+    to: "behavioral",
+    color: colors[5],
   },
 ];
 
