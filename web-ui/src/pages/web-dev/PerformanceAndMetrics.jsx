@@ -461,15 +461,6 @@ const PerformanceAndMetrics = () => {
           questions={generalQuestionsAndAnswers}
         />
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </>
   );
 };
