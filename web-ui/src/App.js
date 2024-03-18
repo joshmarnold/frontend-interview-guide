@@ -68,7 +68,7 @@ const WebDev = lazy(() => import("./pages/web-dev/WebDev"));
 const A11y = lazy(() => import("./pages/web-dev/A11y"));
 const I18n = lazy(() => import("./pages/web-dev/I18n"));
 const API = lazy(() => import("./pages/web-dev/API"));
-const Caching = lazy(() => import("./pages/web-dev/Caching"));
+const Caching = lazy(() => import("./pages/web-dev/caching/Caching"));
 const Database = lazy(() => import("./pages/web-dev/Database"));
 const Devtools = lazy(() => import("./pages/web-dev/Devtools"));
 const Networking = lazy(() => import("./pages/web-dev/Networking"));

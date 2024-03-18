@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import QuestionsWrapper from "../../shared/QuestionsWrapper";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import CustomTabPanel, { a11yProps } from "../../shared/CustomTabPanel";
+import QuestionsWrapper from "../../../shared/QuestionsWrapper";
 
 const frontendCaching = [
   {
@@ -563,78 +559,24 @@ const backendCaching = [
   },
 ];
 
-const Caching = () => {
-  const [value, setValue] = useState(() => {
-    const storedTabValue = localStorage.getItem("caching-currentTab");
-    return storedTabValue !== null ? parseInt(storedTabValue, 10) : 0;
-  });
-
-  const handleChange = (event, newValue) => {
-    localStorage.setItem("caching-currentTab", newValue);
-    setValue(newValue);
-  };
-
+const Quiz = () => {
   return (
-    <div className="flex column">
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        aria-label="basic tabs example"
-        variant="fullWidth"
-        textColor="white"
+    <>
+      <h2 style={{ margin: 0 }}>Frontend Caching</h2>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          marginTop: "20px",
+        }}
       >
-        <Tab label="Learn" {...a11yProps(0)} />
-        <Tab label="Quiz" {...a11yProps(1)} />
-      </Tabs>
-      <CustomTabPanel value={value} index={0}>
-        <p>
-          Caching is a crucial aspect of web development that plays a
-          significant role in optimizing performance and reducing the load on
-          servers. It involves storing frequently accessed data or resources in
-          a cache, which can be quickly retrieved when needed, instead of
-          fetching them from the original source each time.
-        </p>
-        <h3>Frontend Caching</h3>
-        <p>
-          Frontend caching refers to the techniques and mechanisms used to cache
-          data and resources on the client-side, typically in the web browser.
-          It aims to minimize network requests and improve the responsiveness of
-          web applications. Frontend caching can be implemented at different
-          levels, such as browser caching, application-level caching, and using
-          caching strategies like cache-first or network-first.
-        </p>
-        <p>
-          Browser caching involves the web browser storing resources (e.g.,
-          HTML, CSS, JavaScript, images) locally on the client's machine.
-          Subsequent requests for the same resources can be served from the
-          browser cache, reducing the need for network requests. HTTP headers,
-          such as Cache-Control and ETag, can be used to control browser caching
-          behavior.
-        </p>
-        <p>
-          Application-level caching in the frontend refers to caching data, API
-          responses, or rendered components within the application code itself.
-          It can be achieved using techniques like in-memory caching, local
-          storage, or leveraging caching libraries and frameworks.
-        </p>
-        <h3>Backend Caching</h3>
-        <p>
-          Backend caching involves caching data and resources on the server-side
-          to reduce the load on the server and improve response times. While
-          backend caching is not the primary focus of frontend development
-          interviews, it's still important to have a basic understanding of its
-          concepts and techniques.
-        </p>
-        <p>
-          Backend caching can be implemented at various levels, such as database
-          caching, object caching, or using caching proxies like Redis or
-          Memcached. It helps minimize the need for expensive computations,
-          database queries, or external API calls by storing the results in a
-          cache for faster retrieval.
-        </p>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        <h2 style={{ margin: 0 }}>Frontend Caching</h2>
+        <QuestionsWrapper
+          storageKey="caching-frontend"
+          questions={frontendCaching}
+        />
+
+        <h2>Backend Caching</h2>
         <div
           style={{
             display: "flex",
@@ -644,28 +586,13 @@ const Caching = () => {
           }}
         >
           <QuestionsWrapper
-            storageKey="caching-frontend"
-            questions={frontendCaching}
+            storageKey="caching-backend"
+            questions={backendCaching}
           />
-
-          <h2>Backend Caching</h2>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-              marginTop: "20px",
-            }}
-          >
-            <QuestionsWrapper
-              storageKey="caching-backend"
-              questions={backendCaching}
-            />
-          </div>
         </div>
-      </CustomTabPanel>
-    </div>
+      </div>
+    </>
   );
 };
 
-export default Caching;
+export default Quiz;
