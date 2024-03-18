@@ -72,8 +72,11 @@ const MaterialAccordionItem = ({
   );
 };
 
-const MaterialHondaAccordion = ({ items, timeout }) => {
-  const [expandedPanel, setExpandedPanel] = useState(false);
+const MaterialHondaAccordion = ({ items, timeout, openedByDefault }) => {
+  // Use initialOpenPanel to set the initially expanded panel
+  // Assuming initialOpenPanel is an index, convert it to the panelId format
+  const initialPanelId = `panel${openedByDefault}`;
+  const [expandedPanel, setExpandedPanel] = useState(initialPanelId);
 
   return (
     <div

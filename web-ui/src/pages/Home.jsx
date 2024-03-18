@@ -80,13 +80,7 @@ const sections = [
     title: "Goal of this Guide",
     description: (
       <>
-        <p>
-          Time is limited, and there's a lot to learn. Aggregating all the
-          resources and information needed to prepare for a frontend interviews
-          can be overwhelming. This guide aims to save time and bring it all
-          together in one place, providing a comprehensive resource for frontend
-          interview prep.
-        </p>
+        <p>Time is limited, and there's a lot to learn. My goal is to:</p>
 
         <ol>
           <li>
