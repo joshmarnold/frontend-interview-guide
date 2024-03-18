@@ -1,7 +1,8 @@
 import React from "react";
-import ListItemLink from "../shared/ListItemLink";
 import Highlight from "react-highlight";
 import QuestionsWrapper from "../shared/QuestionsWrapper";
+import Chip from "@mui/material/Chip";
+import { IconExternalLink } from "@tabler/icons-react";
 
 const htmlQuestions = [
   {
@@ -464,20 +465,23 @@ const htmlQuestions = [
   },
 ];
 
-const AboutHTML = () => {
+const Resources = () => {
   return (
     <>
-      <p>
-        Understanding the basics of HTML is crucial for any web development
-        role. Here are some resources for learning or refreshing your knowledge
-        on HTML:
-      </p>
-      <ul>
-        <ListItemLink
-          to="https://www.youtube.com/watch?v=kUMe1FH4CHE"
-          text="HTML Full Course (freeCodeCamp)"
+      <h4>Resources</h4>
+
+      <div>
+        <Chip
+          label="HTML Full Course by freeCodeCamp (YouTube)"
+          onClick={() => {
+            window.open(
+              "https://www.youtube.com/watch?v=kUMe1FH4CHE",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
         />
-      </ul>
+      </div>
     </>
   );
 };
@@ -493,9 +497,6 @@ const HTML = () => {
           marginTop: "20px",
         }}
       >
-        <AboutHTML />
-        <br />
-
         {/* Add HTML topics and concepts here */}
         <h3 style={{ margin: "0px" }}>Basic Structure</h3>
         <Highlight language="html">
@@ -528,6 +529,7 @@ const HTML = () => {
           </li>
           {/* Add more items as needed */}
         </ul>
+        <Resources />
 
         <br />
         <QuestionsWrapper storageKey="html" questions={htmlQuestions} />
