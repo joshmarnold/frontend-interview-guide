@@ -1,5 +1,6 @@
 import QuestionsWrapper from "../../shared/QuestionsWrapper";
 import { Tag } from "../../shared/Tag";
+import Highlight from "react-highlight";
 
 const generalQuestionsAndAnswers = [
   {
@@ -124,35 +125,26 @@ const generalQuestionsAndAnswers = [
     answer: (
       <div>
         <p>
-          Sure! Here's a simple example using the Navigation Timing API to
-          measure how long it takes for a page to load:
+          Here's a simple example using the Navigation Timing API to measure how
+          long it takes for a page to load:
         </p>
-        <pre>
-          <code className="javascript">
-            {`if (window.performance) {
+        <Highlight className="javascript">
+          {`if (window.performance) {
   const timing = window.performance.timing;
   const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
-
   console.log("Page Load Time: ", pageLoadTime);
 }`}
-          </code>
-        </pre>
+        </Highlight>
         <p>
           And here's an example using the Resource Timing API to get insights
           into the loading time of specific resources like scripts, stylesheets,
           and images:
         </p>
-        <pre>
-          <code className="javascript">
-            {`window.performance.getEntriesByType("resource").forEach((resource) => {
+        <Highlight className="javascript">
+          {`window.performance.getEntriesByType("resource").forEach((resource) => {
   console.log(resource.name + ": " + (resource.responseEnd - resource.startTime));
 });`}
-          </code>
-        </pre>
-        <p>
-          Make sure to call <code>hljs.highlightAll();</code> after your content
-          is loaded to apply syntax highlighting.
-        </p>
+        </Highlight>
       </div>
     ),
   },
@@ -205,28 +197,6 @@ const generalQuestionsAndAnswers = [
     ),
   },
   {
-    question: "How do HTTP/2 and HTTP/3 improve web performance?",
-    answer: (
-      <p>
-        HTTP/2 and HTTP/3 enhance web performance through features like
-        multiplexing, header compression, and prioritized resource loading,
-        reducing latency and accelerating page load times compared to HTTP/1.1.
-      </p>
-    ),
-  },
-  {
-    question:
-      "What is the significance of the Largest Contentful Paint (LCP) metric, and how can it be optimized?",
-    answer: (
-      <p>
-        LCP measures the render time of the largest content element visible,
-        offering insight into perceived load speed. Optimizing LCP involves
-        server enhancements, resource strategy refinement, and minimizing the
-        impact of non-essential scripts.
-      </p>
-    ),
-  },
-  {
     question:
       "Can you explain what 'Speed Index' is and how it affects user experience?",
     answer: (
@@ -265,11 +235,25 @@ const generalQuestionsAndAnswers = [
     question:
       "What is 'Cumulative Layout Shift' (CLS), and what aspect of performance does it address?",
     answer: (
-      <p>
-        CLS evaluates visual stability by measuring unexpected layout shifts. A
-        lower CLS indicates a more stable page layout, enhancing the user's
-        experience by preventing disorienting content movements.
-      </p>
+      <div>
+        <p>
+          CLS evaluates visual stability by measuring unexpected layout shifts.
+          A lower CLS indicates a more stable page layout, enhancing the user's
+          experience by preventing disorienting content movements. It's
+          important to understand that CLS is measured cumulatively over the
+          entire lifespan of the page, not just during the initial load. This
+          includes shifts caused by user interactions, images loading, or any
+          dynamic content changes.
+        </p>
+        <p>
+          To manage and improve CLS, especially for dynamic and interactive
+          content like sidebars or modals, it's crucial to reserve space for
+          elements that might load later, use CSS transform for animations, and
+          ensure significant layout changes are user-initiated. These practices
+          help maintain a stable layout, contributing to a better CLS score and
+          overall user experience.
+        </p>
+      </div>
     ),
   },
   {
@@ -309,15 +293,88 @@ const generalQuestionsAndAnswers = [
   },
   {
     question:
+      "Between Gzip and Brotli, which is the preferred compression algorithm and why? How would you use Brotli compression in practice?",
+    answer: (
+      <div>
+        <p>
+          The choice between Gzip and Brotli often depends on the specific
+          requirements of your project, including compatibility needs and the
+          level of compression desired. <strong>Brotli</strong> is generally
+          considered the preferred compression algorithm when the highest
+          compression ratio and speed are priorities, and when compatibility
+          with the latest browsers is sufficient for your audience. Brotli
+          offers better compression ratios than Gzip, which means it can make
+          files smaller and thus further speed up the loading of web pages.
+        </p>
+        <p>
+          However, <strong>Gzip</strong> still has widespread support and is a
+          robust choice for broader compatibility, especially with older
+          browsers. It is also easier to implement across various servers due to
+          its long-standing presence.
+        </p>
+        <p>To use Brotli compression in practice:</p>
+        <ol>
+          <li>
+            <strong>Compress Static Assets:</strong> Use a build tool or a
+            command-line utility to compress your CSS, JavaScript, and other
+            text-based assets with Brotli before deployment. Tools like Webpack
+            can be configured to use Brotli compression via plugins.
+          </li>
+          <li>
+            <strong>Store Compressed Files:</strong> Upload your
+            Brotli-compressed files to your hosting solution or a content
+            delivery network (CDN) like Amazon S3. Ensure you maintain the
+            original file extension (e.g., .js, .css) for simplicity.
+          </li>
+          <li>
+            <strong>Serve Files with Correct Headers:</strong> When serving
+            compressed files, your server or CDN needs to include the{" "}
+            <Tag>Content-Encoding: br</Tag> response header to indicate that the
+            content is Brotli-compressed. Additionally, configure the{" "}
+            <Tag>Content-Type</Tag> header appropriately (e.g.,{" "}
+            <Tag>text/css</Tag> for CSS files) to ensure proper handling by the
+            browser.
+          </li>
+          <li>
+            <strong>Configure Fallbacks:</strong> Not all browsers support
+            Brotli compression. Implement a fallback mechanism to serve
+            Gzip-compressed or uncompressed files based on the{" "}
+            <Tag>Accept-Encoding</Tag> request header sent by the browser.
+          </li>
+        </ol>
+      </div>
+    ),
+  },
+  {
+    question:
       "What does 'preconnect to required origins' entail, and when should it be used?",
     answer: (
-      <p>
-        Preconnecting to required origins involves establishing early network
-        connections to critical third-party domains. This optimization reduces
-        the time needed to set up connections for fetching resources, ideal for
-        domains from which resources are guaranteed to be requested, thereby
-        speeding up the loading process.
-      </p>
+      <div>
+        <p>
+          Preconnecting to required origins involves establishing early network
+          connections to critical third-party domains. This optimization can
+          significantly reduce the time needed to set up connections for
+          fetching resources, making it ideal for domains from which resources
+          are certain to be requested. This speeds up the overall loading
+          process by ensuring that key resources can be fetched without delay.
+        </p>
+        <p>Here's how to implement it in HTML:</p>
+        <Highlight className="html">
+          {`<link rel="preconnect" href="https://example.com">`}
+        </Highlight>
+        <p>And for adding preconnect via HTTP headers (on your server):</p>
+        <Highlight className="http">
+          {`Link: <https://example.com>; rel="preconnect"`}
+        </Highlight>
+        <p>
+          It's best to use preconnect when you know your page will definitely
+          request resources from a specific origin and you want to minimize the
+          connection setup time. This is particularly useful for resources
+          hosted on CDNs, API endpoints, or external web fonts. However, it's
+          important to use this feature judiciously to avoid unnecessary
+          preconnections that could waste resources.
+        </p>
+      </div>
     ),
   },
   {
@@ -378,6 +435,19 @@ const generalQuestionsAndAnswers = [
 const PerformanceAndMetrics = () => {
   return (
     <>
+      <p>
+        Use the following metrics when evaluating web performance and user
+        experience:
+      </p>
+      <ul>
+        <li>Time to First Byte (TTFB)</li>
+        <li>First Contentful Paint (FCP)</li>
+        <li>Largest Contentful Paint (LCP)</li>
+        <li>Total Blocking Time (TBT)</li>
+        <li>Cumulative Layout Shift (CLS)</li>
+        <li>Speed Index</li>
+        <li>Critical Rendering Path (Not a metric)</li>
+      </ul>
       <div
         style={{
           display: "flex",
