@@ -1,4 +1,5 @@
 import QuestionsWrapper from "../../shared/QuestionsWrapper";
+import { Tag } from "../../shared/Tag";
 
 const generalQuestionsAndAnswers = [
   {
@@ -39,12 +40,11 @@ const generalQuestionsAndAnswers = [
     answer: (
       <>
         <p>
-          FCP, or First Contentful Paint, tracks how long it takes for the first
-          piece of content to appear on the screen after a user navigates to a
-          page. It's a key measure of a site's speed, reflecting how quickly
-          users can see something on the page. Improving FCP means users are
-          less likely to leave due to waiting, enhancing their overall
-          experience.
+          This tracks how long it takes for the first piece of content to appear
+          on the screen after a user navigates to a page. It's a key measure of
+          a site's speed, reflecting how quickly users can see something on the
+          page. Improving FCP means users are less likely to leave due to
+          waiting, enhancing their overall experience.
         </p>
         <p>
           For example, if you navigate to a news website and the headline
@@ -82,14 +82,29 @@ const generalQuestionsAndAnswers = [
     ),
   },
   {
-    question:
-      "What are the `async` and `defer` attributes in `<script>` tags, and how do they differ?",
-    answer: (
-      <p>
-        `async` executes scripts as soon as they download without blocking HTML
-        parsing, while `defer` delays execution until after parsing. The
-        difference lies in execution timing.
+    question: (
+      <p style={{ margin: 0 }}>
+        What's the difference between <Tag>{`<script>`}</Tag>,{" "}
+        <Tag>{`<script async>`}</Tag>, and <Tag>{`<script defer>`}</Tag> tags?
       </p>
+    ),
+    answer: (
+      <ul>
+        <li>
+          <Tag>{`<script>`}</Tag>: Blocks HTML parsing until the script is
+          downloaded and executed.
+        </li>
+        <li>
+          <Tag>{`<script async>`}</Tag>: Downloads the script asynchronously and
+          executes it as soon as it’s downloaded, without blocking HTML parsing.
+        </li>
+        <li>
+          <Tag>{`<script defer>`}</Tag>: Downloads the script asynchronously but
+          delays execution until after the HTML document is fully parsed. This
+          does not mean the page is fully visible or rendered to the user. It
+          means the HTML parsing is complete.
+        </li>
+      </ul>
     ),
   },
   {
