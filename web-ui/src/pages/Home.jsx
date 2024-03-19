@@ -165,7 +165,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <br></br>
-      <Accordion items={sections} openedByDefault={0} />
+      <Accordion items={sections} openedByDefault={0} timeout={300} />
       <h3 style={{ fontSize: "16px", marginBottom: "16px" }}>
         Recommended Videos When Starting
       </h3>

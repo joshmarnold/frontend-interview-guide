@@ -12,7 +12,7 @@ const QuestionAnswer = ({
   storageKey,
   handleGlobalChange,
   isGloballyChecked,
-  timeout,
+  timeout = 0,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [isAnswered, setIsAnswered] = useState(isGloballyChecked);
