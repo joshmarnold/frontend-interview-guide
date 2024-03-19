@@ -78,7 +78,7 @@ const data = {
       path: "web-dev",
       children: [
         { id: "9-18", name: "Dev Tools", path: "web-dev/dev-tools" },
-        { id: "9-18", name: "Principles", path: "web-dev/principles" },
+        { id: "9-19", name: "Principles", path: "web-dev/principles" },
         { id: "9-1", name: "A11y", path: "web-dev/a11y" },
         { id: "9-2", name: "I18n", path: "web-dev/i18n" },
         { id: "9-3", name: "API", path: "web-dev/api" },
