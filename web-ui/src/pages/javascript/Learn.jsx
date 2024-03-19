@@ -89,7 +89,7 @@ const sections = [
     ),
   },
   {
-    title: "Module Evolution and Patterns",
+    title: "Module Evolution",
     description: (
       <Wrapper>
         <ModulesSection />

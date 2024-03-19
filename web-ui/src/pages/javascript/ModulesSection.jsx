@@ -4,7 +4,7 @@ import { Tag } from "../../shared/Tag";
 const PreModules = () => {
   return (
     <>
-      <h2>Before Modules (Early 1990s to 2009)</h2>
+      <h2 style={{ margin: 0 }}>Before Modules (Early 1990s to 2009)</h2>
       <p>
         Initially, JavaScript lacked a module system, leading to{" "}
         <Tag>global namespace pollution</Tag> and{" "}
@@ -12,14 +12,14 @@ const PreModules = () => {
         HTML using the <Tag>&lt;script&gt;</Tag> tag, causing potential
         conflicts and loading order issues. Developers had to manually manage
         dependencies and namespace conflicts, often resulting in spaghetti code
-        and poor maintainability. Lets discuss the 2 main ways of including
-        scripts in HTML:
+        and poor maintainability. Lets discuss the 2 main ways of including or
+        creating "modules" in this era:
       </p>
 
       <h3>Local Modules</h3>
       <p>
-        How to encapsulate code to create private variables and functions,
-        simulating modular behavior.
+        Encapsulate code to create private variables and functions, simulating
+        modular behavior.
       </p>
       <p></p>
       <h4>IIFE (Immediately Invoked Function Expression)</h4>
@@ -361,17 +361,11 @@ const CommonJSAndAMDAndUMD = () => {
 function ModulesSection() {
   return (
     <div>
-      <h1 style={{ margin: 0 }}>History of JavaScript Modules</h1>
       <p>
-        Understanding the evolution of JavaScript modules from a developer's
-        perspective highlights the innovations and challenges leading to modern
-        modular JavaScript development.
+        This section covers things like CommonJS, ES Modules, import vs require,
+        npm.
       </p>
-      <p>
-        This section should answer "What's the difference between require and
-        import syntax"
-      </p>
-
+      <br></br>
       <PreModules />
       <CommonJSAndAMDAndUMD />
     </div>
