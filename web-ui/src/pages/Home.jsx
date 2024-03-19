@@ -136,42 +136,6 @@ const sections = [
     ),
   },
   {
-    title: "How to Use This Guide",
-    description: (
-      <>
-        <h4 style={{ margin: 0 }}>Code</h4>
-        <p>
-          If you're interested in checking out the code examples. Clone the{" "}
-          <strong>
-            <a
-              href="https://github.com/joshmarnold/frontend-interview-guide"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              repo
-            </a>
-          </strong>{" "}
-          and start by reading the README file.
-        </p>
-        <h4>Topics</h4>
-        <ol>
-          <li>
-            When approaching the question and answer sections, imagine that an
-            interviewer is asking you these questions directly, and you must
-            provide a comprehensive and thoughtful response. You should be able
-            to articulate your thoughts and ideas clearly and concisely.
-          </li>
-          <li>
-            It's crucial to treat each section with equal importance, as if you
-            know the interviewer is placing significant emphasis on that
-            particular topic for the hiring decision. Basically, if its in this
-            guide, you should know it.
-          </li>
-        </ol>
-      </>
-    ),
-  },
-  {
     title: "Contribute",
     description: (
       <>
