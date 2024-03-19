@@ -95,6 +95,8 @@ const Principles = () => {
         YAGNI is a super important principle of programming that states a
         programmer should not add functionality until deemed necessary. It helps
         in avoiding feature creep and keeps the codebase simple and efficient.
+        This is also helpful in code reviews as then there is less code to
+        review and maintain.
       </p>
 
       <h3>TDD (Test-Driven Development)</h3>

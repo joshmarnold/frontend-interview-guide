@@ -120,7 +120,8 @@ console.log(Function.prototype.constructor === Function); // true`}
       </Highlight>
 
       <p>
-        The <span className="tag">constructor</span> property can be used for:
+        This seems odd. Why? The <span className="tag">constructor</span>{" "}
+        property can be used for:
       </p>
       <ol>
         <li>
@@ -136,7 +137,7 @@ console.log(john.constructor === Person); // true
           Creating new instances of the same type, by calling the constructor
           function with the <span className="tag">new</span> keyword. This is
           useful when you want to create a new object of the same type as an
-          existing object.
+          existing object instance.
           <Highlight language={"javascript"}>
             {`const john = new Person("John", 30);
 const sarah = new john.constructor("Sarah", 25); // Creates a new Person object
