@@ -84,12 +84,18 @@ const sections = [
 
         <ol>
           <li>
-            To be a resource for frontend interviews and also a future
-            reference.
+            To be a resource for frontend interviews and also future reference.
           </li>
           <li>
-            Provide knowledge for easy lookup, problem-solving approaches,
-            examples and questions to test understanding.
+            Ensure thorough coverage of the discussed topics, providing
+            comprehensive information. While it's not required to detail every
+            aspect, relevant videos or documentation for further exploration
+            should be mentioned. Aim to include content that might be easily
+            overlooked, lesser-known or misunderstood.
+          </li>
+          <li>
+            Provide problem-solving approaches, examples and questions to test
+            understanding.
           </li>
           <li>Minimal, essential content to teach new concepts.</li>
           <li>

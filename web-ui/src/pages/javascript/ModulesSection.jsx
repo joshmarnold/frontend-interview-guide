@@ -362,8 +362,8 @@ function ModulesSection() {
   return (
     <div>
       <p>
-        This section covers things like CommonJS, ES Modules, import vs require,
-        npm.
+        This section covers things like CommonJS vs ES Modules, import vs
+        require, npm, etc..
       </p>
       <br></br>
       <PreModules />
