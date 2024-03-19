@@ -11,11 +11,11 @@ const Layout = () => {
   const isInDsAlgosPath = location.pathname.includes("ds-algos");
 
   return (
-    <div className="app-wrapper">
+    <div className={`app-wrapper ${expanded ? "open" : ""}`}>
       <Sidebar expanded={expanded} setExpanded={setExpanded} />
+      <NavBar setExpanded={setExpanded} />
       <div className="main-content">
         <div className="main-inner-content">
-          <NavBar setExpanded={setExpanded} />
           <br></br>
           {isInDsAlgosPath && (
             <Paper

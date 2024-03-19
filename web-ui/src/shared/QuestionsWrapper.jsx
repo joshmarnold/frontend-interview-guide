@@ -2,24 +2,22 @@ import { useState } from "react";
 import QuestionAnswer from "./QuestionAnswer";
 import Button from "@mui/material/Button";
 
-const QuestionsWrapper = ({ questions, storageKey }) => {
-  const selectAllKey = `${storageKey}_all`; 
+const QuestionsWrapper = ({ questions, storageKey, timeout }) => {
+  const selectAllKey = `${storageKey}_all`;
   const [selectAll, setSelectAll] = useState(() => {
     const storedSelectAll = localStorage.getItem(selectAllKey);
     return storedSelectAll ? JSON.parse(storedSelectAll) : false;
   });
 
-  const handleGlobalChange = (index, checked) => {
-  };
+  const handleGlobalChange = (index, checked) => {};
 
   const toggleSelectAll = () => {
     const newSelectAllStatus = !selectAll;
     setSelectAll(newSelectAllStatus);
-    localStorage.setItem(selectAllKey, newSelectAllStatus); 
+    localStorage.setItem(selectAllKey, newSelectAllStatus);
     questions.forEach((_, index) => {
       localStorage.setItem(`${storageKey}_${index}`, newSelectAllStatus);
     });
-
   };
 
   return (
@@ -39,6 +37,7 @@ const QuestionsWrapper = ({ questions, storageKey }) => {
             storageKey={storageKey}
             handleGlobalChange={handleGlobalChange}
             isGloballyChecked={selectAll}
+            timeout={timeout}
           />
         ))}
       </div>

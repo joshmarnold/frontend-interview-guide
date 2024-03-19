@@ -12,6 +12,7 @@ const QuestionAnswer = ({
   storageKey,
   handleGlobalChange,
   isGloballyChecked,
+  timeout,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [isAnswered, setIsAnswered] = useState(isGloballyChecked);
@@ -40,6 +41,7 @@ const QuestionAnswer = ({
       }}
       expanded={expanded}
       disableGutters
+      slotProps={{ transition: { timeout } }}
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}

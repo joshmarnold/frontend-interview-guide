@@ -1,5 +1,7 @@
 import QuestionsWrapper from "../../shared/QuestionsWrapper";
 import TopicsList from "../../shared/TopicsList";
+import Highlight from "react-highlight";
+import { Tag } from "../../shared/Tag";
 
 const questionsAndAnswers = [
   // Primitive and Object Types
@@ -43,7 +45,7 @@ const questionsAndAnswers = [
   },
   {
     question:
-      "How does JavaScript’s prototypical inheritance differ from classical inheritance?",
+      "How does JavaScript's prototypical inheritance differ from classical inheritance?",
     answer: (
       <>
         <p>
@@ -97,7 +99,7 @@ const questionsAndAnswers = [
   },
   {
     question:
-      "How does JavaScript’s prototypical inheritance differ from classical inheritance?",
+      "How does JavaScript's prototypical inheritance differ from classical inheritance?",
     answer: (
       <>
         <p>
@@ -242,6 +244,54 @@ const questionsAndAnswers = [
           requiring caution to avoid unintended side effects.
         </p>
       </>
+    ),
+  },
+  {
+    question: (
+      <p style={{ margin: 0 }}>
+        What happens when calling a constructor function without the{" "}
+        <Tag>new</Tag> keyword? Consider <Tag>this</Tag>, <Tag>return</Tag>, and{" "}
+        <Tag>prototype</Tag>
+      </p>
+    ),
+    answer: (
+      <div>
+        <p>
+          Calling a constructor function without the <Tag>new</Tag> keyword
+          leads to:
+        </p>
+        <ul>
+          <li>
+            <Tag>this</Tag> context: Without <Tag>new</Tag>, <Tag>this</Tag>{" "}
+            does not refer to a new object instance but to the global object
+            (window in browsers) in non-strict mode, or is <Tag>undefined</Tag>{" "}
+            in strict mode, potentially leading to errors or unexpected
+            behavior.
+          </li>
+          <li>
+            <Tag>return</Tag> value: A constructor called without <Tag>new</Tag>{" "}
+            returns <Tag>undefined</Tag> unless explicitly returning an object,
+            failing to create a new instance.
+          </li>
+          <li>
+            <Tag>prototype</Tag>: The resulting object does not inherit from the
+            constructor's prototype, missing out on the prototype chain, which
+            includes methods or properties defined there.
+          </li>
+        </ul>
+        <p>Example:</p>
+        <Highlight language="javascript">
+          {`function Vehicle(make) {
+  this.make = make;
+}
+Vehicle.prototype.honk = function() {
+  console.log('Beep beep!');
+};
+
+let car1 = Vehicle("Toyota"); // Incorrect: "this" is not bound, "car1" is undefined
+let car2 = new Vehicle("Honda"); // Correct: creates a new instance with "Vehicle.prototype" in its prototype chain`}
+        </Highlight>
+      </div>
     ),
   },
   // Functions
@@ -556,7 +606,11 @@ const Quiz = () => {
       </TopicsList>
       <br></br>
 
-      <QuestionsWrapper storageKey="js" questions={questionsAndAnswers} />
+      <QuestionsWrapper
+        storageKey="js"
+        questions={questionsAndAnswers}
+        timeout={0}
+      />
     </>
   );
 };

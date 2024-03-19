@@ -66,21 +66,47 @@ const generalQuestionsAndAnswers = [
     ),
   },
   {
-    question:
-      "What is Webpack, and how does it differ from task runners like Gulp or Grunt?",
+    question: "What is Webpack?",
     answer: (
       <p>
         Webpack is a module bundler that processes modules with dependencies to
-        generate static assets. Unlike task runners like Gulp or Grunt, Webpack
-        is specifically designed for bundling assets, including JavaScript
-        files, CSS stylesheets, and images, optimizing them for use in web
-        applications.
+        generate static assets. It is widely used in modern web development to
+        bundle JavaScript, CSS, images, and other assets for efficient
+        distribution and deployment. Webpack also supports code splitting,
+        enabling developers to load only the necessary code for specific
+        features, thereby improving the performance of web applications.
+      </p>
+    ),
+  },
+  // question about babel
+  {
+    question: "How does Babel contribute to the development process?",
+    answer: (
+      <p>
+        Babel is a JavaScript compiler that transforms modern JavaScript code
+        into backward-compatible versions to ensure cross-browser compatibility
+        and support for older environments. It is commonly used to transpile
+        ECMAScript 6 (ES6) and later syntax into ES5 code, allowing developers
+        to leverage the latest language features while maintaining compatibility
+        with older browsers and environments.
+      </p>
+    ),
+  },
+  {
+    question: "What tools do you use to ensure consistent clean code?",
+    answer: (
+      <p>
+        To ensure consistent clean code, I rely on tools like ESLint for
+        enforcing coding standards and identifying issues, and Prettier for
+        automatically formatting code for consistency. These tools help maintain
+        a clean and readable codebase, reduce the likelihood of errors, and
+        improve the overall maintainability of the code.
       </p>
     ),
   },
   {
     question:
-      "Can you explain the concept of Source Maps and how they are useful in a development environment?",
+      "Can you explain the concept of Source Maps and what environment they're useful in?",
     answer: (
       <p>
         Source Maps link compiled code back to its original source files,
@@ -93,7 +119,7 @@ const generalQuestionsAndAnswers = [
   },
   {
     question:
-      "In the context of DevTools, what is the importance of the Console panel, and how is it typically used by developers?",
+      "What is the importance of the Console panel, and how is it typically used by developers?",
     answer: (
       <p>
         The Console panel in DevTools serves as a critical tool for logging
@@ -137,15 +163,6 @@ const DevTools = () => {
           questions={generalQuestionsAndAnswers}
         />
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </>
   );
 };

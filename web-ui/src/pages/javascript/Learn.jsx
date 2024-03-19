@@ -6,6 +6,7 @@ import { IconExternalLink } from "@tabler/icons-react";
 
 const ThisSection = lazy(() => import("./ThisSection"));
 const PrototypeSection = lazy(() => import("./PrototypeSection"));
+const ModulesSection = lazy(() => import("./ModulesSection"));
 
 const Resources = () => {
   const handleChipClick = (url) => {
@@ -84,6 +85,14 @@ const sections = [
     description: (
       <Wrapper>
         <PrototypeSection />
+      </Wrapper>
+    ),
+  },
+  {
+    title: "Module Evolution and Patterns",
+    description: (
+      <Wrapper>
+        <ModulesSection />
       </Wrapper>
     ),
   },

@@ -4,7 +4,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import clsx from "clsx";
 import Typography from "@mui/material/Typography";
 import { forwardRef, useState } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { TreeView } from "@mui/x-tree-view/TreeView";
 import { TreeItem, useTreeItem } from "@mui/x-tree-view/TreeItem";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -77,6 +77,8 @@ const data = {
       name: "Web Dev",
       path: "web-dev",
       children: [
+        { id: "9-18", name: "Dev Tools", path: "web-dev/dev-tools" },
+        { id: "9-18", name: "Principles", path: "web-dev/principles" },
         { id: "9-1", name: "A11y", path: "web-dev/a11y" },
         { id: "9-2", name: "I18n", path: "web-dev/i18n" },
         { id: "9-3", name: "API", path: "web-dev/api" },
@@ -226,6 +228,7 @@ const CustomContent = forwardRef(function CustomContent(props, ref) {
     displayIcon,
     hasChildren,
     navigate,
+    setExpanded,
   } = props;
 
   const { disabled, expanded, selected, handleExpansion, handleSelection } =
@@ -243,6 +246,7 @@ const CustomContent = forwardRef(function CustomContent(props, ref) {
   const handleSelectionClick = (event) => {
     handleSelection(event);
     navigate();
+    setExpanded(false);
   };
 
   return (
@@ -279,6 +283,7 @@ function CustomTreeItem(props) {
             {...compProps}
             hasChildren={props.hasChildren}
             navigate={props.navigate}
+            setExpanded={props.setExpanded}
           />
         );
       }}
@@ -290,7 +295,7 @@ function CustomTreeItem(props) {
   );
 }
 
-const renderTree = (nodes, navigate) => {
+const renderTree = (nodes, navigate, setExpanded) => {
   return (
     <CustomTreeItem
       key={nodes.id}
@@ -300,9 +305,10 @@ const renderTree = (nodes, navigate) => {
       navigate={() => navigate(nodes.path)}
       className={nodes.children ? "has-children" : ""}
       disabled={nodes.disabled}
+      setExpanded={setExpanded}
     >
       {Array.isArray(nodes.children)
-        ? nodes.children.map((node) => renderTree(node, navigate))
+        ? nodes.children.map((node) => renderTree(node, navigate, setExpanded))
         : null}
     </CustomTreeItem>
   );
@@ -338,7 +344,7 @@ const Sidebar = ({ expanded, setExpanded }) => {
         }}
       >
         {data.children.map((node) => {
-          return renderTree(node, navigate);
+          return renderTree(node, navigate, setExpanded);
         })}
       </TreeView>
     </div>

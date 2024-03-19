@@ -71,6 +71,7 @@ const API = lazy(() => import("./pages/web-dev/API"));
 const Caching = lazy(() => import("./pages/web-dev/caching/Caching"));
 const Database = lazy(() => import("./pages/web-dev/Database"));
 const Devtools = lazy(() => import("./pages/web-dev/Devtools"));
+const Principles = lazy(() => import("./pages/web-dev/Principles"));
 const Networking = lazy(() => import("./pages/web-dev/Networking"));
 const PerformanceAndMetrics = lazy(() =>
   import("./pages/web-dev/PerformanceAndMetrics")
@@ -137,7 +138,8 @@ function App() {
             <Route path="web-dev/api" element={<API />} />
             <Route path="web-dev/caching" element={<Caching />} />
             <Route path="web-dev/database" element={<Database />} />
-            <Route path="web-dev/devtools" element={<Devtools />} />
+            <Route path="web-dev/dev-tools" element={<Devtools />} />
+            <Route path="web-dev/principles" element={<Principles />} />
             <Route path="web-dev/networking" element={<Networking />} />
             <Route
               path="web-dev/performance-and-metrics"
