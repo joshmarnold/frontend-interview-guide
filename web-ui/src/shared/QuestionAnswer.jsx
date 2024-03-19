@@ -13,6 +13,7 @@ const QuestionAnswer = ({
   handleGlobalChange,
   isGloballyChecked,
   timeout = 0,
+  handleCopy,
 }) => {
   const [expanded, setExpanded] = useState(false);
   const [isAnswered, setIsAnswered] = useState(isGloballyChecked);
@@ -96,6 +97,7 @@ const QuestionAnswer = ({
             const el = document.getElementById(`panel${index}-header`);
             const text = el.textContent;
             navigator.clipboard.writeText(text);
+            handleCopy();
           }}
         />
       </AccordionSummary>
