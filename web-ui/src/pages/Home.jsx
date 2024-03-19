@@ -126,10 +126,10 @@ const sections = [
             <strong>web-ui</strong>: Is this site.
           </li>
           <li>
-            <strong>Algorithms & Data Structures</strong>: This section follows
-            the Algorithms & Data Structures section of the guide. Its an area
-            where you can practice problems related to the topics in that
-            section with custom test cases.
+            <strong>Algorithms & Data Structures</strong>: I decided to build a
+            simple test runner to run algo practice problems locally so that I
+            could save these files with comments as notes for future reference.
+            This way I know they're always available and easy to find.
           </li>
         </ul>
       </>
