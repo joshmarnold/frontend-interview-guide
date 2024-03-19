@@ -1,6 +1,8 @@
 import QuestionsWrapper from "../../shared/QuestionsWrapper";
 import { Tag } from "../../shared/Tag";
 import Highlight from "react-highlight";
+import Chip from "@mui/material/Chip";
+import { IconExternalLink } from "@tabler/icons-react";
 
 const generalQuestionsAndAnswers = [
   {
@@ -436,6 +438,11 @@ const PerformanceAndMetrics = () => {
   return (
     <>
       <p>
+        Web performance is a very large and complex topic (look at the MDN
+        resource). This section will cover the basics of web performance and
+        metrics.
+      </p>
+      <p>
         Use the following metrics when evaluating web performance and user
         experience:
       </p>
@@ -447,6 +454,30 @@ const PerformanceAndMetrics = () => {
         <li>Cumulative Layout Shift (CLS)</li>
         <li>Speed Index</li>
       </ol>
+      <h3>Resources</h3>
+
+      <div style={{ marginTop: "5px", display: "flex", gap: "5px" }}>
+        <Chip
+          label="MDN Web Performance Documentation"
+          onClick={() => {
+            window.open(
+              "https://developer.mozilla.org/en-US/docs/Web/Performance",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />
+        <Chip
+          label="Google Lighthouse Performance Audit"
+          onClick={() => {
+            window.open(
+              "https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />
+      </div>
       <div
         style={{
           display: "flex",
