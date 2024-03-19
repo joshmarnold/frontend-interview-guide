@@ -17,7 +17,7 @@ const Navbar = ({ setExpanded }) => {
     >
       <div
         style={{
-          padding: "10px 20px",
+          padding: "13px 20px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -47,6 +47,7 @@ const Navbar = ({ setExpanded }) => {
               href="https://github.com/joshmarnold/frontend-interview-guide.git"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ display: "flex" }}
             >
               <svg
                 width="28"
