@@ -84,6 +84,10 @@ const sections = [
 
         <ol>
           <li>
+            To be a resource for frontend interviews and also a future
+            reference.
+          </li>
+          <li>
             Provide knowledge for easy lookup, problem-solving approaches,
             examples and questions to test understanding.
           </li>
