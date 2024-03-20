@@ -1,5 +1,6 @@
 // ProjectMethodologiesAndFrameworks.js
 import React from "react";
+import { Tag } from "../../shared/Tag";
 
 const ProjectMethodologiesAndFrameworks = () => {
   return (
@@ -77,6 +78,41 @@ const ProjectMethodologiesAndFrameworks = () => {
         before moving on to the next. Waterfall emphasizes detailed planning,
         documentation, and strict control over the project scope. It is suitable
         for projects with well-defined requirements and minimal changes.
+      </p>
+
+      <h3>TDD (Test-Driven Development)</h3>
+      <p>
+        TDD is a software development process that relies on the repetition of a
+        very short development cycle: requirements are turned into very specific
+        test cases, then the software is improved to pass the new tests, only.
+      </p>
+
+      <h3>BDD (Behavior-Driven Development)</h3>
+      <p>
+        Behavior-Driven Development (BDD) is an extension of Test-Driven
+        Development (TDD) that emphasizes collaboration between developers, QA,
+        and non-technical stakeholders (such as product owners) in a software
+        project. BDD focuses on creating simple scenarios that describe how an
+        application should behave from the perspective of an end user. These
+        scenarios are written in a natural, domain-specific language that can be
+        understood by all parties involved in the development process.
+      </p>
+      <p>
+        The main goal of BDD is to improve communication among team members and
+        stakeholders to ensure that the software being developed meets the
+        business requirements and provides value to the user. This approach
+        helps in identifying any misunderstanding or ambiguities in requirements
+        before the development starts, which can significantly reduce the cost
+        of changes and errors in later stages of the development lifecycle.
+      </p>
+
+      <p>
+        BDD's adoption has been increasing, especially in the product
+        development lifecycle (PDLC) planning stage, where it proves invaluable
+        for creating user stories that are directly translated into code. This
+        is facilitated by popular libraries such as <Tag>Gherkin</Tag> and{" "}
+        <Tag>Cucumber</Tag>, which enable the definition of application behavior
+        in plain language that can be easily converted into automated tests.
       </p>
     </div>
   );
