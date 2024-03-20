@@ -18,31 +18,22 @@ const CSS = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          marginTop: "20px",
-        }}
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="basic tabs example"
+        variant="fullWidth"
+        textColor="white"
       >
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-          variant="fullWidth"
-          textColor="white"
-        >
-          <Tab label="Learn" {...a11yProps(0)} />
-          <Tab label="Quiz" {...a11yProps(1)} />
-        </Tabs>
-        <CustomTabPanel value={value} index={0}>
-          <Learn />
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          <Quiz />
-        </CustomTabPanel>
-      </div>
+        <Tab label="Learn" {...a11yProps(0)} />
+        <Tab label="Quiz" {...a11yProps(1)} />
+      </Tabs>
+      <CustomTabPanel value={value} index={0}>
+        <Learn />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        <Quiz />
+      </CustomTabPanel>
     </>
   );
 };

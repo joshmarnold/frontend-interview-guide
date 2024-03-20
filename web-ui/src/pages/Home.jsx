@@ -157,6 +157,19 @@ const sections = [
       </>
     ),
   },
+  {
+    title: "Disclaimer",
+    description: (
+      <>
+        <p>
+          This guide was quickly created to help me prepare for frontend
+          interviews. It's not perfect, accessibility and mobile support were
+          hardly considered. The goal was to get the content out there and
+          iterate on it.
+        </p>
+      </>
+    ),
+  },
 ];
 
 const Home = () => {
@@ -207,22 +220,21 @@ const Home = () => {
         ))}
       </div>
       <h3 style={{ fontSize: "16px" }}>Pracice UI problems</h3>
-      <p>
-        <span>
-          Visit{" "}
-          <Chip
-            label="greatfrontend.com"
-            onClick={() => {
-              window.open(
-                "https://www.greatfrontend.com/prepare/coding",
-                "_blank"
-              );
-            }}
-            icon={<IconExternalLink size={"1.2rem"} />}
-          />{" "}
-          to practice UI coding problems.
-        </span>
-      </p>
+
+      <span style={{ marginTop: "8px" }}>
+        Visit{" "}
+        <Chip
+          label="greatfrontend.com"
+          onClick={() => {
+            window.open(
+              "https://www.greatfrontend.com/prepare/coding",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />{" "}
+        to practice UI coding problems.
+      </span>
     </div>
   );
 };

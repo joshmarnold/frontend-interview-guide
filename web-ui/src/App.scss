@@ -120,9 +120,10 @@ a {
 // Sidebar
 .sidebar {
   background-color: #222;
-  padding: 70px 10px 0 10px;
+  padding: 70px 10px 100px 10px;
   font-size: 14px;
   border-right: 1px solid #444;
+  overflow-y: auto;
 
   ul {
     // padding: 0;
@@ -193,6 +194,16 @@ code {
 }
 
 .navbar {
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
   a:hover * {
     fill: white;
   }

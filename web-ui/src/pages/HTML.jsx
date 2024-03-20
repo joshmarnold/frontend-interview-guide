@@ -490,18 +490,10 @@ const Resources = () => {
 const HTML = () => {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          marginTop: "20px",
-        }}
-      >
-        {/* Add HTML topics and concepts here */}
-        <h3 style={{ margin: "0px" }}>Basic Structure</h3>
-        <Highlight language="html">
-          {`<!doctype html>
+      {/* Add HTML topics and concepts here */}
+      <h3 style={{ margin: "0px" }}>Basic Structure</h3>
+      <Highlight language="html">
+        {`<!doctype html>
 <html>
     <head>
         <title>Page Title</title>
@@ -513,27 +505,26 @@ const HTML = () => {
         <img src="image.jpg" alt="Description of image">
     </body>
 </html>`}
-        </Highlight>
-        <ul>
-          <li>
-            The basic structure of an HTML document includes the{" "}
-            <Tag>doctype</Tag>, <Tag>html</Tag>, <Tag>head</Tag>, and{" "}
-            <Tag>body</Tag> tags.
-          </li>
-          <li>
-            The <Tag>head</Tag> section contains meta-information about the
-            document, such as its title and links to stylesheets.
-          </li>
-          <li>
-            The <Tag>body</Tag> section contains the content of the document,
-            including text, images, and other media.
-          </li>
-        </ul>
-        <Resources />
+      </Highlight>
+      <ul>
+        <li>
+          The basic structure of an HTML document includes the{" "}
+          <Tag>doctype</Tag>, <Tag>html</Tag>, <Tag>head</Tag>, and{" "}
+          <Tag>body</Tag> tags.
+        </li>
+        <li>
+          The <Tag>head</Tag> section contains meta-information about the
+          document, such as its title and links to stylesheets.
+        </li>
+        <li>
+          The <Tag>body</Tag> section contains the content of the document,
+          including text, images, and other media.
+        </li>
+      </ul>
+      <Resources />
 
-        <br />
-        <QuestionsWrapper storageKey="html" questions={htmlQuestions} />
-      </div>
+      <br />
+      <QuestionsWrapper storageKey="html" questions={htmlQuestions} />
     </>
   );
 };

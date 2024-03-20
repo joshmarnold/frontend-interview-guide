@@ -13,10 +13,9 @@ const Layout = () => {
   return (
     <div className={`app-wrapper ${expanded ? "open" : ""}`}>
       <Sidebar expanded={expanded} setExpanded={setExpanded} />
-      <NavBar setExpanded={setExpanded} />
+      <NavBar setExpanded={setExpanded} expanded={expanded} />
       <div className="main-content">
         <div className="main-inner-content">
-          <br></br>
           {isInDsAlgosPath && (
             <Paper
               elevation={6}
@@ -28,21 +27,11 @@ const Layout = () => {
               This section is a work in progress
             </Paper>
           )}
-          <br></br>
+
           <Suspense fallback={<CircularProgress />}>
             <Outlet />
           </Suspense>
         </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </div>
     </div>
   );
