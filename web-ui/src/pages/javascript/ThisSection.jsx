@@ -29,10 +29,11 @@ const ThisSection = () => {
           <strong>Function Call:</strong> In a regular function call,{" "}
           <span className="tag">this</span> refers to the global object in
           non-strict mode and <span class="tag">undefined</span> in strict mode
-          (<span class="tag">'use strict';</span>). Hm... why? Because another
-          important point about this is that it always references the object
-          that is executing the current function. In this case, the function is
-          being called by the global object, so this refers to the global object.
+          (<span class="tag">'use strict';</span>). Hm... why does it reference
+          the global object? Because another important point is that it always
+          references the object that is executing the current function. In this
+          case, the function is being called by the global object, so this
+          refers to the global object.
           <Highlight language="javascript">
             {`function greet() {
   return "Hello, " + this.name;
