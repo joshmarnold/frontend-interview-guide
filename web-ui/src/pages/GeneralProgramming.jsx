@@ -1,4 +1,5 @@
 import React from "react";
+import Highlight from "react-highlight";
 
 const GeneralProgramming = () => {
   return (
@@ -49,18 +50,37 @@ const GeneralProgramming = () => {
         </li>
       </ol>
 
-      <h3>What is composition and inheritance and the difference?</h3>
+      <h2>Pure Functions</h2>
+      <p>
+        A <strong>pure function</strong> is a function that:
+      </p>
       <ul>
+        <li>Returns the same result if given the same arguments.</li>
         <li>
-          Inheritance: You're describing what objects are and how they relate to
-          each other. Objects can inherit props and methods from other objects.
-        </li>
-        <li>
-          Composition: You're describing what an object can do. You can create a
-          bunch of functions that provide functionality and then you can create
-          an object and attach whatever functionality (function) that you want.
+          Does not cause any observable side effects. This means that the
+          function does not modify any external state or data.
         </li>
       </ul>
+      <p>
+        This helps maintain a clear and manageable codebase, where functions
+        have predictable outputs and no side effects.
+      </p>
+
+      <p>
+        Consider we have an array of numbers and we want to create a new array
+        with each number incremented by 1. Here's how we can do it with a pure
+        function:
+      </p>
+
+      <Highlight language="javascript">
+        {`const numbers = [1, 2, 3, 4, 5];
+const pureFunctionExample = (arr) => {
+  return arr.map((number) => number + 1);
+}
+
+const incrementedNumbers = pureFunctionExample(numbers);
+console.log(incrementedNumbers); // [2, 3, 4, 5, 6]`}
+      </Highlight>
     </>
   );
 };
