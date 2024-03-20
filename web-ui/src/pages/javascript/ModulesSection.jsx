@@ -352,8 +352,6 @@ const CommonJSAndAMDAndUMD = () => {
       </Highlight>
 
       <UMDContent />
-      <EsModulesContent />
-      <NpmModulesContent />
     </>
   );
 };
@@ -368,6 +366,8 @@ function ModulesSection() {
       <br></br>
       <PreModules />
       <CommonJSAndAMDAndUMD />
+      <EsModulesContent />
+      <NpmModulesContent />
     </div>
   );
 }

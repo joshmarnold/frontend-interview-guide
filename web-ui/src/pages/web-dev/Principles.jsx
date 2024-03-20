@@ -6,8 +6,8 @@ const Principles = () => {
     <>
       <p>
         The principles of web development encompass a wide range of concepts and
-        best practices. This is a comprehensive list of principles that are
-        typically encountered.
+        best practices. This is a list of common principles that are widely
+        adopted in the web development community.
       </p>
       <h2>CSS Principles</h2>
       <div>
