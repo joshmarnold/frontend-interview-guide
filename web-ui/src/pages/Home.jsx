@@ -185,9 +185,8 @@ const Home = () => {
       <div
         style={{
           display: "flex",
-          flexDirection: "column",
+          flexWrap: "wrap",
           gap: "8px",
-          marginBottom: "16px",
         }}
       >
         <Chip
