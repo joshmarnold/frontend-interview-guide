@@ -182,7 +182,14 @@ const Home = () => {
       <h3 style={{ fontSize: "16px", marginBottom: "16px" }}>
         Recommended Videos When Starting
       </h3>
-      <Stack direction="row" spacing={1}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "8px",
+          marginBottom: "16px",
+        }}
+      >
         <Chip
           label="Amazon Front End Interview Prep by TechRally (YouTube)"
           onClick={() => {
@@ -203,7 +210,7 @@ const Home = () => {
           }}
           icon={<IconExternalLink size={"1.2rem"} />}
         />
-      </Stack>
+      </div>
 
       <h3 style={{ fontSize: "16px" }}>Topics</h3>
       <div className="grid-items-container">
