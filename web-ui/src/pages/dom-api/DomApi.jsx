@@ -56,7 +56,14 @@ const DomApi = () => {
           DOM elements, traversing the DOM tree, and handling events.
         </p>
         <h3>Resources</h3>
-        <Stack direction="row" spacing={1}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px",
+            marginTop: "1rem",
+          }}
+        >
           <Chip
             label="MDN DOM API Docs"
             onClick={() => {
@@ -87,7 +94,7 @@ const DomApi = () => {
             }}
             icon={<IconExternalLink size={"1.2rem"} />}
           />
-        </Stack>
+        </div>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Quiz />
