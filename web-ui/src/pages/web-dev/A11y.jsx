@@ -332,6 +332,244 @@ const questionsAndAnswers = [
   },
 ];
 
+const AccessibilityContent = () => {
+  return (
+    <div>
+      <h2>Accessibility Learning Path</h2>
+      {/* Browser Accessibility Tree / Accessibility Object Model */}
+      <section>
+        <h4>
+          Browser Accessibility Tree / Accessibility Object Model (1 hour of
+          content)
+        </h4>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://web.dev/the-accessibility-tree/"
+            >
+              Introduction to the Browser Accessibility Tree (5 minute read)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/watch?v=g2tzEil5TL0"
+            >
+              Semantics & HTML5 in the browser (10 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/watch?v=g9Qff0b-lHk"
+            >
+              Overview of ARIA in relation to a11y tree (10 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics"
+            >
+              ARIA Basics (25 minute read)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://developer.chrome.com/blog/full-accessibility-tree/"
+            >
+              Accessibility Tree in Chrome (10 minute read)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtu.be/kz9e81oRs3Y?t=425"
+            >
+              Page titles in React (5 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.w3.org/WAI/ARIA/apg/patterns/"
+            >
+              ARIA Authoring practices patterns (reference)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.w3.org/TR/accname-1.1/#mapping_additional_nd"
+            >
+              Accessible Name Computation Spec (5 minute read)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://whatsock.com/training/"
+            >
+              The Accessibility Tree: Training Guide for Advanced Web
+              Development ( 1 hour read)
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      {/* Keyboard Accessibility */}
+      <section>
+        <h4>Keyboard Accessibility (1 hour 20 minutes of content)</h4>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-html-css-part1/"
+            >
+              Keyboard Accessibility HTML & CSS (30 minute read)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.smashingmagazine.com/2022/11/guide-keyboard-accessibility-javascript-part2/"
+            >
+              Keyboard Accessibility: Javascript (30 minute read)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtu.be/kz9e81oRs3Y?t=726"
+            >
+              Focus management in React (10 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtu.be/kz9e81oRs3Y?t=1233"
+            >
+              Keyboard Navigation in React (10 minute video)
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      {/* Accessibility & UI Elements */}
+      <section>
+        <h4>Accessibility & UI Elements (50 minutes of content)</h4>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://udemy.com/course/website-accessibility-course/learn/lecture/2758586#overview"
+            >
+              Accessible Forms & Controls, Udemy (11 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://udemy.com/course/website-accessibility-course/learn/lecture/2758636"
+            >
+              Accessible Text, Udemy (17 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://udemy.com/course/website-accessibility-course/learn/lecture/2758614"
+            >
+              Accessible Images, Udemy (11 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://udemy.com/course/website-accessibility-course/learn/lecture/2758640"
+            >
+              Accessible Tables, Udemy (10 minute video)
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      {/* ARIA live and Status Updates */}
+      <section>
+        <h4>ARIA live and Status Updates (45 minutes of content)</h4>
+        <ul>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://udemy.com/course/website-accessibility-course/learn/lecture/2758644"
+            >
+              Dynamic Content, Udemy (19 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.youtube.com/watch?v=i4gvwKeN1GI"
+            >
+              Demonstration of ARIA live with a screen reader (10 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://dev.to/garybyrne/introduction-to-aria-live-regions-2m0g"
+            >
+              Introduction to ARIA live regions (6 minute read)
+            </a>
+          </li>
+
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://youtu.be/kz9e81oRs3Y?t=1855"
+            >
+              ARIA live in React (5 minute video)
+            </a>
+          </li>
+          <li>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://whatsock.com/training/#hd24"
+            >
+              More on Live regions (5 minute read)
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  );
+};
+
 const Accessibility = () => {
   return (
     <>
@@ -342,6 +580,7 @@ const Accessibility = () => {
         user-friendly web experiences. Below are some common questions and
         answers related to web accessibility.
       </p>
+      <AccessibilityContent />
       <h3>Resources</h3>
       <div
         style={{
