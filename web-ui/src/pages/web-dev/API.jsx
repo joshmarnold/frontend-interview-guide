@@ -1,4 +1,6 @@
 import QuestionsWrapper from "../../shared/QuestionsWrapper";
+import Highlight from "react-highlight";
+import { Tag } from "../../shared/Tag";
 
 const generalQuestionsAndAnswers = [
   {
@@ -220,49 +222,153 @@ const generalQuestionsAndAnswers = [
     ),
   },
   {
-    question:
-      "Provide an example of how pagination might be handled in a RESTful service.",
+    question: "What is pagination? What are the main kinds?",
     answer: (
       <>
         <p>
-          In a RESTful service, pagination can be implemented using query
-          parameters to specify the number of items per page and the page
-          number. For example:
-        </p>
-        <p>
-          <code>GET /api/products?limit=10&page=1</code>
-        </p>
-        <p>
-          This request would retrieve the first page of 10 products from the
-          API.
+          Pagination is a technique used in web development to divide content
+          into separate pages and allow users to navigate through large
+          collections of data by loading a subset of results at one time. The
+          main kinds of pagination are <Tag>offset-based</Tag> and{" "}
+          <Tag>cursor-based</Tag> pagination.
         </p>
       </>
     ),
   },
   {
-    question:
-      "Why is JSON commonly used in REST APIs, and what are its characteristics?",
+    question: "What is offset pagination? What are pros and cons?",
     answer: (
       <>
         <p>
-          JSON (JavaScript Object Notation) is commonly used in REST APIs due to
-          its lightweight, human-readable, and easy-to-parse format. Its
-          characteristics include:
+          Offset pagination operates by designating a starting point (the
+          offset) and specifying how many records to retrieve from that point
+          forward (the limit). Imagine it as instructing, "Begin at record 10
+          and fetch the following 5 records." The offset can be a direct number
+          or inferred from the page number requested. For instance, asking for
+          page 3, with each page displaying 5 items, translates to an offset of
+          10, calculated as 2 complete pages prior times 5 items per page.
         </p>
+        <p>
+          An API employing offset-based pagination typically receives two
+          parameters: <code>size</code>, indicating the number of items per
+          page, and <code>page</code>, the specific page to fetch.
+        </p>
+        <Highlight language="javascript">
+          {`{
+  "pagination": {
+    "size": 5,
+    "page": 2,
+    "total_pages": 4,
+    "total": 20
+  },
+  "results": [...]
+}`}
+        </Highlight>
+        <p>
+          The corresponding SQL might look like{" "}
+          <code>SELECT * FROM posts LIMIT 5 OFFSET 10;</code>, adjusting based
+          on the page requested.
+        </p>
+        <p>Pros of offset pagination include:</p>
+        <ul>
+          <li>It allows users to navigate directly to a desired page.</li>
+          <li>It clearly indicates the total page count.</li>
+          <li>
+            Backend implementation is straightforward, using a simple
+            calculation: <code>(page - 1) * size</code>.
+          </li>
+          <li>It's adaptable across various database systems.</li>
+        </ul>
+        <p>Cons, however, feature notable drawbacks:</p>
         <ul>
           <li>
-            Readable format: JSON is easy for both humans and machines to read
-            and write.
+            <strong>Inaccurate Page Results:</strong> Frequent data updates can
+            lead to page content shifting, potentially causing users to see
+            duplicate records if newer records are added between page views.
           </li>
           <li>
-            Lightweight: JSON has minimal overhead, making it efficient for data
-            transmission over the network.
+            <strong>Fixed Page Size:</strong> Adjusting the page size in
+            subsequent requests can lead to missed records, as the offset is
+            tied to the initial page size.
           </li>
           <li>
-            Support for complex data structures: JSON supports nested objects
-            and arrays, allowing for flexible data representations.
+            <strong>Performance Issues:</strong> For large datasets, as the
+            offset increases, performance can significantly decrease, affecting
+            query speed and efficiency.
           </li>
         </ul>
+        <p>
+          Despite these challenges, offset-based pagination is widely used in
+          scenarios where users expect to navigate directly to specific pages,
+          such as in blogs, e-commerce sites, and search results pages.
+        </p>
+      </>
+    ),
+  },
+  {
+    question: "What is cursor-based pagination?",
+    answer: (
+      <>
+        <p>
+          Cursor-based pagination utilizes a cursor as a reference point to
+          navigate through a dataset. Unlike traditional methods that request a
+          specific range of items by their position, cursor-based pagination
+          works by saying, "Give me a set number of items starting after this
+          specific item."
+        </p>
+        <p>
+          The cursor typically represents a unique attribute of a dataset item,
+          such as an ID or timestamp, serving as the pivot for subsequent data
+          fetches. This approach enables queries like:
+        </p>
+        <Highlight language="sql">
+          {`SELECT * FROM table WHERE id > cursor LIMIT 5;`}
+        </Highlight>
+        <p>This method expects parameters like:</p>
+        <ul>
+          <li>
+            <strong>size:</strong> the number of results per page,
+          </li>
+          <li>
+            <strong>cursor:</strong> the identifier for the point to start
+            fetching items from.
+          </li>
+        </ul>
+        <Highlight language="javascript">
+          {`{
+  "pagination": {
+    "size": 10,
+    "next_cursor": "=dXNlcjpVMEc5V0ZYTlo"
+  },
+  "results": [...]
+}`}
+        </Highlight>
+        <p>Advantages include:</p>
+        <ul>
+          <li>
+            Enhanced efficiency and speed, especially with large datasets.
+          </li>
+          <li>
+            Mitigation of issues related to data shifting over time, making it
+            ideal for real-time data feeds.
+          </li>
+        </ul>
+        <p>However, there are downsides:</p>
+        <ul>
+          <li>
+            Clients can't directly access a specific page without sequential
+            navigation.
+          </li>
+          <li>
+            It can be more complex to implement and requires a unique,
+            sequential identifier.
+          </li>
+        </ul>
+        <p>
+          Due to these properties, platforms like Facebook, Slack, and Zendesk
+          prefer cursor-based pagination for their APIs, especially when
+          consistent data flow and integrity are crucial.
+        </p>
       </>
     ),
   },
@@ -479,15 +585,6 @@ const API = () => {
           questions={generalQuestionsAndAnswers}
         />
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </>
   );
 };

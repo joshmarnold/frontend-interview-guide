@@ -322,15 +322,6 @@ const Database = () => {
           questions={objectStorageQuestionsAndAnswers}
         />
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </>
   );
 };
