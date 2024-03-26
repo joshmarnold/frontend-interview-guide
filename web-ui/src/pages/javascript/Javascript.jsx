@@ -27,7 +27,7 @@ const JavaScript = () => {
         variant="fullWidth"
         textColor="white"
       >
-        <Tab label="Quiz" {...a11yProps(0)} />
+        <Tab label="Learn" {...a11yProps(0)} />
         <Tab label="Quiz" {...a11yProps(1)} />
       </Tabs>
 
