@@ -4,7 +4,6 @@ import Tabs from "@mui/material/Tabs";
 import { IconExternalLink } from "@tabler/icons-react";
 import CustomTabPanel, { a11yProps } from "../../shared/CustomTabPanel";
 import Chip from "@mui/material/Chip";
-import Stack from "@mui/material/Stack";
 
 import "./DomApi.scss";
 

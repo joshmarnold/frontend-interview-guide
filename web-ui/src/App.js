@@ -96,6 +96,10 @@ const Methodologies = lazy(() =>
   import("./pages/project-management/Methodologies")
 );
 const Behavioral = lazy(() => import("./pages/Behavioral"));
+const CodingProblems = lazy(() =>
+  import("./pages/coding-problems/CodingProblems")
+);
+const Chess = lazy(() => import("./pages/coding-problems/Chess"));
 
 function App() {
   return (
@@ -146,6 +150,10 @@ function App() {
               element={<PerformanceAndMetrics />}
             />
             <Route path="web-dev/security" element={<Security />} />
+
+            {/* coding problems */}
+            <Route path="coding-problems" element={<CodingProblems />} />
+            <Route path="coding-problems/chess" element={<Chess />} />
 
             {/* other */}
             <Route path="dom-api" element={<DomApi />} />

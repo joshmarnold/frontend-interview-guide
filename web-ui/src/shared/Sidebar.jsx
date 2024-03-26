@@ -62,6 +62,7 @@ const pathsToIds = {
   "project-management/methodologies": "11-5",
   "project-management/frameworks": "11-6",
   behavioral: "15",
+  "coding-problems": "41",
 };
 
 const data = {
@@ -69,6 +70,9 @@ const data = {
   name: "root",
   children: [
     { id: "1", name: "Home", path: "/", icon: HomeIcon },
+    { id: "1-1", name: "", isHeader: true, disabled: true },
+
+    { id: "12", name: "Study Topics", isHeader: true, disabled: true },
     { id: "52", name: "HTML", path: "html" },
     { id: "5", name: "CSS", path: "css" },
     { id: "6", name: "JavaScript", path: "javascript" },
@@ -96,12 +100,25 @@ const data = {
     },
     { id: "4", name: "React", path: "react" },
     { id: "3", name: "General Programming", path: "general-programming" },
+    { id: "12", name: "", isHeader: true, disabled: true },
+
+    {
+      id: "41",
+      name: "Coding Problems",
+      path: "coding-problems",
+    },
+    { id: "12", name: "", isHeader: true, disabled: true },
+
     {
       id: "7",
       name: "Frontend System Design",
       path: "frontend-system-design",
     },
+    { id: "12", name: "", isHeader: true, disabled: true },
+
     { id: "15", name: "Behavorial", path: "behavioral", isHeader: false },
+    { id: "12", name: "", isHeader: true, disabled: true },
+
     {
       id: "8",
       name: "Algorithms & Data Structures",
@@ -233,6 +250,10 @@ const CustomContent = forwardRef(function CustomContent(props, ref) {
 
   const { disabled, expanded, selected, handleExpansion, handleSelection } =
     useTreeItem(nodeId);
+
+  if (!label) {
+    return <div className="divider" style={{ margin: "2px 0" }} />;
+  }
 
   const icon = iconProp || expansionIcon || displayIcon;
 
