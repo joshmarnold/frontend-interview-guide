@@ -3,6 +3,7 @@ import React from "react";
 const Architecture = () => {
   return (
     <div>
+      <p>This is a high-level technical analysis</p>
       <h3>Start with a simple UI design</h3>
       <ul>
         <li>Just wireframe the UI</li>
@@ -13,24 +14,8 @@ const Architecture = () => {
         <li>
           <strong>Design Patterns:</strong>
           <ul>
-            <li>
-              <strong>View Layer Application:</strong> The UI is divided into
-              separate components, each responsible for rendering a specific
-              part of the interface. This allows for better organization and
-              reusability of code.
-            </li>
-            <li>
-              <strong>Controller:</strong> The controller component acts as an
-              intermediary between the view components and the data model. It
-              handles user interactions, updates the data model, and passes the
-              updated data to the relevant view components.
-            </li>
-            <li>
-              <strong>Data Model (Store):</strong> The data model, often
-              implemented as a store, holds the application state and provides
-              methods to modify and retrieve data. It serves as a single source
-              of truth for the application.
-            </li>
+            <li>MVC</li>
+            <li>MVVM</li>
           </ul>
         </li>
         <li>
@@ -68,14 +53,6 @@ const Architecture = () => {
           </ul>
         </li>
       </ul>
-
-      <p>
-        By following this architecture, the application achieves a clear
-        separation of concerns between the view, controller, and data model. It
-        promotes code reusability, maintainability, and testability. The
-        unidirectional data flow and centralized state management make it easier
-        to reason about the application's behavior and avoid inconsistencies.
-      </p>
     </div>
   );
 };

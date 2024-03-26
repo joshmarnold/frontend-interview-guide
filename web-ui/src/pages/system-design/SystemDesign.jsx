@@ -1,46 +1,84 @@
-import { Link } from "react-router-dom";
-import React from "react";
+import { lazy, useState } from "react";
+import Tabs from "@mui/material/Tabs";
+import { IconExternalLink } from "@tabler/icons-react";
+import Tab from "@mui/material/Tab";
 
-import { IconBrandTwitterFilled, IconExternalLink } from "@tabler/icons-react";
+import CustomTabPanel, { a11yProps } from "../../shared/CustomTabPanel";
+
+const Requirements = lazy(() => import("./Requirements"));
+const Architecture = lazy(() => import("./Architecture"));
+const DataModel = lazy(() => import("./DataModel"));
+const InterfaceDefinition = lazy(() => import("./InterfaceDefinition"));
+const Optimization = lazy(() => import("./Optimization"));
 
 const SystemDesignDocs = () => {
+  const [value, setValue] = useState(() => {
+    const storedTabValue = localStorage.getItem("sysdesign-currentTab");
+    return storedTabValue !== null ? parseInt(storedTabValue, 10) : 0;
+  });
+
+  const handleChange = (event, newValue) => {
+    localStorage.setItem("javascript-currentTab", newValue);
+    setValue(newValue);
+  };
+
   return (
     <div>
       <p>
-        System design is a critical skill for software engineers, particularly
-        in the context of frontend development. It involves the process of
-        defining the architecture, components, interfaces, and data models with
-        consideration for scalability, performance, and maintainability, and the
-        ability to make informed decisions about trade-offs and best practices.
+        System design involves the process of defining the architecture,
+        components, interfaces, and data models with consideration for
+        scalability, performance, and maintainability, and the ability to make
+        informed decisions about trade-offs and best practices.
       </p>
-      <p>
-        When approaching system design questions, it's essential to have a
-        structured framework to ensure that all key aspects are covered. I
-        personally have found the R.A.D.I.O framework to be an effective
-        approach{" "}
+
+      <span>
+        Visit{" "}
         <a
-          href="https://www.youtube.com/watch?v=NEzu4FD25KM"
+          href="https://www.greatfrontend.com/system-design"
           target="_blank"
           rel="noopener noreferrer"
         >
-          [Video]
-        </a>
+          greatfrontend.com
+          <IconExternalLink size="1rem" />
+        </a>{" "}
+        for more information on RADIO and practice problems.
+      </span>
+      <br></br>
+      <br></br>
+      <p>
+        The following are my quick notes on system design. Mainly meant to refer
+        back to in the interview
       </p>
 
-      <p>
-        <span>
-          Visit{" "}
-          <a
-            href="https://www.greatfrontend.com/system-design"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            greatfrontend.com
-            <IconExternalLink size="1rem" />
-          </a>{" "}
-          for more information on RADIO and practice problems.
-        </span>
-      </p>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        aria-label="basic tabs example"
+        variant="fullWidth"
+        textColor="white"
+      >
+        <Tab label="Requirements (10%)" {...a11yProps(0)} />
+        <Tab label="Architecture (10%)" {...a11yProps(1)} />
+        <Tab label="Data Model (10%)" {...a11yProps(2)} />
+        <Tab label="Interface Definition (30%)" {...a11yProps(3)} />
+        <Tab label="Optimization (40%)" {...a11yProps(4)} />
+      </Tabs>
+
+      <CustomTabPanel value={value} index={0}>
+        <Requirements />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={1}>
+        <Architecture />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        <DataModel />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <InterfaceDefinition />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={4}>
+        <Optimization />
+      </CustomTabPanel>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
+  console.log(props);
+
   return (
     <div
       role="tabpanel"
@@ -8,10 +10,10 @@ function CustomTabPanel(props) {
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       style={{
-        display: "flex",
+        display: index === value ? "flex" : "none",
         flexDirection: "column",
         gap: "10px",
-        marginTop: "20px",
+        paddingTop: "20px",
       }}
       {...other}
     >

@@ -6,10 +6,7 @@ import React from "react";
 const Requirements = () => {
   return (
     <div>
-      <p>
-        Do not go into depth here! Just gather the requirements. e.g., do we
-        need a11y? Okay! Add it to the list. Don't discuss it yet.
-      </p>
+      <p>Do not go into depth here! Just gather the requirements.</p>
 
       <h2>Functional Requirements</h2>
       <p>
@@ -114,47 +111,6 @@ const Requirements = () => {
               How is the codebase structured to support long-term
               maintainability and readability?
             </li>
-          </ul>
-        </li>
-      </ol>
-      <div className="divider"></div>
-      <h2>Twitter Example</h2>
-      <h3>Functional Requirements</h3>
-      <p>Focus on building the timeline feature</p>
-      <ul>
-        <li>View tweets</li>
-        <li>Post tweets</li>
-        <li>Like tweets</li>
-      </ul>
-      <h3>Non-Functional Requirements</h3>
-      <p>Focus on desktop app</p>
-      <ol>
-        <li>
-          <strong>Responsiveness:</strong>
-          <ul>
-            <li>Support desktop and tablet devices</li>
-            <li>Follow a desktop-first approach</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Accessibility (a11y):</strong>
-          <ul>
-            <li>AA compliance</li>
-            <li>Support screen readers</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Internationalization (i18n):</strong>
-          <ul>
-            <li>Support English and Spanish</li>
-            <li>Handle RTL languages</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Performance:</strong>
-          <ul>
-            <li>Load time under 3 seconds</li>
-            <li>Optimize image loading</li>
           </ul>
         </li>
       </ol>

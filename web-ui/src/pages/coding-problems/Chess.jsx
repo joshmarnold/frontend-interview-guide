@@ -61,7 +61,12 @@ class ChessBoard {
   }
 
   setupPieces() {
-    // Initialization logic remains the same
+    // setup Pawns for both sides
+    for (let i = 0; i < 8; i++) {
+      this.board[i][1] = new Pawn('white', {x: i, y: 1});
+      this.board[i][6] = new Pawn('black', {x: i, y: 6});
+    }
+    // setup Rooks, Knights, Bishops, Queens, and Kings
   }
 
   movePiece(from, to) {
