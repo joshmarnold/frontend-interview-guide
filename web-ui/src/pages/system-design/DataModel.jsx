@@ -5,10 +5,10 @@ const DataModel = () => {
         For any data that’s being used, it’s important to understand its shape
         or what/were it is
       </p>
-      <p>I see there being two types to anticipate:</p>
+      <p>I see there being two types of problems to anticipate:</p>
       <ul>
         <li>
-          <strong>DB Schema:</strong>
+          <strong>Probs that involve a DB</strong>
           <ul>
             <li>What tables are there?</li>
             <li>What columns are in each table?</li>
@@ -16,7 +16,7 @@ const DataModel = () => {
           </ul>
         </li>
         <li>
-          <strong>Component Design:</strong>
+          <strong>Probs that involve react components</strong>
           <ul>
             <li>What state or props are in the component?</li>
           </ul>
