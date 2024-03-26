@@ -10,6 +10,36 @@ import { useState } from "react";
 
 const questionsAndAnswers = [
   {
+    question: "What are the four principles of accessibility?",
+    answer: (
+      <div>
+        <p>
+          The four principles of accessibility, ensuring that content is
+          accessible to everyone, include:
+        </p>
+        <ul>
+          <li>
+            <strong>Perceivable:</strong> Information and user interface
+            components must be presentable to users in ways they can perceive.
+          </li>
+          <li>
+            <strong>Operable:</strong> User interface components and navigation
+            must be operable.
+          </li>
+          <li>
+            <strong>Understandable:</strong> Information and the operation of
+            the user interface must be understandable.
+          </li>
+          <li>
+            <strong>Robust:</strong> Content must be robust enough that it can
+            be interpreted reliably by a wide variety of user agents, including
+            assistive technologies.
+          </li>
+        </ul>
+      </div>
+    ),
+  },
+  {
     question:
       "What are the different levels of WCAG compliance, and what do they signify?",
     answer: (
@@ -334,6 +364,41 @@ const questionsAndAnswers = [
       </div>
     ),
   },
+  {
+    question:
+      "want is tabindex attribute? What do the values 0, -1, values > 0 do?",
+    answer: (
+      <div>
+        <p>
+          The <Tag>tabindex</Tag> attribute specifies the tab order of an
+          element, determining whether it can receive keyboard focus and in what
+          sequence. The values <Tag>0</Tag>, <Tag>-1</Tag> and positive integers
+          have the following effects:
+        </p>
+        <ul>
+          <li>
+            <strong>tabindex="0":</strong> The element becomes part of the
+            natural tab order, following the default source order in the DOM.
+            Used to make elements focusable that are not natively focusable,
+            like
+            <Tag>div</Tag> or <Tag>span</Tag>.
+          </li>
+          <li>
+            <strong>tabindex="-1":</strong> The element can receive focus via
+            scripting but is not included in the natural tab order. This is
+            useful for elements that should be focusable but not reachable via
+            the keyboard alone.
+          </li>
+          <li>
+            <strong>tabindex="n" (where n greater 0):</strong> The element
+            becomes part of the tab order and is navigated to after all elements
+            with lower tabindex values. This is considered an anti-pattern and
+            should be avoided in most cases.
+          </li>
+        </ul>
+      </div>
+    ),
+  },
 ];
 
 const AccessibilityContent = () => {
@@ -595,6 +660,23 @@ const Learn = () => {
         }}
       >
         <Chip
+          label="Learn Accessibility (web.dev)"
+          onClick={() => {
+            window.open("https://web.dev/learn/accessibility", "_blank");
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />
+        <Chip
+          label="WebAIM's WCAG 2.0 Checklist (WebAIM) (Super useful)"
+          onClick={() => {
+            window.open(
+              "https://webaim.org/standards/wcag/checklist",
+              "_blank"
+            );
+          }}
+          icon={<IconExternalLink size={"1.2rem"} />}
+        />
+        <Chip
           label="Accessibility Fundamentals with Rob Dodson by SFHTML5 (YouTube)"
           onClick={() => {
             window.open(
@@ -604,16 +686,7 @@ const Learn = () => {
           }}
           icon={<IconExternalLink size={"1.2rem"} />}
         />
-        <Chip
-          label="Learn Accessibility - Full a11y Tutorial by freeCodeCamp.org (YouTube)"
-          onClick={() => {
-            window.open(
-              "https://www.youtube.com/watch?v=e2nkq3h1P68",
-              "_blank"
-            );
-          }}
-          icon={<IconExternalLink size={"1.2rem"} />}
-        />
+
         <Chip
           label="Web Accessibility Guidelines (W3C)"
           onClick={() => {
