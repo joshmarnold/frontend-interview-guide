@@ -58,9 +58,8 @@ const DomApi = () => {
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            flexWrap: "wrap",
             gap: "8px",
-            marginTop: "1rem",
           }}
         >
           <Chip
