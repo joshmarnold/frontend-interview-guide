@@ -209,7 +209,58 @@ const questionsAndAnswers = [
               {`<input aria-required="true" /> <!-- Property indicating a field is required -->`}
             </Highlight>
           </li>
+          <li>
+            <strong>Name:</strong> Provide accessible names or descriptions
+            using attributes like aria-label, aria-labelledby, or
+            aria-describedby.
+          </li>
         </ul>
+      </div>
+    ),
+  },
+  {
+    question:
+      "What are the different ways to give an element an accessible name?",
+    answer: (
+      <div>
+        <strong>aria-label:</strong> ARIA attribute that directly provides an
+        accessible name for an element.
+        <Highlight language="html">
+          {`<button aria-label="Close">X</button>`}
+        </Highlight>
+        <strong>aria-labelledby:</strong> ARIA attribute that references the ID
+        of another element to use as the accessible name.
+        <Highlight language="html">
+          {`<h1 id="title">Page Title</h1>
+<button aria-labelledby="title">Click Me</button>`}
+        </Highlight>
+        <strong>aria-describedby:</strong> ARIA attribute that references the ID
+        of another element to provide additional description or context.
+        <Highlight language="html">
+          {`<input aria-describedby="description" />
+<p id="description">Enter your email address</p>`}
+        </Highlight>
+        <strong>Semantic labels:</strong> Using native HTML elements like
+        <code>&lt;label&gt;</code> to associate text with form controls.
+        <Highlight language="html">
+          {`<label for="email">Email:</label>
+<input type="email" id="email" />
+
+<!-- Or using implicit association -->
+<label>
+  Email:
+  <input type="email" />
+</label>`}
+        </Highlight>
+        {/* and finally, we have the title */}
+        <strong>title attribute:</strong> The title attribute provides a tooltip
+        when the user hovers over an element. While it's mainly for sighted
+        users, some screen readers announce it. However, it's not recommended
+        for accessibility purposes.
+        <Highlight language="html">
+          {`<!-- Not recommended for accessibility -->
+<button title="Close">X</button> `}
+        </Highlight>
       </div>
     ),
   },
