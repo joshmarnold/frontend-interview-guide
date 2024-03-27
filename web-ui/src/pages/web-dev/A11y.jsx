@@ -617,7 +617,7 @@ const AccessibilityContent = () => {
       {sections.map((section, sectionIndex) => (
         <section key={sectionIndex}>
           <h4>{section.title}</h4>
-          <ul>
+          <ul style={{ listStyleType: "none" }}>
             {section.items.map((item) => (
               <li key={item.id} style={{ margin: 0 }}>
                 <FormControlLabel
