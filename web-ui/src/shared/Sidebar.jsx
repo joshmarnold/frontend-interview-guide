@@ -70,7 +70,6 @@ const data = {
   name: "root",
   children: [
     { id: "1", name: "Home", path: "/", icon: HomeIcon },
-    { id: "1-1", name: "", isHeader: true, disabled: true },
 
     { id: "12", name: "Study Topics", isHeader: true, disabled: true },
     { id: "52", name: "HTML", path: "html" },
@@ -107,17 +106,14 @@ const data = {
       name: "Coding Problems",
       path: "coding-problems",
     },
-    { id: "12", name: "", isHeader: true, disabled: true },
 
     {
       id: "7",
       name: "Frontend System Design",
       path: "frontend-system-design",
     },
-    { id: "12", name: "", isHeader: true, disabled: true },
 
     { id: "15", name: "Behavorial", path: "behavioral", isHeader: false },
-    { id: "12", name: "", isHeader: true, disabled: true },
 
     {
       id: "8",

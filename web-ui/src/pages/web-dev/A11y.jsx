@@ -209,11 +209,6 @@ const questionsAndAnswers = [
               {`<input aria-required="true" /> <!-- Property indicating a field is required -->`}
             </Highlight>
           </li>
-          <li>
-            <strong>Name:</strong> Provide accessible names or descriptions
-            using attributes like aria-label, aria-labelledby, or
-            aria-describedby.
-          </li>
         </ul>
       </div>
     ),
